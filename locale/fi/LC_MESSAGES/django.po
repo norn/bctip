@@ -1,0 +1,658 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: BCTip\n"
+"Language: fi\n"
+
+#: core/templates/base_bctip.html:7 core/templates/base_bctip.html.py:58
+msgid "Printable Bitcoin Tips"
+msgstr "Tulostettavia Bitcoin-tippejä"
+
+#: core/templates/wallet-new.html:5
+msgid "Home"
+msgstr "Koti"
+
+#: core/templates/base_bctip.html:62 core/templates/wallet-new.html:7
+msgid "New Wallet"
+msgstr "Uusi Lompakko"
+
+#: core/templates/base_bctip.html:67
+msgid "Tip Unique Key"
+msgstr "Tipin Yksilöity Avain"
+
+#: core/templates/base_bctip.html:68
+msgid "Redeem"
+msgstr "Lunasta"
+
+#: core/templates/base_bctip.html:61 core/templates/statistics.html:5
+#: core/templates/wallet-new.html:6
+msgid "Statistics"
+msgstr "Tilastot"
+
+#: core/templates/base_bctip.html:88
+msgid "Support"
+msgstr "Tuki"
+
+#: core/templates/base_bctip.html:88
+msgid "thread on bitcoin forum"
+msgstr "viestiketju bitcoin-foorumilla"
+
+#: core/templates/base_bctip.html:89
+msgid "For donations"
+msgstr "Lahjoituksia varten"
+
+#: core/templates/index.html:18
+msgid "Color and B/W templates"
+msgstr "Väri ja B/W-malleja"
+
+#: core/templates/index.html:25
+msgid "Just Print and Cut"
+msgstr "Tulosta ja Leikkaa"
+
+#: core/templates/index.html:33
+msgid "Can be printed on any printer"
+msgstr "Voidaan tulostaa millä tahansa tulostimella"
+
+#: core/templates/index.html:47
+msgid "Easy to activate"
+msgstr "Helppoa ottaa käyttöön"
+
+#: core/templates/index.html:62
+msgid "Make it yourself"
+msgstr "Tee se itse"
+
+#: core/templates/index.html:63
+msgid "Just pay the invoice, download generated PDF, print and cut"
+msgstr "Maksa vain lasku, lataa luotu PDF, tulosta ja leikkaa"
+
+#: core/templates/index.html:66
+msgid "Promote Bitcoin"
+msgstr "Edistä Bitcoinia"
+
+#: core/templates/index.html:67
+msgid "People need to know about the advantages of Bitcoins - give them tips to spread the word"
+msgstr "Ihmisten täytyy tietää Bitcoinien eduista - jätä heille tippejä levittääksesi sanaa"
+
+#: core/templates/index.html:70
+msgid "Zero risk"
+msgstr "Nollariski"
+
+#: core/templates/index.html:77
+msgid "Versatility"
+msgstr "Monipuolisuus"
+
+#. Edit: sounds more natural this way
+#: core/templates/index.html:78
+msgid "The BCTip could be an addition to a normal cash tip or just a gift to a friend"
+msgstr "BCTipin voi antaa normaalin käteistipin lisäksi tai vaikka lahjana ystävälle"
+
+#: core/templates/index.html:81
+msgid "Localization"
+msgstr "Lokalisointi"
+
+#: core/templates/index.html:82
+msgid "BCTips can be created in several languages and used all over the world"
+msgstr "BCTippejä voidaan luoda useilla eri kielillä ja käyttää kaikkialla maailmassa"
+
+#: core/templates/index.html:85
+msgid "Free"
+msgstr "Ilmainen"
+
+#: core/templates/index.html:86
+msgid "The service is free, but you can donate for further development"
+msgstr "Palvelu on ilmainen, mutta voit lahjoittaa jatkokehitystä varten"
+
+#: core/templates/index.html:98
+msgid "Generate New Tips"
+msgstr "Luo Uusia Tippejä"
+
+#: core/templates/statistics.html:9
+msgid "Total generated tips"
+msgstr "Luotujen tippien määrä"
+
+#: core/templates/tip.html:17
+msgid "Expired"
+msgstr "Erääntynyt"
+
+#: core/templates/tip.html:18
+msgid "Tip with this URL was expired on"
+msgstr "Tämän URL:n tippi on erääntynyt"
+
+#: core/templates/tip.html:19
+msgid "The funds were returned to the owner"
+msgstr "Varat palautettiin omistajalle"
+
+#: core/templates/tip.html:29
+msgid "Congratulations"
+msgstr "Onnittelut"
+
+#: core/templates/tip.html:37 core/templates/wallet-new.html:119
+msgid "Amount"
+msgstr "Määrä"
+
+#: core/templates/tip.html:45
+msgid "can be sold for about"
+msgstr "myyntihinta"
+
+#. How does this continue?
+#: core/forms.py:30 core/templates/tip.html:54
+msgid "Send to"
+msgstr "Lähetä"
+
+#: core/templates/tip.html:65
+msgid "Send"
+msgstr "Lähetä"
+
+#: core/templates/tip.html:81
+msgid "How to sell"
+msgstr "Miten myydä"
+
+#: core/templates/tip.html:99
+msgid "How to spend"
+msgstr "Miten käyttää"
+
+#: core/templates/tip.html:108
+msgid "What is Bitcoin"
+msgstr "Mikä on Bitcoin"
+
+#: core/templates/tip.html:112
+msgid "Instant peer to peer transactions"
+msgstr "Välittömät P2P-siirrot"
+
+#: core/templates/tip.html:113
+msgid "Worldwide payments"
+msgstr "Maailmanlaajuiset maksut"
+
+#: core/templates/tip.html:115
+msgid "And much more"
+msgstr "Ja paljon muuta"
+
+#: core/templates/tip.html:117
+msgid "Bitcoin uses peer to peer technology to operate with no central authority"
+msgstr "Bitcoin käyttää P2P-teknologiaa operoidakseen ilman keskitettyä kontrollia"
+
+#: core/templates/tip.html:117
+msgid "collectively by the network"
+msgstr "kollektiivisesti verkon toimesta"
+
+#: core/templates/tip.html:118
+msgid "Through many of its unique properties, Bitcoin allows exciting uses that could not be covered by any previous payment systems"
+msgstr "Monien sen ainutlaatuisten ominaisuuksien johdosta, Bitcoin mahdollistaa jännittäviä käyttötarkoituksia, joihin aikaisemmat maksujärjestelmät eivät ole pystyneet"
+
+#: core/templates/tip-content.xml.html:167 core/templates/tip.html:121
+msgid "For more information visit"
+msgstr "Lisätietoa osoitteista"
+
+#: core/templates/tip.html:121
+msgid "or search online for"
+msgstr "tai hae verkosta"
+
+#: core/templates/base_bctip.html:8 core/templates/tip.html:121
+msgid "Bitcoin"
+msgstr "Bitcoin"
+
+#: core/templates/tip.html:146
+msgid "Tip activation time"
+msgstr "Tipin aktivoitumisaika"
+
+#: core/templates/tip.html:147
+msgid "Tip was sent to address"
+msgstr "Tippi lähetettiin osoitteeseen"
+
+#: core/templates/tip.html:148
+msgid "Transaction ID"
+msgstr "Transaktio ID"
+
+#: core/templates/wallet-new.html:29
+msgid "Your Bitcoin address"
+msgstr "Bitcoin-osoitteesi"
+
+#: core/templates/wallet-new.html:30
+msgid "All the unused funds will be returned to this address after expiration"
+msgstr "Kaikki käyttämättömät varat palautetaan tähän osoitteeseen erääntymisen jälkeen"
+
+#: core/templates/wallet-new.html:43
+msgid "Tip Value"
+msgstr "Tipin Arvo"
+
+#: core/templates/wallet-new.html:63 core/templates/wallet.html:13
+msgid "Template"
+msgstr "Malli"
+
+#: core/templates/wallet-new.html:90 core/templates/wallet.html:14
+msgid "Message"
+msgstr "Viesti"
+
+#: core/templates/wallet-new.html:74
+msgid "Please support the development"
+msgstr "Tukekaa kehitystä"
+
+#: core/templates/wallet-new.html:123
+msgid "Tips"
+msgstr "Tipit"
+
+#: core/templates/wallet-new.html:126 core/templates/wallet.html:20
+msgid "Print and Post service"
+msgstr "Tulostus- ja Postipalvelu"
+
+#: core/templates/wallet-new.html:130
+msgid "Premium Template"
+msgstr "Premium Malli"
+
+#: core/templates/wallet-new.html:128
+msgid "Our humble tips"
+msgstr "Nöyrät tippimme"
+
+#: core/templates/wallet-new.html:132
+msgid "Transaction Fees"
+msgstr "Siirtokustannukset"
+
+#: core/templates/wallet-new.html:136 core/templates/wallet-new.html.py:137
+msgid "Total"
+msgstr "Yhteensä"
+
+#: core/templates/wallet-new.html:149
+msgid "Checkout"
+msgstr "Kassalle"
+
+#: core/templates/wallet.html:5
+msgid "Your Wallet"
+msgstr "Lompakkosi"
+
+#: core/templates/wallet-new-unpaid.html:22
+msgid "Wallet was created on"
+msgstr "Lompakko luotiin"
+
+#: core/templates/wallet.html:12
+msgid "BCTip value"
+msgstr "BCTipin arvo"
+
+#: core/templates/wallet-new-unpaid.html:26 core/templates/wallet.html:12
+msgid "Quantity"
+msgstr "Määrä"
+
+#: core/templates/wallet.html:11
+msgid "Paid on"
+msgstr "Maksettu"
+
+#: core/templates/wallet.html:30 core/templates/wallet.html.py:31
+#: core/templates/wallet.html:33 core/templates/wallet.html.py:34
+msgid "Download"
+msgstr "Lataa"
+
+#: core/templates/wallet.html:53
+msgid "Comment"
+msgstr "Kommentti"
+
+#: core/templates/wallet.html:53
+msgid "Comment Date"
+msgstr "Kommentin Päivämäärä"
+
+#: core/templates/wallet.html:56
+msgid "Activated"
+msgstr "Aktivoitu"
+
+#: core/templates/wallet.html:57
+msgid "Visited"
+msgstr "Käyty"
+
+#: core/templates/wallet.html:59
+msgid "Link"
+msgstr "Linkki"
+
+#: core/templates/wallet.html:74
+msgid "expired"
+msgstr "erääntynyt"
+
+#: core/templates/tip.html:100 core/templates/wallet.html:74
+msgid "and"
+msgstr "ja"
+
+#: core/templates/wallet.html:74
+msgid "returned"
+msgstr "palautettu"
+
+#: core/templates/wallet.html:76
+msgid "not activated"
+msgstr "ei aktivoitu"
+
+#: core/templates/wallet.html:90
+msgid "save comments"
+msgstr "säästä kommentit"
+
+#. Is this only on the landing page? Where it says "To keep these bitcoins you have to send them to your very own wallet"? In this sentence "very own wallet" will be in the form "ikiomaan lompakkoosi"
+#: core/templates/tip.html:74
+msgid "very own wallet"
+msgstr "ikiomaan lompakkoosi"
+
+#: core/templates/index.html:40
+msgid "Never worry about small cash bills for tips"
+msgstr "Älä koskaan murehdi pienistä käteisistä tippeinä"
+
+#: core/templates/index.html:71
+msgid "If tips are not claimed within one month, the unused funds will be sent to the donor's wallet"
+msgstr "Jos tippejä ei olla lunastettu kuukauden sisällä, käyttämättömät varat lähetetään lahjoittajan lompakkoon"
+
+#: core/templates/index.html:104
+msgid "Feel free to use this A4 promo in your store"
+msgstr "Voit vapaasti käyttää tätä A4 promoa kaupassasi"
+
+#: core/templates/tip.html:74
+msgid "like"
+msgstr "kuten"
+
+#: core/forms.py:18
+msgid "Original"
+msgstr "Alkuperäinen"
+
+#: core/forms.py:18
+msgid "Original B/W"
+msgstr "Alkuperäinen B/W"
+
+#: core/forms.py:18
+msgid "Turquoise"
+msgstr "Turkoosi"
+
+#: core/forms.py:18
+msgid "Cash Style"
+msgstr "Käteinen"
+
+#: core/forms.py:18
+msgid "Fantastic"
+msgstr "Erinomainen"
+
+#: core/forms.py:18
+msgid "Wood style"
+msgstr "Puu"
+
+#: core/forms.py:30
+msgid "Enter bitcoin address here"
+msgstr "Anna Bitcoin-osoitteesi tähän"
+
+#: core/forms.py:35 core/forms.py:66
+msgid "Your address seems too short"
+msgstr "Osoitteesi tuntuu olevan liian lyhyt"
+
+#: core/forms.py:37 core/forms.py:40 core/forms.py:68 core/forms.py:72
+#: core/forms.py:74
+msgid "Must be a valid Bitcoin Address"
+msgstr "Täytyy olla voimassa oleva Bitcoin-osoite"
+
+#: core/forms.py:44
+msgid "Your Address"
+msgstr "Osoitteesi"
+
+#: core/forms.py:50
+msgid "Custom message"
+msgstr "Kustomoitu viesti"
+
+#: core/templates/base_bctip.html:8
+msgid "tips"
+msgstr "tipit"
+
+#: core/templates/statistics.html:14 core/templates/statistics.html.py:60
+#: core/templates/statistics.html:65
+msgid "Activated tips"
+msgstr "Aktivoidut tipit"
+
+#: core/templates/statistics.html:19
+msgid "Expired tips"
+msgstr "Erääntyneet tipit"
+
+#: core/templates/statistics.html:24
+msgid "Total value"
+msgstr "Kokonaisarvo"
+
+#: core/templates/statistics.html:29
+msgid "Activated value"
+msgstr "Aktivoitu arvo"
+
+#: core/templates/statistics.html:35
+msgid "Activation success rate"
+msgstr "Aktivointien onnistumisprosentti"
+
+#: core/templates/tip.html:30
+msgid "You have"
+msgstr "Sinulla on"
+
+#: core/templates/tip.html:60
+msgid "source"
+msgstr "lähde"
+
+#. I changed this so it fits better on the page
+#: core/templates/wallet-new.html:54
+msgid "How many"
+msgstr "Montako?"
+
+#. "Donate to BCTip" = "Lahjoita BCTipille". Now it says "Lahjoita BCTip"
+#: core/templates/wallet-new.html:73
+msgid "Donate to"
+msgstr "Lahjoita"
+
+#: core/templates/wallet-new.html:118
+msgid "Service"
+msgstr "Palvelu"
+
+#. Translators: BCTip description, part1
+#: core/templates/tip-content.xml.html:167
+msgid "Bitcoin is an open source digital currency"
+msgstr "Bitcoin on avoimeen lähdekoodiin perustuva digitaalinen valuutta"
+
+#. Translators: BCTip description, part1
+#: core/templates/tip-content.xml.html:167
+msgid "You can transfer it worldwide with very low fees"
+msgstr "Voit siirrellä sitä maailmanlaajuisesti hyvin pienillä kuluilla"
+
+#. Translators: BCTip description, part1
+#: core/templates/tip-content.xml.html:167
+msgid "Bitcoin uses cryptography and P2P technology to operate, and does not require central authority"
+msgstr "Bitcoin käyttää kryptografiaa ja P2P-teknologiaa toimiakseen, eikä se vaadi keskitettyä kontrollia"
+
+#. Translators: BCTip expires
+#: core/templates/tip-content.xml.html:155 core/templates/tip.html:69
+msgid "Expires"
+msgstr "Erääntyy"
+
+#. Translators: BCTip issued
+#: core/templates/tip-content.xml.html:143
+msgid "Issued"
+msgstr "Myönnetty"
+
+#: core/models.py:23 core/views.py:231 utils/multi-template.py:21
+msgid "Thank you for your service!"
+msgstr "Kiitos palveluksestanne!"
+
+#: core/templates/wallet-new-unpaid.html:15
+msgid "Payment Details"
+msgstr "Maksutiedot"
+
+#: core/templates/wallet-new-unpaid.html:23 core/templates/wallet-new.html:115
+#: core/templates/wallet.html:45
+msgid "rate"
+msgstr "kurssi"
+
+#: core/templates/wallet-new-unpaid.html:25
+msgid "Value"
+msgstr "Arvo"
+
+#: core/templates/wallet-new-unpaid.html:37
+msgid "to address"
+msgstr "osoitteeseen"
+
+#: core/templates/wallet-new-unpaid.html:40
+msgid "Payment status"
+msgstr "Maksun tila"
+
+#: core/templates/wallet-new-unpaid.html:51
+msgid "Checking"
+msgstr "Tarkistaa"
+
+#: core/templates/wallet-new-unpaid.html:59
+msgid "Paid! You will be redirected to the wallet"
+msgstr "Maksettu! Sinut ohjataan lompakkoosi"
+
+#: core/templates/wallet-new-unpaid.html:62
+msgid "not paid"
+msgstr "ei maksettu"
+
+#: core/templates/not_enough.html:7
+msgid "Not enough confirmations or not enough funds"
+msgstr "Ei tarpeeksi vahvistuksia tai ei tarpeeksi varoja"
+
+#: core/templates/not_enough.html:9
+msgid "Please wait for several minutes or contact support if necessary"
+msgstr "Odota useita minuutteja tai ota tarvittaessa yhteyttä tukipalveluun"
+
+#. Will have to know where this is used, because in finnish "to" is replaced by changing the next word a bit
+#: core/templates/wallet-new-unpaid.html:28
+msgid "Donation to"
+msgstr "Lahjoitus"
+
+#: core/templates/wallet-new-unpaid.html:40
+msgid "wait"
+msgstr "odota"
+
+#: core/templates/base_bctip.html:88 core/templates/tip.html:77
+#: core/templates/tip.html.py:84 core/templates/tip.html:88
+#: core/templates/tip.html.py:92 core/templates/tip.html:94
+msgid "or"
+msgstr "tai"
+
+#: core/templates/tip.html:140
+msgid "This URL is no longer valid, tip was activated"
+msgstr "Tämä URL ei ole enää voimassa, tippi on aktivoitu"
+
+#: core/templates/tip.html:141
+msgid "Tip has been activated"
+msgstr "Tippi on aktivoitu"
+
+#: core/templates/404.html:5 core/templates/500.html:6
+#: core/templates/not_enough.html:6 core/templates/not_yet.html:6
+msgid "Error"
+msgstr "Virhe"
+
+#: core/templates/not_enough.html:11 core/templates/not_yet.html:10
+msgid "Try again"
+msgstr "Yritä uudelleen"
+
+#: core/templates/base_bctip.html:63
+msgid "Wallet"
+msgstr "Lompakko"
+
+#: core/templates/base_bctip.html:64
+msgid "Gratuity"
+msgstr "Palkkio"
+
+#: core/templates/index.html:97 core/templates/tip.html:27
+msgid "Gratuity Example"
+msgstr "Palkkioesimerkki"
+
+#: core/templates/wallet-new.html:98 core/templates/wallet.html:19
+msgid "Email"
+msgstr "Sähköpostiosoite"
+
+#: core/templates/wallet-new.html:99
+msgid "for activation notifications"
+msgstr "aktivointi-ilmoituksia varten"
+
+#: core/templates/base_bctip.html:9
+msgid "BCTip allows you to print redeemable bitcoin tips"
+msgstr "BCTip mahdollistaa lunastettavien tippien tulostamisen"
+
+#: core/templates/base_bctip.html:9
+msgid "Each Tip has a unique URL to activate"
+msgstr "Jokaisella Tipillä on uniikki URL aktivointiin"
+
+#: core/templates/tip-content.xml.html:171
+msgid "Follow this link to redeem your bitcoins"
+msgstr "Seuraa tätä linkkiä lunastaaksesi bitcoinit"
+
+#: core/templates/tip.html:30
+msgid "bitcoins"
+msgstr "bitcoinit"
+
+#: core/templates/tip.html:59
+msgid "Current bitcoin price"
+msgstr "Tämänhetkinen bitcoinin hinta"
+
+#: core/templates/tip.html:74
+msgid "To keep these bitcoins you have to send them to your"
+msgstr "Pitääksesi bitcoinit lähetä ne sinun"
+
+#: core/templates/tip.html:109
+msgid "Bitcoin is a public digital currency that can be sent directly from person to person"
+msgstr "Bitcoin on julkinen digitaalinen valuutta, jota voi lähettää suoraan ihmiseltä ihmiselle"
+
+#: core/templates/tip.html:110
+msgid "It is a new, secure and free technology that enables"
+msgstr "Se on uusi, turvallinen ja ilmainen teknologia joka mahdollistaa"
+
+#: core/templates/tip.html:114
+msgid "Very low or zero processing fees"
+msgstr "Hyvin pienet tai ei ollenkaan käsittelymaksuja"
+
+#. Translators: Please provide youtube video about bitcoin in your language
+#: core/models.py:25
+msgid "www.youtube.com/embed/Gc2en3nHxA4"
+msgstr "www.youtube.com/embed/88NV75YRAnc"
+
+#: core/templates/tip.html:69
+msgid "Please redeem BCTip before the expiry date"
+msgstr "Lunasta BCTip ennen erääntymispäivää"
+
+#: core/templates/tip.html:79
+msgid "As soon as you get your own wallet, you can send your tips there"
+msgstr "Heti kun omistat oman lompakon, voit lähettää tippisi sinne"
+
+#: core/templates/tip.html:82
+msgid "If you wish to sell bitcoins, you can use one of the exchanges like"
+msgstr "Jos haluat myydä bitcoinisi, voit käyttää markkinapaikkoja kuten"
+
+#: core/templates/tip.html:100
+msgid "There are many ways, and new ways each day, just check out"
+msgstr "Tapoja on useita ja uusia tulee joka päivä, tarkista"
+
+#: core/templates/wallet.html:17
+msgid "Your bitcoin address"
+msgstr "Bitcoin-osoitteesi"
+
+#: core/templates/wallet.html:44
+msgid "rate at time of purchase"
+msgstr "Kurssi ostohetkellä"
+
+#: core/templates/wallet-new.html:115 core/templates/wallet.html:45
+msgid "Current"
+msgstr "Nykyinen"
+
+#: core/templates/tip.html:117
+msgid "managing transactions and issuing bitcoins are carried out"
+msgstr "Siirtojen ylläpito ja bitcoinien liikkeellelasku hoituu"
+
+#: core/templates/tip-content.xml.html:175
+msgid "Please claim before the expiration date below, or the bitcoins will be returned to the donor"
+msgstr "Lunasta ennen erääntymispäivämäärää tai bitcoinit palautetaan lahjoittajalle"
+
+#: core/templates/statistics.html:65
+msgid "by this month"
+msgstr "kuun loppuun mennessä"
+
+#: core/templates/wallet-new.html:147
+msgid "template preview"
+msgstr "Mallin esikatselu"
+
+#: core/templates/wallet-new.html:91
+msgid "is printed in the center of every tip"
+msgstr "tulostetaan jokaisen tipin keskelle"
+
+#. I think just "Design" is good here, the word is used as such in finnish language a lot
+#: core/forms.py:18 core/templates/wallet-new.html:67
+msgid "Nice Label"
+msgstr "Design"
+
+#: core/templates/tip.html:95
+msgid "many others"
+msgstr "monia muita"
+

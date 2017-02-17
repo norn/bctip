@@ -1,0 +1,14 @@
+{% extends "base.html" %}{%load i18n%}
+
+{% block content %}
+
+<h1 class="ui header">{% trans "Error" %}</h1>
+<div class="ui large message">
+{% trans "Not enough confirmations or not enough funds" %}.
+<br/>
+{% trans "Please wait for several minutes or contact support if necessary" %}.
+</div>
+<br/>
+<a class="ui blue button" href="./">{% trans "Try again" %}</a>
+
+{% endblock %}

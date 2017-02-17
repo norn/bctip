@@ -1,0 +1,651 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: BCTip\n"
+"Language: nl\n"
+
+#: core/templates/base_bctip.html:7 core/templates/base_bctip.html.py:58
+msgid "Printable Bitcoin Tips"
+msgstr "Printable Bitcoin Tips"
+
+#: core/templates/wallet-new.html:5
+msgid "Home"
+msgstr "Startpagina"
+
+#: core/templates/base_bctip.html:62 core/templates/wallet-new.html:7
+msgid "New Wallet"
+msgstr "Nieuwe portemonnee"
+
+#: core/templates/base_bctip.html:67
+msgid "Tip Unique Key"
+msgstr "Tip Unique Key"
+
+#: core/templates/base_bctip.html:68
+msgid "Redeem"
+msgstr "Inwisselen"
+
+#: core/templates/base_bctip.html:61 core/templates/statistics.html:5
+#: core/templates/wallet-new.html:6
+msgid "Statistics"
+msgstr "Statistieken"
+
+#: core/templates/base_bctip.html:88
+msgid "Support"
+msgstr "Ondersteuning"
+
+#: core/templates/base_bctip.html:88
+msgid "thread on bitcoin forum"
+msgstr "gesprek op bitcoin forum"
+
+#: core/templates/base_bctip.html:89
+msgid "For donations"
+msgstr "Voor donaties"
+
+#: core/templates/index.html:18
+msgid "Color and B/W templates"
+msgstr "Kleur en Z/W-sjablonen"
+
+#: core/templates/index.html:25
+msgid "Just Print and Cut"
+msgstr "Gewoon printen en uitsnijden"
+
+#: core/templates/index.html:33
+msgid "Can be printed on any printer"
+msgstr "Kan op elke printer worden afgedrukt"
+
+#: core/templates/index.html:47
+msgid "Easy to activate"
+msgstr "Eenvoudig te activeren"
+
+#: core/templates/index.html:62
+msgid "Make it yourself"
+msgstr "Doe het zelf"
+
+#: core/templates/index.html:63
+msgid "Just pay the invoice, download generated PDF, print and cut"
+msgstr "Betaal de factuur, download de gegenereerde PDF, printen en uitsnijden"
+
+#: core/templates/index.html:66
+msgid "Promote Bitcoin"
+msgstr "Promoot Bitcoin"
+
+#: core/templates/index.html:67
+msgid "People need to know about the advantages of Bitcoins - give them tips to spread the word"
+msgstr "Mensen moeten over de voordelen van Bitcoins horen - geef ze tips om die informatie te verspreiden"
+
+#: core/templates/index.html:70
+msgid "Zero risk"
+msgstr "Geen risico"
+
+#: core/templates/index.html:77
+msgid "Versatility"
+msgstr "Veelzijdigheid"
+
+#: core/templates/index.html:78
+msgid "The BCTip could be an addition to a normal cash tip or just a gift to a friend"
+msgstr "De BCTip zou een aanvulling kunnen zijn op normaal geld of gewoon een cadeau aan een vriend"
+
+#: core/templates/index.html:81
+msgid "Localization"
+msgstr "Vertaling"
+
+#: core/templates/index.html:82
+msgid "BCTips can be created in several languages and used all over the world"
+msgstr "BCTips kunnen worden gemaakt in verschillende talen en worden gebruikt over de hele wereld"
+
+#: core/templates/index.html:85
+msgid "Free"
+msgstr "Gratis"
+
+#: core/templates/index.html:86
+msgid "The service is free, but you can donate for further development"
+msgstr "De service is gratis, maar u kunt doneren voor de verdere ontwikkeling"
+
+#: core/templates/index.html:98
+msgid "Generate New Tips"
+msgstr "Genereer Nieuwe Tips"
+
+#: core/templates/statistics.html:9
+msgid "Total generated tips"
+msgstr "Totaal gegenereerde tips"
+
+#: core/templates/tip.html:17
+msgid "Expired"
+msgstr "Verlopen"
+
+#: core/templates/tip.html:18
+msgid "Tip with this URL was expired on"
+msgstr "Tip met deze URL is verlopen op"
+
+#: core/templates/tip.html:19
+msgid "The funds were returned to the owner"
+msgstr "De fondsen werden teruggegeven aan de eigenaar"
+
+#: core/templates/tip.html:29
+msgid "Congratulations"
+msgstr "Gefeliciteerd"
+
+#: core/templates/tip.html:37 core/templates/wallet-new.html:119
+msgid "Amount"
+msgstr "Bedrag"
+
+#: core/templates/tip.html:45
+msgid "can be sold for about"
+msgstr "kan worden verkocht voor ongeveer"
+
+#: core/forms.py:30 core/templates/tip.html:54
+msgid "Send to"
+msgstr "Versturen naar"
+
+#: core/templates/tip.html:65
+msgid "Send"
+msgstr "Verstuur"
+
+#: core/templates/tip.html:81
+msgid "How to sell"
+msgstr "Hoe te verkopen"
+
+#: core/templates/tip.html:99
+msgid "How to spend"
+msgstr "Hoe te besteden"
+
+#: core/templates/tip.html:108
+msgid "What is Bitcoin"
+msgstr "Wat is Bitcoin"
+
+#: core/templates/tip.html:112
+msgid "Instant peer to peer transactions"
+msgstr "Instant peer-to-peer transacties"
+
+#: core/templates/tip.html:113
+msgid "Worldwide payments"
+msgstr "Wereldwijde betalingen"
+
+#: core/templates/tip.html:115
+msgid "And much more"
+msgstr "En nog veel meer"
+
+#: core/templates/tip.html:117
+msgid "Bitcoin uses peer to peer technology to operate with no central authority"
+msgstr "Bitcoin maakt gebruik van peer-to-peer-technologie om te werken zonder centrale autoriteit"
+
+#: core/templates/tip.html:117
+msgid "collectively by the network"
+msgstr "gezamenlijk door het netwerk"
+
+#: core/templates/tip.html:118
+msgid "Through many of its unique properties, Bitcoin allows exciting uses that could not be covered by any previous payment systems"
+msgstr "Door veel van zijn unieke eigenschappen, maakt Bitcoin spannende toepassingen mogelijk die niet kunnen worden gerealiseerd door bestaande betalingssystemen"
+
+#: core/templates/tip-content.xml.html:167 core/templates/tip.html:121
+msgid "For more information visit"
+msgstr "Voor meer informatie bezoek"
+
+#: core/templates/tip.html:121
+msgid "or search online for"
+msgstr "of zoek online naar"
+
+#: core/templates/base_bctip.html:8 core/templates/tip.html:121
+msgid "Bitcoin"
+msgstr "Bitcoin"
+
+#: core/templates/tip.html:146
+msgid "Tip activation time"
+msgstr "Tip activeringstijd"
+
+#: core/templates/tip.html:147
+msgid "Tip was sent to address"
+msgstr "Tip is verstuurd aan adres"
+
+#: core/templates/tip.html:148
+msgid "Transaction ID"
+msgstr "Transactie ID"
+
+#: core/templates/wallet-new.html:29
+msgid "Your Bitcoin address"
+msgstr "Uw Bitcoin adres"
+
+#: core/templates/wallet-new.html:30
+msgid "All the unused funds will be returned to this address after expiration"
+msgstr "Alle tips die niet zijn gebruikt worden teruggestuurd naar dit adres na afloop"
+
+#: core/templates/wallet-new.html:43
+msgid "Tip Value"
+msgstr "Tip Waarde"
+
+#: core/templates/wallet-new.html:63 core/templates/wallet.html:13
+msgid "Template"
+msgstr "Sjabloon"
+
+#: core/templates/wallet-new.html:90 core/templates/wallet.html:14
+msgid "Message"
+msgstr "Bericht"
+
+#: core/templates/wallet-new.html:74
+msgid "Please support the development"
+msgstr "Steun alstublieft de ontwikkeling"
+
+#: core/templates/wallet-new.html:123
+msgid "Tips"
+msgstr "Tips"
+
+#: core/templates/wallet-new.html:126 core/templates/wallet.html:20
+msgid "Print and Post service"
+msgstr "Print-en post dienst"
+
+#: core/templates/wallet-new.html:130
+msgid "Premium Template"
+msgstr "Premium sjabloon"
+
+#: core/templates/wallet-new.html:128
+msgid "Our humble tips"
+msgstr "Onze bescheiden tips"
+
+#: core/templates/wallet-new.html:132
+msgid "Transaction Fees"
+msgstr "Transactiekosten"
+
+#: core/templates/wallet-new.html:136 core/templates/wallet-new.html.py:137
+msgid "Total"
+msgstr "Totaal"
+
+#: core/templates/wallet-new.html:149
+msgid "Checkout"
+msgstr "Afrekenen"
+
+#: core/templates/wallet.html:5
+msgid "Your Wallet"
+msgstr "Uw Portemonnee"
+
+#: core/templates/wallet-new-unpaid.html:22
+msgid "Wallet was created on"
+msgstr "Portemonnee werd gemaakt op"
+
+#: core/templates/wallet.html:12
+msgid "BCTip value"
+msgstr "BCTip waarde"
+
+#: core/templates/wallet-new-unpaid.html:26 core/templates/wallet.html:12
+msgid "Quantity"
+msgstr "Hoeveelheid"
+
+#: core/templates/wallet.html:11
+msgid "Paid on"
+msgstr "Betaald op"
+
+#: core/templates/wallet.html:30 core/templates/wallet.html.py:31
+#: core/templates/wallet.html:33 core/templates/wallet.html.py:34
+msgid "Download"
+msgstr "Download"
+
+#: core/templates/wallet.html:53
+msgid "Comment"
+msgstr "Label"
+
+#: core/templates/wallet.html:53
+msgid "Comment Date"
+msgstr "Label Datum"
+
+#: core/templates/wallet.html:56
+msgid "Activated"
+msgstr "Geactiveerd"
+
+#: core/templates/wallet.html:57
+msgid "Visited"
+msgstr "Bezocht"
+
+#: core/templates/wallet.html:59
+msgid "Link"
+msgstr "Link"
+
+#: core/templates/wallet.html:74
+msgid "expired"
+msgstr "verlopen"
+
+#: core/templates/tip.html:100 core/templates/wallet.html:74
+msgid "and"
+msgstr "en"
+
+#: core/templates/wallet.html:74
+msgid "returned"
+msgstr "terug"
+
+#: core/templates/wallet.html:76
+msgid "not activated"
+msgstr "niet geactiveerd"
+
+#: core/templates/wallet.html:90
+msgid "save comments"
+msgstr "bewaar labels"
+
+#: core/templates/tip.html:74
+msgid "very own wallet"
+msgstr "eigen portemonnee"
+
+#: core/templates/index.html:40
+msgid "Never worry about small cash bills for tips"
+msgstr "Je nooit zorgen maken over kleine contant rekeningen voor tips"
+
+#: core/templates/index.html:71
+msgid "If tips are not claimed within one month, the unused funds will be sent to the donor's wallet"
+msgstr "Als tips niet binnen een maand worden geclaimd, zal het ongebruikte restant naar de portemonnee van de tipgever worden verzonden"
+
+#: core/templates/index.html:104
+msgid "Feel free to use this A4 promo in your store"
+msgstr "Voel je vrij om deze A4 promo gebruiken in uw winkel"
+
+#: core/templates/tip.html:74
+msgid "like"
+msgstr "zoals"
+
+#: core/forms.py:18
+msgid "Original"
+msgstr "Origineel"
+
+#: core/forms.py:18
+msgid "Original B/W"
+msgstr "Origineel Z/W"
+
+#: core/forms.py:18
+msgid "Turquoise"
+msgstr "Turquoise"
+
+#: core/forms.py:18
+msgid "Cash Style"
+msgstr "Geld-stijl"
+
+#: core/forms.py:18
+msgid "Fantastic"
+msgstr "Fantastische"
+
+#: core/forms.py:18
+msgid "Wood style"
+msgstr "Hout-stijl"
+
+#: core/forms.py:30
+msgid "Enter bitcoin address here"
+msgstr "Voer hier het bitcoin adres in"
+
+#: core/forms.py:35 core/forms.py:66
+msgid "Your address seems too short"
+msgstr "Uw adres lijkt te kort"
+
+#: core/forms.py:37 core/forms.py:40 core/forms.py:68 core/forms.py:72
+#: core/forms.py:74
+msgid "Must be a valid Bitcoin Address"
+msgstr "Moet een geldig Bitcoin Adres zijn"
+
+#: core/forms.py:44
+msgid "Your Address"
+msgstr "Uw adres"
+
+#: core/forms.py:50
+msgid "Custom message"
+msgstr "Aangepast bericht"
+
+#: core/templates/base_bctip.html:8
+msgid "tips"
+msgstr "tips"
+
+#: core/templates/statistics.html:14 core/templates/statistics.html.py:60
+#: core/templates/statistics.html:65
+msgid "Activated tips"
+msgstr "Geactiveerde tips"
+
+#: core/templates/statistics.html:19
+msgid "Expired tips"
+msgstr "Verlopen tips"
+
+#: core/templates/statistics.html:24
+msgid "Total value"
+msgstr "Totale waarde"
+
+#: core/templates/statistics.html:29
+msgid "Activated value"
+msgstr "Geactiveerde waarde"
+
+#: core/templates/statistics.html:35
+msgid "Activation success rate"
+msgstr "Activering slagingspercentage"
+
+#: core/templates/tip.html:30
+msgid "You have"
+msgstr "Je hebt"
+
+#: core/templates/tip.html:60
+msgid "source"
+msgstr "bron"
+
+#: core/templates/wallet-new.html:54
+msgid "How many"
+msgstr "Hoeveel"
+
+#: core/templates/wallet-new.html:73
+msgid "Donate to"
+msgstr "Doneren aan"
+
+#: core/templates/wallet-new.html:118
+msgid "Service"
+msgstr "Dienst"
+
+#. Translators: BCTip description, part1
+#: core/templates/tip-content.xml.html:167
+msgid "Bitcoin is an open source digital currency"
+msgstr "Bitcoin is een open source digitale munt"
+
+#. Translators: BCTip description, part1
+#: core/templates/tip-content.xml.html:167
+msgid "You can transfer it worldwide with very low fees"
+msgstr "Je kunt het wereldwijd wisselen met zeer lage kosten"
+
+#. Translators: BCTip description, part1
+#: core/templates/tip-content.xml.html:167
+msgid "Bitcoin uses cryptography and P2P technology to operate, and does not require central authority"
+msgstr "Bitcoin maakt gebruik van cryptografie en P2P technologie om te werken, er is geen centrale autoriteit nodig"
+
+#. Translators: BCTip expires
+#: core/templates/tip-content.xml.html:155 core/templates/tip.html:69
+msgid "Expires"
+msgstr "Verloopt"
+
+#. Translators: BCTip issued
+#: core/templates/tip-content.xml.html:143
+msgid "Issued"
+msgstr "Uitgegeven"
+
+#: core/models.py:23 core/views.py:231 utils/multi-template.py:21
+msgid "Thank you for your service!"
+msgstr "Bedankt voor de service!"
+
+#: core/templates/wallet-new-unpaid.html:15
+msgid "Payment Details"
+msgstr "Details van de betaling"
+
+#: core/templates/wallet-new-unpaid.html:23 core/templates/wallet-new.html:115
+#: core/templates/wallet.html:45
+msgid "rate"
+msgstr "tarief"
+
+#: core/templates/wallet-new-unpaid.html:25
+msgid "Value"
+msgstr "Waarde"
+
+#: core/templates/wallet-new-unpaid.html:37
+msgid "to address"
+msgstr "naar adres"
+
+#: core/templates/wallet-new-unpaid.html:40
+msgid "Payment status"
+msgstr "Status van de betaling"
+
+#: core/templates/wallet-new-unpaid.html:51
+msgid "Checking"
+msgstr "Controleren"
+
+#: core/templates/wallet-new-unpaid.html:59
+msgid "Paid! You will be redirected to the wallet"
+msgstr "Betaald! U wordt doorgestuurd naar de portemonnee"
+
+#: core/templates/wallet-new-unpaid.html:62
+msgid "not paid"
+msgstr "niet betaald"
+
+#: core/templates/not_enough.html:7
+msgid "Not enough confirmations or not enough funds"
+msgstr "Niet genoeg bevestigingen of niet genoeg geld"
+
+#: core/templates/not_enough.html:9
+msgid "Please wait for several minutes or contact support if necessary"
+msgstr "Gelieve enkele minuten te wachten of neem contact op met ondersteuning indien nodig"
+
+#: core/templates/wallet-new-unpaid.html:28
+msgid "Donation to"
+msgstr "Donatie aan"
+
+#: core/templates/wallet-new-unpaid.html:40
+msgid "wait"
+msgstr "wachten"
+
+#: core/templates/base_bctip.html:88 core/templates/tip.html:77
+#: core/templates/tip.html.py:84 core/templates/tip.html:88
+#: core/templates/tip.html.py:92 core/templates/tip.html:94
+msgid "or"
+msgstr "of"
+
+#: core/templates/tip.html:140
+msgid "This URL is no longer valid, tip was activated"
+msgstr "Deze URL is niet meer geldig, tip werd geactiveerd"
+
+#: core/templates/tip.html:141
+msgid "Tip has been activated"
+msgstr "Tip geactiveerd"
+
+#: core/templates/404.html:5 core/templates/500.html:6
+#: core/templates/not_enough.html:6 core/templates/not_yet.html:6
+msgid "Error"
+msgstr "Fout"
+
+#: core/templates/not_enough.html:11 core/templates/not_yet.html:10
+msgid "Try again"
+msgstr "Probeer het opnieuw"
+
+#: core/templates/base_bctip.html:63
+msgid "Wallet"
+msgstr "Portemonnee"
+
+#: core/templates/base_bctip.html:64
+msgid "Gratuity"
+msgstr "Tip"
+
+#: core/templates/index.html:97 core/templates/tip.html:27
+msgid "Gratuity Example"
+msgstr "Tip voorbeeld"
+
+#: core/templates/wallet-new.html:98 core/templates/wallet.html:19
+msgid "Email"
+msgstr "Email"
+
+#: core/templates/wallet-new.html:99
+msgid "for activation notifications"
+msgstr "voor activeringsmeldingen"
+
+#: core/templates/base_bctip.html:9
+msgid "BCTip allows you to print redeemable bitcoin tips"
+msgstr "BCTip laat u inwisselbare bitcoin tips printen"
+
+#: core/templates/base_bctip.html:9
+msgid "Each Tip has a unique URL to activate"
+msgstr "Elke tip heeft een unieke URL om te activeren"
+
+#: core/templates/tip-content.xml.html:171
+msgid "Follow this link to redeem your bitcoins"
+msgstr "Volg deze link om de bitcoins op te halen."
+
+#: core/templates/tip.html:30
+msgid "bitcoins"
+msgstr "bitcoins"
+
+#: core/templates/tip.html:59
+msgid "Current bitcoin price"
+msgstr "Huidige bitcoin prijs"
+
+#: core/templates/tip.html:74
+msgid "To keep these bitcoins you have to send them to your"
+msgstr "Om deze bitcoins te houden moeten ze worden verstuurd naar uw"
+
+#: core/templates/tip.html:109
+msgid "Bitcoin is a public digital currency that can be sent directly from person to person"
+msgstr "Bitcoin is een publieke digitale munteenheid die direct van persoon naar persoon kan worden verstuurd"
+
+#: core/templates/tip.html:110
+msgid "It is a new, secure and free technology that enables"
+msgstr "Het is een nieuw, veilig en gratis techniek die zorgt voor"
+
+#: core/templates/tip.html:114
+msgid "Very low or zero processing fees"
+msgstr "Erg lage of geen administratiekosten"
+
+#. Translators: Please provide youtube video about bitcoin in your language
+#: core/models.py:25
+msgid "www.youtube.com/embed/Gc2en3nHxA4"
+msgstr "www.youtube.com/embed/Gc2en3nHxA4"
+
+#: core/templates/tip.html:69
+msgid "Please redeem BCTip before the expiry date"
+msgstr "Gebruik BCTip voor de vervaldatum"
+
+#: core/templates/tip.html:79
+msgid "As soon as you get your own wallet, you can send your tips there"
+msgstr "Zodra je een eigen portemonnee hebt, kunnen de tips daar naar verzonden worden"
+
+#: core/templates/tip.html:82
+msgid "If you wish to sell bitcoins, you can use one of the exchanges like"
+msgstr "Als je bitcoins wilt verkopen, kun je een exchange gebruiken"
+
+#: core/templates/tip.html:100
+msgid "There are many ways, and new ways each day, just check out"
+msgstr "Er zijn veel manieren, groeiend per dag, kijk bijv. naar"
+
+#: core/templates/wallet.html:17
+msgid "Your bitcoin address"
+msgstr "Uw bitcoin adres"
+
+#: core/templates/wallet.html:44
+msgid "rate at time of purchase"
+msgstr "koers op tijdstip aankoop"
+
+#: core/templates/wallet-new.html:115 core/templates/wallet.html:45
+msgid "Current"
+msgstr "Huidig"
+
+#: core/templates/tip.html:117
+msgid "managing transactions and issuing bitcoins are carried out"
+msgstr "beheren transacties en het uitgeven van bitcoins wordt gedaan"
+
+#: core/templates/tip-content.xml.html:175
+msgid "Please claim before the expiration date below, or the bitcoins will be returned to the donor"
+msgstr "Te gebruiken voor de vervaldatum. Na deze datum worden de bitcoins  teruggestuurd naar de tipgever"
+
+#: core/templates/statistics.html:65
+msgid "by this month"
+msgstr "per maand"
+
+#: core/templates/wallet-new.html:147
+msgid "template preview"
+msgstr "sjabloon voorbeeld"
+
+#: core/templates/wallet-new.html:91
+msgid "is printed in the center of every tip"
+msgstr "wordt geprint in het midden van elke tip"
+
+#: core/forms.py:18 core/templates/wallet-new.html:67
+msgid "Nice Label"
+msgstr "Leuk Label"
+
+#: core/templates/tip.html:95
+msgid "many others"
+msgstr "vele anderen"
+

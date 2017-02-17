@@ -1,0 +1,9 @@
+Django==1.8.13
+psycopg2
+ipython
+qrcode
+celery
+django-celery
+django-webodt
+python-memcached
+pillow

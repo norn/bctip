@@ -1,0 +1,294 @@
+{% extends "base.html" %}{% load i18n %}{% load l10n %}
+
+{% block content %}
+<form action="" method="post" class="ui large form">{% csrf_token %}
+{{ form.non_field_errors }}
+
+  <div class="required field">
+    <label>{% trans "Your Bitcoin address" %}</label>
+    {% trans "All the unused funds will be returned to this address after expiration" %}<br/>
+    {{ form.bcaddr_from }}
+    {{ form.bcaddr_from.errors }}
+  </div>
+
+<br/>
+
+<div class="ui stackable three column grid">
+<div class="column">
+  <div class="ui two column grid">
+  <div class="column">
+  <div class="field"><label>{% trans "Tip Value" %}</label>
+      {{ form.divide_currency.errors }}
+      {{ form.divide_currency }}<br/>
+      {{ form.divide_by.errors }}
+      {{ form.divide_by }}</div>
+  </div><div class="column">
+  <div class="field"><label>{% trans "How many" %}</label>
+      {{ form.quantity.errors }}
+      {{ form.quantity }}</div>
+  </div>
+  </div>
+  <br/>
+  <div class="field"><label>{% trans "Template" %}</label>
+    {{ form.template.errors }}
+    {{ form.template }}
+    {% if not custom_saveatpurse %}
+    <div class="ui small label hidden nice_label">{% trans "Nice Label" %} +0.002 BTC</div>
+    {% endif %}</div>
+
+<div class="field"><label>{% trans "Message" %}</label>
+ {{ form.message.errors }}
+ {{ form.message }}
+ <div class="ui small label">{% trans "is printed in the center of every tip" %}</div></div>
+
+<div class="field"><label>{% trans "Email" %}</label>
+ {{ form.email.errors }}
+ {{ form.email }}
+<div class="ui small label">{% trans "for activation notifications" %}</div>
+</div>
+
+</div><div class="column">
+  <div class="field"><label>{% trans "Donate to" %} bctip{% if request.LANGUAGE_CODE == "fi" %}ille{%endif%}</label>
+    {{ form.price.errors }}
+    {{ form.price }}
+  </div>
+<div class="ui segment">
+{% trans "Current" %} {% trans "rate" %} (Bitstamp): ${{wallet.rate|floatformat:"2"}}</div>
+
+<table class="ui table"><thead>
+ <th>{% trans "Service" %}</th>
+ <th>{% trans "Amount" %}</th>
+</thead>
+
+<tbody><tr>
+ <td>{% trans "Tips" %}</td>
+ <td><span id="tips_usd" style="font-weight:bold"></span></td>
+</tr><tr><td>
+<!--{% trans "Print and Post service" %}</td><td><span id="pap_usd" style="font-weight:bold">$0</span></td>
+</tr><tr><td>-->
+{% trans "Our humble tips" %}</td><td><span id="price_usd" style="font-weight:bold"></span></td>
+</tr><tr><td>
+{% trans "Premium Template" %}</td><td><span id="premium_extra" style="font-weight:bold">0</span></td>
+</tr><tr><td>
+{% trans "Transaction Fees" %}</td><td><span id="transes_btc" style="font-weight:bold">0.0 BTC</span></td>
+</tr><tr>
+<td colspan="2" style="text-align:right">
+ {% trans "Total" %} <span id="total_sign">USD</span><br/><span id="total_usd" style="font-size:150%;font-weight:bold"></span>
+ <br/>{% trans "Total" %} BTC<br/><span id="total_btc" style="font-size:150%;font-weight:bold"></span>
+</td>
+</tr></tbody></table>
+
+
+
+
+
+<div class="text-center"><input type="submit" class="ui fluid green button" value="{% trans "Checkout" %}" /></div>
+
+
+</div><div class="center aligned column">
+<div class="ui bottom pointing label">{% trans "preview" %}</div>
+<img class="ui fluid bordered image" id="preview" src="/static/img/examples/tips-{{request.LANGUAGE_CODE}}-{{wallet.template|slice:":-4"}}.png" />
+</div>
+
+</div>
+
+
+</form>
+
+
+
+<!--
+<h3>Optional Settings:</h3>
+<div class="fieldWrapper">
+    {{ form.hashtag.errors }}
+    <label for="id_hashtag">Specify tag for <a href="{% url 'statistics'%}" target="_new">public leaderboard</a>:</label>
+    {{ form.hashtag }} eg: #sanfrancisco, #starbucks, anything you like
+</div>
+
+<div class="fieldWrapper">
+    {{ form.print_and_post.errors }}
+    <label for="id_print_and_post">Print and Post Service (USA only)</label>
+    {{ form.print_and_post }}
+    <br>
+</div>
+ 
+<div class="row" id="post_address" style="opacity:0.5">
+<div class="span3">
+<p>Next day shipping from CA, USA. We print using color laser printer and 160g paper.</p>
+<p>Price is $2+$1 for each 9 tips</p>
+</div>
+
+<div class="span3 offset1">
+<div class="fieldWrapper">
+<label for="id_address1">Address 1</label>
+{{ form.address1.errors }}
+{{form.address1}}
+</div>
+
+<div class="fieldWrapper">
+<label for="id_address2">Address 2</label>
+{{ form.address2.errors }}
+{{form.address2}}
+</div>
+
+<div class="fieldWrapper">
+<label for="id_city">City</label>
+{{ form.city.errors }}
+{{form.city}}
+</div>
+</div>
+
+<div class="span3">
+<div class="fieldWrapper">
+<label for="id_state">State</label>
+{{ form.state.errors }}
+{{form.state}}
+</div>
+
+<div class="fieldWrapper">
+<label for="id_country">Country</label>
+{{ form.country.errors }}
+{{form.country}}
+</div>
+
+<div class="fieldWrapper">
+<label for="id_postal_code">ZIP</label>
+{{ form.postal_code.errors }}
+{{form.postal_code}}
+</div>
+</div>
+
+</div> -->
+    
+
+
+<!--<div class="span6">
+<br/>
+<div class="text-center" id="happyness" style="opacity:0">
+<img src="/static/img/happyness2.png" class="img-polaroid"/>
+<br/> Thank you!
+</div>
+</div>-->
+
+<script>{% localize off %}
+var rate = {{wallet.rate}};
+console.log(rate);
+
+function recalc() {
+ var cur = $('[name="divide_currency"]').val();
+ $('#total_sign').html(cur)
+ var cur_sign = signs[cur];
+ var cur_rate = rates[cur];
+
+ var pap_checked = $('#id_print_and_post').prop('checked');
+ var premium_extra = $('[name="template"]').val();
+ if (premium_extra == "005-premium" ) {
+  $(".nice_label").removeClass("hidden");
+ } else {
+  $(".nice_label").addClass("hidden");
+ }
+ //var divide_by = parseInt($('input[name="divide_by"]:checked').val());
+ var divide_by = parseInt($('#id_divide_by').val());
+ var quantity = parseInt($('#id_quantity').val());
+ var price = parseFloat($('[name=price]').val());
+ var transes = (quantity+1)*0.0003;
+ var sum = quantity*divide_by;
+ var total_usd=sum;
+
+ $('#tips_usd').html(cur_sign+sum);
+ /* -------------------- */
+ if (pap_checked) {
+   var pap_total = quantity/10*1+2;
+   $('#pap_usd').html("$"+pap_total);
+   total_usd=total_usd+pap_total;
+ }
+ /* -------------------- */
+
+ if (price>0) {
+  var price_usd = sum * price / 100;
+  $('#price_usd').html(cur_sign+price_usd.toFixed(2));
+  total_usd=total_usd+price_usd;
+ } else {
+  $('#price_usd').html(cur_sign+"0");
+ }
+
+
+ /* -------------------- */
+ $('#total_usd').html(cur_sign+total_usd);
+ $('#transes_btc').html(transes.toFixed(4)+" BTC");
+ if (premium_extra=="005-premium") {
+   $('#premium_extra').html("0.002 BTC");
+   var premium_extra = 0.002;
+ } else {
+   $('#premium_extra').html("0");
+   var premium_extra = 0;
+ }
+ var total_btc = (total_usd/rate/cur_rate+transes+premium_extra).toFixed(8);
+ $('#total_btc').html(total_btc);
+}
+
+function print_and_post() {
+ var pap_checked = $('#id_print_and_post').prop('checked');
+ if (pap_checked) {
+  alert('Sorry, Print and Post service is not available at the moment. Please vote for it.');
+  $('#id_print_and_post').prop('checked','')
+  //$('#post_address').css('opacity','1.0');
+ } else {
+  $('#post_address').css('opacity','0.4');
+ }
+ recalc();
+}
+
+/////////////
+document_ready = function() {
+ recalc();
+ //$('#id_print_and_post').change(function() {
+ // print_and_post();
+ //});
+
+ // $('input[name="bcaddr_from"]').change(function() {
+ //  a=$('input[name="bcaddr_from"]').val();
+ //  if (a.length>27) {
+ //     $('#boxzero').css('background-color','#b6ffc8');
+ //  } else {
+ //     $('#boxzero').css('background-color','#fffbb6');
+ //  }
+ // });
+
+ $('[name="divide_currency"]').change(function() {
+  recalc();
+ });
+
+ $('[name="template"]').change(function() {
+  recalc();
+ });
+
+ $('[name="target_language"]').change(function() {
+  var lang = $('[name="target_language"]').val();
+  $('#id_message').val(messages[lang]);
+ });
+
+ $('#id_divide_by').change(function() {
+  recalc();
+ });
+
+ $('#id_quantity').change(function() {
+  recalc();
+ });
+
+ $('[name="price"]').change(function() {
+  recalc();
+  var price = parseFloat($('[name=price]').val());
+ });
+
+ $('[name="template"]').change(function() {
+  var p = $('[name="template"]').val();
+  $("#preview").attr("src","/static/img/examples/tips-{{request.LANGUAGE_CODE}}-"+p+".png");
+ });
+}
+$(document).ready(document_ready);
+var rates = {{json_rates|safe}};
+var signs = {{json_signs|safe}};
+var messages = {{json_messages|safe}};
+</script>{% endlocalize %}
+{% endblock %}

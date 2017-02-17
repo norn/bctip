@@ -1,0 +1,651 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: BCTip\n"
+"Language: sv\n"
+
+#: core/templates/base_bctip.html:7 core/templates/base_bctip.html.py:58
+msgid "Printable Bitcoin Tips"
+msgstr "Tryckbar Bitcoin Gratifikation"
+
+#: core/templates/wallet-new.html:5
+msgid "Home"
+msgstr "Start"
+
+#: core/templates/base_bctip.html:62 core/templates/wallet-new.html:7
+msgid "New Wallet"
+msgstr "Ny plånbok"
+
+#: core/templates/base_bctip.html:67
+msgid "Tip Unique Key"
+msgstr "Tips Unik nyckel"
+
+#: core/templates/base_bctip.html:68
+msgid "Redeem"
+msgstr "Lös"
+
+#: core/templates/base_bctip.html:61 core/templates/statistics.html:5
+#: core/templates/wallet-new.html:6
+msgid "Statistics"
+msgstr "Statistik"
+
+#: core/templates/base_bctip.html:88
+msgid "Support"
+msgstr "Stöd"
+
+#: core/templates/base_bctip.html:88
+msgid "thread on bitcoin forum"
+msgstr "tråd på Bitcoin forum"
+
+#: core/templates/base_bctip.html:89
+msgid "For donations"
+msgstr "För donationer"
+
+#: core/templates/index.html:18
+msgid "Color and B/W templates"
+msgstr "Färg och B / W mallar"
+
+#: core/templates/index.html:25
+msgid "Just Print and Cut"
+msgstr "Bara Skriv ut och kapa"
+
+#: core/templates/index.html:33
+msgid "Can be printed on any printer"
+msgstr "Kan skrivas ut på alla skrivare"
+
+#: core/templates/index.html:47
+msgid "Easy to activate"
+msgstr "Lätt att aktivera"
+
+#: core/templates/index.html:62
+msgid "Make it yourself"
+msgstr "Gör det själv"
+
+#: core/templates/index.html:63
+msgid "Just pay the invoice, download generated PDF, print and cut"
+msgstr "Bara betala fakturan, ladda ner genererade PDF, skriva ut och skär"
+
+#: core/templates/index.html:66
+msgid "Promote Bitcoin"
+msgstr "Då Bitcoin"
+
+#: core/templates/index.html:67
+msgid "People need to know about the advantages of Bitcoins - give them tips to spread the word"
+msgstr "Människor behöver veta om fördelarna med Bitcoins - ge dem tips för att sprida ordet"
+
+#: core/templates/index.html:70
+msgid "Zero risk"
+msgstr "Noll risk"
+
+#: core/templates/index.html:77
+msgid "Versatility"
+msgstr "Mångsidig"
+
+#: core/templates/index.html:78
+msgid "The BCTip could be an addition to a normal cash tip or just a gift to a friend"
+msgstr "Den BCTip skulle kunna vara ett komplement till en vanlig kontant tips eller bara en gåva till en vän"
+
+#: core/templates/index.html:81
+msgid "Localization"
+msgstr "Lokalisering"
+
+#: core/templates/index.html:82
+msgid "BCTips can be created in several languages and used all over the world"
+msgstr "BCTips kan skapas på flera språk och används över hela världen"
+
+#: core/templates/index.html:85
+msgid "Free"
+msgstr "Gratis"
+
+#: core/templates/index.html:86
+msgid "The service is free, but you can donate for further development"
+msgstr "Tjänsten är gratis, men du kan donera för vidare utveckling"
+
+#: core/templates/index.html:98
+msgid "Generate New Tips"
+msgstr "Generera nya tips"
+
+#: core/templates/statistics.html:9
+msgid "Total generated tips"
+msgstr "Totalt alstrade tips"
+
+#: core/templates/tip.html:17
+msgid "Expired"
+msgstr "Förfallna"
+
+#: core/templates/tip.html:18
+msgid "Tip with this URL was expired on"
+msgstr "Tips med denna URL ades löpte ut den"
+
+#: core/templates/tip.html:19
+msgid "The funds were returned to the owner"
+msgstr "Medlen återfördes till ägaren"
+
+#: core/templates/tip.html:29
+msgid "Congratulations"
+msgstr "Grattis"
+
+#: core/templates/tip.html:37 core/templates/wallet-new.html:119
+msgid "Amount"
+msgstr "Mängd"
+
+#: core/templates/tip.html:45
+msgid "can be sold for about"
+msgstr "kan säljas för omkring"
+
+#: core/forms.py:30 core/templates/tip.html:54
+msgid "Send to"
+msgstr "Skicka till"
+
+#: core/templates/tip.html:65
+msgid "Send"
+msgstr "Sänd"
+
+#: core/templates/tip.html:81
+msgid "How to sell"
+msgstr "Hur man säljer"
+
+#: core/templates/tip.html:99
+msgid "How to spend"
+msgstr "Hur man spenderar"
+
+#: core/templates/tip.html:108
+msgid "What is Bitcoin"
+msgstr "Vad är Bitcoin"
+
+#: core/templates/tip.html:112
+msgid "Instant peer to peer transactions"
+msgstr "Omedelbar peer to peer transaktioner"
+
+#: core/templates/tip.html:113
+msgid "Worldwide payments"
+msgstr "Globala betalningar"
+
+#: core/templates/tip.html:115
+msgid "And much more"
+msgstr "Och mycket mer"
+
+#: core/templates/tip.html:117
+msgid "Bitcoin uses peer to peer technology to operate with no central authority"
+msgstr "Bitcoin använder peer to peer-teknik för att fungera utan någon central myndighet"
+
+#: core/templates/tip.html:117
+msgid "collectively by the network"
+msgstr "kollektivt av nätverket"
+
+#: core/templates/tip.html:118
+msgid "Through many of its unique properties, Bitcoin allows exciting uses that could not be covered by any previous payment systems"
+msgstr "Genom många av dess unika egenskaper, Bitcoin låter spännande användningsområden som inte kunde omfattas av eventuella tidigare betalningssystem"
+
+#: core/templates/tip-content.xml.html:167 core/templates/tip.html:121
+msgid "For more information visit"
+msgstr "För mer information besök"
+
+#: core/templates/tip.html:121
+msgid "or search online for"
+msgstr "eller söka på nätet efter"
+
+#: core/templates/base_bctip.html:8 core/templates/tip.html:121
+msgid "Bitcoin"
+msgstr "Bitcoin"
+
+#: core/templates/tip.html:146
+msgid "Tip activation time"
+msgstr "Tips aktiveringstid"
+
+#: core/templates/tip.html:147
+msgid "Tip was sent to address"
+msgstr "Tipset har skickats för att ta itu"
+
+#: core/templates/tip.html:148
+msgid "Transaction ID"
+msgstr "Transaktions-ID"
+
+#: core/templates/wallet-new.html:29
+msgid "Your Bitcoin address"
+msgstr "Din Bitcoin adress"
+
+#: core/templates/wallet-new.html:30
+msgid "All the unused funds will be returned to this address after expiration"
+msgstr "Alla outnyttjade medel kommer att returneras till den här adressen efter utgångs"
+
+#: core/templates/wallet-new.html:43
+msgid "Tip Value"
+msgstr "Tip Värde"
+
+#: core/templates/wallet-new.html:63 core/templates/wallet.html:13
+msgid "Template"
+msgstr "Mall"
+
+#: core/templates/wallet-new.html:90 core/templates/wallet.html:14
+msgid "Message"
+msgstr "Meddelande"
+
+#: core/templates/wallet-new.html:74
+msgid "Please support the development"
+msgstr "Vänligen stödja utvecklingen"
+
+#: core/templates/wallet-new.html:123
+msgid "Tips"
+msgstr "Tips"
+
+#: core/templates/wallet-new.html:126 core/templates/wallet.html:20
+msgid "Print and Post service"
+msgstr "Skriv ut och Post tjänsten"
+
+#: core/templates/wallet-new.html:130
+msgid "Premium Template"
+msgstr "Premium Mall"
+
+#: core/templates/wallet-new.html:128
+msgid "Our humble tips"
+msgstr "Våra ödmjuka tips"
+
+#: core/templates/wallet-new.html:132
+msgid "Transaction Fees"
+msgstr "Transaktionsavgifter"
+
+#: core/templates/wallet-new.html:136 core/templates/wallet-new.html.py:137
+msgid "Total"
+msgstr "Totalt"
+
+#: core/templates/wallet-new.html:149
+msgid "Checkout"
+msgstr "Kassan"
+
+#: core/templates/wallet.html:5
+msgid "Your Wallet"
+msgstr "Din plånbok"
+
+#: core/templates/wallet-new-unpaid.html:22
+msgid "Wallet was created on"
+msgstr "Plånbok skapades på"
+
+#: core/templates/wallet.html:12
+msgid "BCTip value"
+msgstr "BCTip värde"
+
+#: core/templates/wallet-new-unpaid.html:26 core/templates/wallet.html:12
+msgid "Quantity"
+msgstr "Mängd"
+
+#: core/templates/wallet.html:11
+msgid "Paid on"
+msgstr "Betald på"
+
+#: core/templates/wallet.html:30 core/templates/wallet.html.py:31
+#: core/templates/wallet.html:33 core/templates/wallet.html.py:34
+msgid "Download"
+msgstr "Hämta"
+
+#: core/templates/wallet.html:53
+msgid "Comment"
+msgstr "Kommentera"
+
+#: core/templates/wallet.html:53
+msgid "Comment Date"
+msgstr "Kommentar Datum"
+
+#: core/templates/wallet.html:56
+msgid "Activated"
+msgstr "Aktiverad"
+
+#: core/templates/wallet.html:57
+msgid "Visited"
+msgstr "Var där"
+
+#: core/templates/wallet.html:59
+msgid "Link"
+msgstr "Länk"
+
+#: core/templates/wallet.html:74
+msgid "expired"
+msgstr "utgånget"
+
+#: core/templates/tip.html:100 core/templates/wallet.html:74
+msgid "and"
+msgstr "och"
+
+#: core/templates/wallet.html:74
+msgid "returned"
+msgstr "return"
+
+#: core/templates/wallet.html:76
+msgid "not activated"
+msgstr "inte aktiverad"
+
+#: core/templates/wallet.html:90
+msgid "save comments"
+msgstr "spara kommentarer"
+
+#: core/templates/tip.html:74
+msgid "very own wallet"
+msgstr "egen plånbok"
+
+#: core/templates/index.html:40
+msgid "Never worry about small cash bills for tips"
+msgstr "Aldrig oroa små kontant räkningar för tips"
+
+#: core/templates/index.html:71
+msgid "If tips are not claimed within one month, the unused funds will be sent to the donor's wallet"
+msgstr "Om tips inte har yrkats inom en månad, kommer de outnyttjade medlen att skickas till givarens plånboken"
+
+#: core/templates/index.html:104
+msgid "Feel free to use this A4 promo in your store"
+msgstr "Känn dig fri att använda denna A4 promo i din butik"
+
+#: core/templates/tip.html:74
+msgid "like"
+msgstr "liknande"
+
+#: core/forms.py:18
+msgid "Original"
+msgstr "Original"
+
+#: core/forms.py:18
+msgid "Original B/W"
+msgstr "Original B / W"
+
+#: core/forms.py:18
+msgid "Turquoise"
+msgstr "Turkos"
+
+#: core/forms.py:18
+msgid "Cash Style"
+msgstr "Penga Stil"
+
+#: core/forms.py:18
+msgid "Fantastic"
+msgstr "Utmärkt"
+
+#: core/forms.py:18
+msgid "Wood style"
+msgstr "Trä stil"
+
+#: core/forms.py:30
+msgid "Enter bitcoin address here"
+msgstr "Ange bitcoin adress här"
+
+#: core/forms.py:35 core/forms.py:66
+msgid "Your address seems too short"
+msgstr "Din adress verkar för kort"
+
+#: core/forms.py:37 core/forms.py:40 core/forms.py:68 core/forms.py:72
+#: core/forms.py:74
+msgid "Must be a valid Bitcoin Address"
+msgstr "Måste vara en giltig Bitcoin Adress"
+
+#: core/forms.py:44
+msgid "Your Address"
+msgstr "Din Adress"
+
+#: core/forms.py:50
+msgid "Custom message"
+msgstr "Anpassad meddelande"
+
+#: core/templates/base_bctip.html:8
+msgid "tips"
+msgstr "tips"
+
+#: core/templates/statistics.html:14 core/templates/statistics.html.py:60
+#: core/templates/statistics.html:65
+msgid "Activated tips"
+msgstr "Aktiverat tips"
+
+#: core/templates/statistics.html:19
+msgid "Expired tips"
+msgstr "Utgångna tips"
+
+#: core/templates/statistics.html:24
+msgid "Total value"
+msgstr "Totalt värde"
+
+#: core/templates/statistics.html:29
+msgid "Activated value"
+msgstr "Aktiverad värde"
+
+#: core/templates/statistics.html:35
+msgid "Activation success rate"
+msgstr "Aktiverings framgång"
+
+#: core/templates/tip.html:30
+msgid "You have"
+msgstr "Du har"
+
+#: core/templates/tip.html:60
+msgid "source"
+msgstr "källa"
+
+#: core/templates/wallet-new.html:54
+msgid "How many"
+msgstr "Hur många"
+
+#: core/templates/wallet-new.html:73
+msgid "Donate to"
+msgstr "Donera till"
+
+#: core/templates/wallet-new.html:118
+msgid "Service"
+msgstr "Tjänsten"
+
+#. Translators: BCTip description, part1
+#: core/templates/tip-content.xml.html:167
+msgid "Bitcoin is an open source digital currency"
+msgstr "Bitcoin är en digital valuta med öppen källkod"
+
+#. Translators: BCTip description, part1
+#: core/templates/tip-content.xml.html:167
+msgid "You can transfer it worldwide with very low fees"
+msgstr "Den kan överföras runt hela världen till mycket låga kostnader"
+
+#. Translators: BCTip description, part1
+#: core/templates/tip-content.xml.html:167
+msgid "Bitcoin uses cryptography and P2P technology to operate, and does not require central authority"
+msgstr "Bitcoin använder kryptografi- och P2P-teknik för att fungera och ingen central myndighet krävs"
+
+#. Translators: BCTip expires
+#: core/templates/tip-content.xml.html:155 core/templates/tip.html:69
+msgid "Expires"
+msgstr "Förfaller"
+
+#. Translators: BCTip issued
+#: core/templates/tip-content.xml.html:143
+msgid "Issued"
+msgstr "Utfärdad"
+
+#: core/models.py:23 core/views.py:231 utils/multi-template.py:21
+msgid "Thank you for your service!"
+msgstr "Tack för din hjälp!"
+
+#: core/templates/wallet-new-unpaid.html:15
+msgid "Payment Details"
+msgstr "Betalningsinformation"
+
+#: core/templates/wallet-new-unpaid.html:23 core/templates/wallet-new.html:115
+#: core/templates/wallet.html:45
+msgid "rate"
+msgstr "hastighet"
+
+#: core/templates/wallet-new-unpaid.html:25
+msgid "Value"
+msgstr "Värde"
+
+#: core/templates/wallet-new-unpaid.html:37
+msgid "to address"
+msgstr "till adress"
+
+#: core/templates/wallet-new-unpaid.html:40
+msgid "Payment status"
+msgstr "Betalning status"
+
+#: core/templates/wallet-new-unpaid.html:51
+msgid "Checking"
+msgstr "Kontroll"
+
+#: core/templates/wallet-new-unpaid.html:59
+msgid "Paid! You will be redirected to the wallet"
+msgstr "Betald! Du kommer att omdirigeras till plånboken"
+
+#: core/templates/wallet-new-unpaid.html:62
+msgid "not paid"
+msgstr "betalas inte"
+
+#: core/templates/not_enough.html:7
+msgid "Not enough confirmations or not enough funds"
+msgstr "Inte tillräckligt bekräftelser eller inte tillräckligt med pengar"
+
+#: core/templates/not_enough.html:9
+msgid "Please wait for several minutes or contact support if necessary"
+msgstr "Vänta flera minuter eller kontakta support om det behövs"
+
+#: core/templates/wallet-new-unpaid.html:28
+msgid "Donation to"
+msgstr "Donation till"
+
+#: core/templates/wallet-new-unpaid.html:40
+msgid "wait"
+msgstr "vänta"
+
+#: core/templates/base_bctip.html:88 core/templates/tip.html:77
+#: core/templates/tip.html.py:84 core/templates/tip.html:88
+#: core/templates/tip.html.py:92 core/templates/tip.html:94
+msgid "or"
+msgstr "eller"
+
+#: core/templates/tip.html:140
+msgid "This URL is no longer valid, tip was activated"
+msgstr "Denna URL är inte längre giltigt, var spets aktiveras"
+
+#: core/templates/tip.html:141
+msgid "Tip has been activated"
+msgstr "Tip har aktiverats"
+
+#: core/templates/404.html:5 core/templates/500.html:6
+#: core/templates/not_enough.html:6 core/templates/not_yet.html:6
+msgid "Error"
+msgstr "Fel"
+
+#: core/templates/not_enough.html:11 core/templates/not_yet.html:10
+msgid "Try again"
+msgstr "Försök igen"
+
+#: core/templates/base_bctip.html:63
+msgid "Wallet"
+msgstr "Plånboks"
+
+#: core/templates/base_bctip.html:64
+msgid "Gratuity"
+msgstr "Dusör"
+
+#: core/templates/index.html:97 core/templates/tip.html:27
+msgid "Gratuity Example"
+msgstr "Dusör Exempel"
+
+#: core/templates/wallet-new.html:98 core/templates/wallet.html:19
+msgid "Email"
+msgstr "E"
+
+#: core/templates/wallet-new.html:99
+msgid "for activation notifications"
+msgstr "för anmälningar aktiverings"
+
+#: core/templates/base_bctip.html:9
+msgid "BCTip allows you to print redeemable bitcoin tips"
+msgstr "BCTip kan du skriva ut inlösbara Bitcoin tips"
+
+#: core/templates/base_bctip.html:9
+msgid "Each Tip has a unique URL to activate"
+msgstr "Varje tips har en unik webbadress för att aktivera"
+
+#: core/templates/tip-content.xml.html:171
+msgid "Follow this link to redeem your bitcoins"
+msgstr "Följ länken för att lösa in dina bitcoins"
+
+#: core/templates/tip.html:30
+msgid "bitcoins"
+msgstr "bitcoins"
+
+#: core/templates/tip.html:59
+msgid "Current bitcoin price"
+msgstr "Nuvarande bitcoin pris"
+
+#: core/templates/tip.html:74
+msgid "To keep these bitcoins you have to send them to your"
+msgstr "För att hålla dessa bitcoins du måste skicka dem till din"
+
+#: core/templates/tip.html:109
+msgid "Bitcoin is a public digital currency that can be sent directly from person to person"
+msgstr "Bitcoin är en offentlig digital valuta som kan skickas direkt från person till person"
+
+#: core/templates/tip.html:110
+msgid "It is a new, secure and free technology that enables"
+msgstr "Det är en ny, säker och fri teknik som gör att"
+
+#: core/templates/tip.html:114
+msgid "Very low or zero processing fees"
+msgstr "Mycket låg eller noll avgifter bearbetning"
+
+#. Translators: Please provide youtube video about bitcoin in your language
+#: core/models.py:25
+msgid "www.youtube.com/embed/Gc2en3nHxA4"
+msgstr "www.youtube.com/embed/Gc2en3nHxA4"
+
+#: core/templates/tip.html:69
+msgid "Please redeem BCTip before the expiry date"
+msgstr "Vänligen lösa BCTip före utgångsdatum"
+
+#: core/templates/tip.html:79
+msgid "As soon as you get your own wallet, you can send your tips there"
+msgstr "Så fort du får din egen plånbok, kan du skicka dina tips där"
+
+#: core/templates/tip.html:82
+msgid "If you wish to sell bitcoins, you can use one of the exchanges like"
+msgstr "Om du vill sälja bitcoins, kan du använda en av de börser som"
+
+#: core/templates/tip.html:100
+msgid "There are many ways, and new ways each day, just check out"
+msgstr "Det finns många sätt, och nya sätt varje dag, bara kolla"
+
+#: core/templates/wallet.html:17
+msgid "Your bitcoin address"
+msgstr "Din Bitcoin adress"
+
+#: core/templates/wallet.html:44
+msgid "rate at time of purchase"
+msgstr "hastighet vid tidpunkten för köpet"
+
+#: core/templates/wallet-new.html:115 core/templates/wallet.html:45
+msgid "Current"
+msgstr "Nuvarande"
+
+#: core/templates/tip.html:117
+msgid "managing transactions and issuing bitcoins are carried out"
+msgstr "hantera transaktioner och utfärdande bitcoins utförs"
+
+#: core/templates/tip-content.xml.html:175
+msgid "Please claim before the expiration date below, or the bitcoins will be returned to the donor"
+msgstr "Lös in dina bitcoins innan förfallodatum nedan. Annars återsänds de till givaren"
+
+#: core/templates/statistics.html:65
+msgid "by this month"
+msgstr "genom denna månad"
+
+#: core/templates/wallet-new.html:147
+msgid "template preview"
+msgstr "mall förhandsvisning"
+
+#: core/templates/wallet-new.html:91
+msgid "is printed in the center of every tip"
+msgstr "skrivs i mitten av alla tips"
+
+#: core/forms.py:18 core/templates/wallet-new.html:67
+msgid "Nice Label"
+msgstr "Bra Tillverkare"
+
+#: core/templates/tip.html:95
+msgid "many others"
+msgstr "många andra"
+

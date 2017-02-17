@@ -1,0 +1,665 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: BCTip\n"
+"Language: he\n"
+
+#: core/templates/base_bctip.html:6 core/templates/base_bctip.html.py:11
+#: core/templates/base_bctip.html:64
+msgid "Printable Bitcoin Tips"
+msgstr "פתקיות ביטקוין-טיפ"
+
+#: core/templates/wallet-new.html:5
+msgid "Home"
+msgstr "בית"
+
+#: core/templates/wallet-new.html:7
+msgid "New Wallet"
+msgstr "ארנק חדש"
+
+#: core/templates/base_bctip.html:73
+msgid "Tip Unique Key"
+msgstr "מ"
+
+#: core/templates/base_bctip.html:74
+msgid "Redeem"
+msgstr "פדיון"
+
+#: core/templates/base_bctip.html:67 core/templates/statistics.html:5
+#: core/templates/wallet-new.html:6
+msgid "Statistics"
+msgstr "סטטיסטיקות"
+
+#: core/templates/base_bctip.html:96
+msgid "Support"
+msgstr "תמיכה"
+
+#: core/templates/base_bctip.html:96
+msgid "thread on bitcoin forum"
+msgstr "שרשור בפורום הביטקוין"
+
+#: core/templates/base_bctip.html:97
+msgid "For donations"
+msgstr "לתרומה"
+
+#: core/templates/index.html:18
+msgid "Color and B/W templates"
+msgstr "תבניות בצבע ושחור/לבן"
+
+#: core/templates/index.html:25
+msgid "Just Print and Cut"
+msgstr "פשוט להדפיס ולגזור"
+
+#: core/templates/index.html:33
+msgid "Can be printed on any printer"
+msgstr "ניתן להדפיס בכל סוגי המדפסות"
+
+#: core/templates/index.html:47
+msgid "Easy to activate"
+msgstr "פשוט להפעלה"
+
+#: core/templates/index.html:62
+msgid "Make it yourself"
+msgstr "הכן בעמצך"
+
+#: core/templates/index.html:63
+msgid "Just pay the invoice, download generated PDF, print and cut"
+msgstr "פשוט שלמו, הורידו את קובץ הPDF, הדפיסו וגזרו"
+
+#: core/templates/index.html:66
+msgid "Promote Bitcoin"
+msgstr "קידום ביטקוין"
+
+#: core/templates/index.html:67
+msgid "People need to know about the advantages of Bitcoins - give them tips to spread the word"
+msgstr "בחברה צריכה לדעת על היתרונות של ביטקוין. שתפו את הבריות באמצעות כרטיסי טיפ."
+
+#: core/templates/index.html:70
+msgid "Zero risk"
+msgstr "סיכון אפסי"
+
+#: core/templates/index.html:77
+msgid "Versatility"
+msgstr "רב-גוניות"
+
+#: core/templates/index.html:78
+msgid "The BCTip could be an addition to a normal cash tip or just a gift to a friend"
+msgstr "כרטיסי הטיפ יכולים לשמש תוספת לטיפ במזומן או מתנה לחבר"
+
+#: core/templates/index.html:81
+msgid "Localization"
+msgstr "להפוך למקומי"
+
+#: core/templates/index.html:82
+msgid "BCTips can be created in several languages and used all over the world"
+msgstr "ניתן לייצר כרטיסיות במספר רב של שפות ולהשתמש בהם בכל העולם"
+
+#: core/templates/index.html:85
+msgid "Free"
+msgstr "חינם"
+
+#: core/templates/index.html:86
+msgid "The service is free, but you can donate for further development"
+msgstr "השירות ניתן בחינם, אך אתם יכולים לתרום על מנת לאפשר המשך פיתוח"
+
+#: core/templates/index.html:92
+msgid "Generate New Tips"
+msgstr "צור כרטיסיות חדשות"
+
+#: core/templates/statistics.html:9
+msgid "Total generated tips"
+msgstr "סה\"כ טיפ שנוצר"
+
+#: core/templates/tip.html:17
+msgid "Expired"
+msgstr "פג תוקף"
+
+#: core/templates/tip.html:18
+msgid "Tip with this URL was expired on"
+msgstr "הטיפ על הכתובת הזאת פג ב"
+
+#: core/templates/tip.html:19
+msgid "The funds were returned to the owner"
+msgstr "הסכום הוחזר לבעלים"
+
+#: core/templates/tip.html:29
+msgid "Congratulations"
+msgstr "מזל טוב"
+
+#: core/templates/tip.html:39 core/templates/wallet-new.html:121
+msgid "Amount"
+msgstr "סכום"
+
+#: core/templates/tip.html:47
+msgid "can be sold for about"
+msgstr "יכול להימכר תמורת בערך"
+
+#: core/forms.py:31 core/templates/tip.html:56
+msgid "Send to"
+msgstr "שלח ל"
+
+#: core/templates/tip.html:67
+msgid "Send"
+msgstr "שלח"
+
+#: core/templates/tip.html:84
+msgid "How to sell"
+msgstr "איך למכור"
+
+#: core/templates/tip.html:119
+msgid "How to spend"
+msgstr "איך להשתמש"
+
+#: core/templates/tip.html:128
+msgid "What is Bitcoin"
+msgstr "מה זה ביטקוין"
+
+#: core/templates/tip.html:132
+msgid "Instant peer to peer transactions"
+msgstr "עסקאות מידיות מאדם לאדם"
+
+#: core/templates/tip.html:133
+msgid "Worldwide payments"
+msgstr "העברת תשלום ברחבי העולם"
+
+#: core/templates/tip.html:135
+msgid "And much more"
+msgstr "ועוד הרבה יותר מזה"
+
+#: core/templates/tip.html:137
+msgid "Bitcoin uses peer to peer technology to operate with no central authority"
+msgstr "ביטקוין משתמש בטכנולוגית P2P שפועלת ללא סמכות מרכזית"
+
+#: core/templates/tip.html:137
+msgid "collectively by the network"
+msgstr "באופן קולקטיבי על ידי הרשת"
+
+#: core/templates/tip.html:138
+msgid "Through many of its unique properties, Bitcoin allows exciting uses that could not be covered by any previous payment systems"
+msgstr "באמצעות התכונות המיוחדות שלו, ביטקוין מאפשר שימושים חדשים שלא ניתן לבצע באמצעות שיטות התשלום המסורתיות."
+
+#: core/templates/tip-content.xml.html:167 core/templates/tip.html:141
+msgid "For more information visit"
+msgstr "למידע נוסף בקרו ב"
+
+#: core/templates/tip.html:141
+msgid "or search online for"
+msgstr "או חפשו ברשת"
+
+#: core/templates/base_bctip.html:7 core/templates/tip.html:141
+msgid "Bitcoin"
+msgstr "ביטקוין"
+
+#: core/templates/tip.html:166
+msgid "Tip activation time"
+msgstr "זמן הפעלת הטיפ"
+
+#: core/templates/tip.html:167
+msgid "Tip was sent to address"
+msgstr "הטיפ נשלח לכתובת"
+
+#: core/templates/tip.html:168
+msgid "Transaction ID"
+msgstr "מזהה העסקה"
+
+#: core/templates/wallet-new.html:29
+msgid "Your Bitcoin address"
+msgstr "כתבות הביטקוין שלכם"
+
+#: core/templates/wallet-new.html:30
+msgid "All the unused funds will be returned to this address after expiration"
+msgstr "כל סכום שלא ייעשה בו שימוש לאחר תום התוקף יוחזר לכתובת הבאה"
+
+#: core/templates/wallet-new.html:43
+msgid "Tip Value"
+msgstr "סכום התשר"
+
+#: core/templates/wallet-new.html:63 core/templates/wallet.html:13
+msgid "Template"
+msgstr "תבנית"
+
+#: core/templates/wallet-new.html:92 core/templates/wallet.html:14
+msgid "Message"
+msgstr "הודעה"
+
+#: core/templates/wallet-new.html:76
+msgid "Please support the development"
+msgstr "אנא עזרו לנו להמשיך את הפיתוח"
+
+#: core/templates/wallet-new.html:125
+msgid "Tips"
+msgstr "טיפים"
+
+#: core/templates/wallet-new.html:128 core/templates/wallet.html:20
+msgid "Print and Post service"
+msgstr "שירותי הדפסה ומשלוח"
+
+#: core/templates/wallet-new.html:132
+msgid "Premium Template"
+msgstr "תבנית פרמיום"
+
+#: core/templates/wallet-new.html:130
+msgid "Our humble tips"
+msgstr "התשר הצנוע שלנו"
+
+#: core/templates/wallet-new.html:134
+msgid "Transaction Fees"
+msgstr "עמלות עסקה"
+
+#: core/templates/wallet-new.html:138 core/templates/wallet-new.html.py:139
+msgid "Total"
+msgstr "סה\"כ"
+
+#: core/templates/wallet-new.html:151
+msgid "Checkout"
+msgstr "לקופה"
+
+#: core/templates/wallet.html:5
+msgid "Your Wallet"
+msgstr "הארנק שלך"
+
+#: core/templates/wallet-new-unpaid.html:22
+msgid "Wallet was created on"
+msgstr "הארנק הזה נוצר ב"
+
+#: core/templates/wallet.html:12
+msgid "BCTip value"
+msgstr "סכום הכרטיס"
+
+#: core/templates/wallet-new-unpaid.html:26 core/templates/wallet.html:12
+msgid "Quantity"
+msgstr "כמות"
+
+#: core/templates/wallet.html:11
+msgid "Paid on"
+msgstr "שולם ב"
+
+#: core/templates/wallet.html:30 core/templates/wallet.html.py:31
+#: core/templates/wallet.html:33 core/templates/wallet.html.py:34
+msgid "Download"
+msgstr "הורד"
+
+#: core/templates/wallet.html:53
+msgid "Comment"
+msgstr "הערב"
+
+#: core/templates/wallet.html:53
+msgid "Comment Date"
+msgstr "תאריך הערה"
+
+#: core/templates/wallet.html:56
+msgid "Activated"
+msgstr "הופעל"
+
+#: core/templates/wallet.html:57
+msgid "Visited"
+msgstr "ביקר"
+
+#: core/templates/wallet.html:59
+msgid "Link"
+msgstr "קישור"
+
+#: core/templates/wallet.html:74
+msgid "expired"
+msgstr "פג תוקף"
+
+#: core/templates/tip.html:120 core/templates/wallet.html:74
+msgid "and"
+msgstr "ו"
+
+#: core/templates/wallet.html:74
+msgid "returned"
+msgstr "הוחזר"
+
+#: core/templates/wallet.html:76
+msgid "not activated"
+msgstr "לא הופעל"
+
+#: core/templates/wallet.html:90
+msgid "save comments"
+msgstr "שמור הערת"
+
+#: core/templates/tip.html:76
+msgid "very own wallet"
+msgstr "ארנק משלך"
+
+#: core/templates/index.html:40
+msgid "Never worry about small cash bills for tips"
+msgstr "אין צורך לדאוג יותר לכסף קטן בשביל טיפ"
+
+#: core/templates/index.html:71
+msgid "If tips are not claimed within one month, the unused funds will be sent to the donor's wallet"
+msgstr "במידה והטיפ לא ייפדה בתוך חודש, הסכום הנותר יוחזר לארנק של היוצר"
+
+#: core/templates/index.html:104
+msgid "Feel free to use this A4 promo in your store"
+msgstr "השתמשו בכרזה הזאת בחנות שלכם"
+
+#: core/templates/tip.html:76
+msgid "like"
+msgstr "אוהב"
+
+#: core/forms.py:18
+msgid "Original"
+msgstr "מקורי"
+
+#: core/forms.py:18
+msgid "Original B/W"
+msgstr "שחור/לבן מקורי"
+
+#: core/forms.py:18
+msgid "Turquoise"
+msgstr "תורכיז"
+
+#: core/forms.py:18
+msgid "Cash Style"
+msgstr "סגנון מזומן"
+
+#: core/forms.py:18
+msgid "Fantastic"
+msgstr "פנטסטי"
+
+#: core/forms.py:18
+msgid "Wood style"
+msgstr "סגנון עץ"
+
+#: core/forms.py:22
+msgid "Enter bitcoin address here"
+msgstr "הזינו כתובת ביטקוין"
+
+#: core/forms.py:36 core/forms.py:67
+msgid "Your address seems too short"
+msgstr "הכתובת קצרה מדי"
+
+#: core/forms.py:38 core/forms.py:41 core/forms.py:69 core/forms.py:73
+#: core/forms.py:75
+msgid "Must be a valid Bitcoin Address"
+msgstr "יש להזין כתובת ביטקוין חוקית"
+
+#: core/forms.py:45
+msgid "Your Address"
+msgstr "הכתובת שלכם"
+
+#: core/forms.py:51
+msgid "Custom message"
+msgstr "הערה"
+
+#: core/templates/base_bctip.html:7
+msgid "tips"
+msgstr "טיפ"
+
+#: core/templates/statistics.html:14 core/templates/statistics.html.py:60
+#: core/templates/statistics.html:65
+msgid "Activated tips"
+msgstr "טיפים שהופעלו"
+
+#: core/templates/statistics.html:19
+msgid "Expired tips"
+msgstr "טיפים שפגו"
+
+#: core/templates/statistics.html:24
+msgid "Total value"
+msgstr "סה\"כ סכום"
+
+#: core/templates/statistics.html:29
+msgid "Activated value"
+msgstr "סכום שהופעל"
+
+#: core/templates/statistics.html:35
+msgid "Activation success rate"
+msgstr "אחוזי הצלחה בהפעלה"
+
+#: core/templates/tip.html:30
+msgid "You have"
+msgstr "יש לך"
+
+#: core/templates/tip.html:62
+msgid "source"
+msgstr "מקור"
+
+#: core/templates/wallet-new.html:54
+msgid "How many"
+msgstr "כמה"
+
+#: core/templates/wallet-new.html:75
+msgid "Donate to"
+msgstr "תרום ל"
+
+#: core/templates/wallet-new.html:120
+msgid "Service"
+msgstr "שירות"
+
+#. Translators: BCTip description, part1
+#: core/templates/tip-content.xml.html:167
+msgid "Bitcoin is an open source digital currency"
+msgstr "ביטקוין הוא מטבע מבוזר דיגיטלי"
+
+#. Translators: BCTip description, part1
+#: core/templates/tip-content.xml.html:167
+msgid "You can transfer it worldwide with very low fees"
+msgstr "ניתן לשלם באמצעותו ברחבי העולם בעמלות נמוכות מאוד"
+
+#. Translators: BCTip description, part1
+#: core/templates/tip-content.xml.html:167
+msgid "Bitcoin uses cryptography and P2P technology to operate, and does not require central authority"
+msgstr "ביטקוין מופעל באמצעות הצפנה וטכנולוגיית P2P ואינו דורש סמכות מרכזית."
+
+#. Translators: BCTip expires
+#: core/templates/tip-content.xml.html:155 core/templates/tip.html:71
+msgid "Expires"
+msgstr "תוקף"
+
+#. Translators: BCTip issued
+#: core/templates/tip-content.xml.html:143
+msgid "Issued"
+msgstr "הונפק"
+
+#: core/models.py:24 core/views.py:248 utils/multi-template-fi.py:21
+#: utils/multi-template-fr.py:21 utils/multi-template.py:21
+msgid "Thank you for your service!"
+msgstr "תודה רבה על השירות"
+
+#: core/templates/wallet-new-unpaid.html:15
+msgid "Payment Details"
+msgstr "פירות השתלום"
+
+#: core/templates/wallet-new-unpaid.html:23 core/templates/wallet-new.html:117
+#: core/templates/wallet.html:45
+msgid "rate"
+msgstr "שער"
+
+#: core/templates/wallet-new-unpaid.html:25
+msgid "Value"
+msgstr "ערך"
+
+#: core/templates/wallet-new-unpaid.html:37
+msgid "to address"
+msgstr "לכתובת"
+
+#: core/templates/wallet-new-unpaid.html:40
+msgid "Payment status"
+msgstr "מצב התשלום"
+
+#: core/templates/wallet-new-unpaid.html:51
+msgid "Checking"
+msgstr "בבדיקה"
+
+#: core/templates/wallet-new-unpaid.html:59
+msgid "Paid! You will be redirected to the wallet"
+msgstr "שולם! כעת תועבר לארנק"
+
+#: core/templates/wallet-new-unpaid.html:62
+msgid "not paid"
+msgstr "לא שולם"
+
+#: core/templates/not_enough.html:7
+msgid "Not enough confirmations or not enough funds"
+msgstr "אין מספיק אישורים או כסף"
+
+#: core/templates/not_enough.html:9
+msgid "Please wait for several minutes or contact support if necessary"
+msgstr "אנא המתינו מספר דקות או צרו קשר לתמיכה"
+
+#: core/templates/wallet-new-unpaid.html:28
+msgid "Donation to"
+msgstr "תרמו ל"
+
+#: core/templates/wallet-new-unpaid.html:40
+msgid "wait"
+msgstr "המתינו"
+
+#: core/templates/base_bctip.html:96 core/templates/tip.html:79
+#: core/templates/tip.html.py:81 core/templates/tip.html:87
+#: core/templates/tip.html.py:97 core/templates/tip.html:102
+#: core/templates/tip.html.py:107 core/templates/tip.html:112
+#: core/templates/tip.html.py:114
+msgid "or"
+msgstr "או"
+
+#: core/templates/tip.html:160
+msgid "This URL is no longer valid, tip was activated"
+msgstr "הכתובת הזאת כבר לא תקיפה. הטיפ נפדה"
+
+#: core/templates/tip.html:161
+msgid "Tip has been activated"
+msgstr "טיפ נפדה"
+
+#: core/templates/404.html:5 core/templates/500.html:6
+#: core/templates/not_enough.html:6 core/templates/not_yet.html:6
+msgid "Error"
+msgstr "שגיאה"
+
+#: core/templates/not_enough.html:11 core/templates/not_yet.html:10
+msgid "Try again"
+msgstr "נסו שוב"
+
+#: core/templates/base_bctip.html:69
+msgid "Wallet"
+msgstr "ארנק"
+
+#. there is something wrong with this translation
+#: core/templates/base_bctip.html:70
+msgid "Gratuity"
+msgstr "תשר"
+
+#: core/templates/index.html:105 core/templates/tip.html:27
+msgid "Gratuity Example"
+msgstr "תשר לדוגמה"
+
+#: core/templates/wallet-new.html:100 core/templates/wallet.html:19
+msgid "Email"
+msgstr "מייל"
+
+#: core/templates/wallet-new.html:101
+msgid "for activation notifications"
+msgstr "להודעה על הפעלות"
+
+#: core/templates/base_bctip.html:9 core/templates/base_bctip.html.py:12
+msgid "BCTip allows you to print redeemable bitcoin tips"
+msgstr "BCTip מאפשר לכם להדפיס כרטיסי טיפ"
+
+#: core/templates/base_bctip.html:9 core/templates/base_bctip.html.py:12
+msgid "Each Tip has a unique URL to activate"
+msgstr "לכל כרטיס יש כתובת ייחודית לצורך הפעלה"
+
+#: core/templates/tip-content.xml.html:171
+msgid "Follow this link to redeem your bitcoins"
+msgstr "היכנסו לכתובת על מנת לפדות את הביטקוין"
+
+#: core/templates/tip.html:31
+msgid "bitcoins"
+msgstr "ביטקוין"
+
+#: core/templates/tip.html:61
+msgid "Current bitcoin price"
+msgstr "שער ביטקוין נוכחי"
+
+#: core/templates/tip.html:76
+msgid "To keep these bitcoins you have to send them to your"
+msgstr "כדי לשמור את הביטקוין, עליך לשלוח אותם אל"
+
+#: core/templates/tip.html:129
+msgid "Bitcoin is a public digital currency that can be sent directly from person to person"
+msgstr "ביטקוין הוא מטבע דיגיטלי מבוזר המאפשר עסקה מאדם לאדם"
+
+#: core/templates/tip.html:130
+msgid "It is a new, secure and free technology that enables"
+msgstr "זאת טכנולוגיה חדשה וחופשית שמאפשרת"
+
+#: core/templates/tip.html:134
+msgid "Very low or zero processing fees"
+msgstr "עמלות מאוד נמוכות"
+
+#. Translators: Please provide youtube video about bitcoin in your language
+#: core/models.py:26
+msgid "www.youtube.com/embed/Gc2en3nHxA4"
+msgstr "www.youtube.com/embed/Gc2en3nHxA4 "
+
+#: core/templates/tip.html:71
+msgid "Please redeem BCTip before the expiry date"
+msgstr "אנא פדו את הכרטיס לפני תום התוקף"
+
+#: core/templates/tip.html:82
+msgid "As soon as you get your own wallet, you can send your tips there"
+msgstr "ברגע שתצרו ארנק משלכם, שלחו אליו את הטיפ שקיבלתם"
+
+#: core/templates/tip.html:85
+msgid "If you wish to sell bitcoins, you can use one of the exchanges like"
+msgstr "אם ברצונכם למכור את הביטקוין, תוכלו להשתמש באתר חלפנות כמו"
+
+#: core/templates/tip.html:120
+msgid "There are many ways, and new ways each day, just check out"
+msgstr "יש המון שיטות כיום וכל יום מתגלות שיטות חדשות. בדקו בעצמכם"
+
+#: core/templates/wallet.html:17
+msgid "Your bitcoin address"
+msgstr "כתובת הביטקוין שלך"
+
+#: core/templates/wallet.html:44
+msgid "rate at time of purchase"
+msgstr "שער בזמן הרכישה"
+
+#: core/templates/wallet-new.html:117 core/templates/wallet.html:45
+msgid "Current"
+msgstr "נוכחי"
+
+#: core/templates/tip.html:137
+msgid "managing transactions and issuing bitcoins are carried out"
+msgstr "מבצע עסקות ומנפיק כרטיסים"
+
+#: core/templates/tip-content.xml.html:175
+msgid "Please claim before the expiration date below, or the bitcoins will be returned to the donor"
+msgstr "אנא פדו את הכרטיס לפני תום התוקף. אחרת הביטקוין יוחזרו ליוצר"
+
+#: core/templates/statistics.html:65
+msgid "by this month"
+msgstr "לפי החודש הנוכחי"
+
+#: core/templates/wallet-new.html:93
+msgid "is printed in the center of every tip"
+msgstr "מודפס במרכז של כל כרטיס"
+
+#: core/forms.py:18 core/templates/wallet-new.html:68
+msgid "Nice Label"
+msgstr "Nice Label"
+
+#: core/templates/tip.html:103 core/templates/tip.html.py:108
+#: core/templates/tip.html:115
+msgid "many others"
+msgstr "עוד רבים"
+
+#: core/templates/base_bctip.html:68
+msgid "Generate new tips"
+msgstr "צור כרטיסיות חדשות"
+
+#: core/templates/wallet-new.html:149
+msgid "preview"
+msgstr "תצוגה מקדימה"
+
+#: core/templates/index.html:97
+msgid "Please help with translation at"
+msgstr "אנא עזרו עם תרגום לשפות נוספות"
+

@@ -1,0 +1,651 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: BCTip\n"
+"Language: ru\n"
+
+#: core/templates/base_bctip.html:7 core/templates/base_bctip.html.py:58
+msgid "Printable Bitcoin Tips"
+msgstr "Распечатываемые Биткоин Чаевые"
+
+#: core/templates/wallet-new.html:5
+msgid "Home"
+msgstr "Начало"
+
+#: core/templates/base_bctip.html:62 core/templates/wallet-new.html:7
+msgid "New Wallet"
+msgstr "Новый Кошелек"
+
+#: core/templates/base_bctip.html:67
+msgid "Tip Unique Key"
+msgstr "Уникальный ключ чаевого"
+
+#: core/templates/base_bctip.html:68
+msgid "Redeem"
+msgstr "Обналичить"
+
+#: core/templates/base_bctip.html:61 core/templates/statistics.html:5
+#: core/templates/wallet-new.html:6
+msgid "Statistics"
+msgstr "Статистика"
+
+#: core/templates/base_bctip.html:88
+msgid "Support"
+msgstr "Поддержка"
+
+#: core/templates/base_bctip.html:88
+msgid "thread on bitcoin forum"
+msgstr "ветка на биткоин форуме"
+
+#: core/templates/base_bctip.html:89
+msgid "For donations"
+msgstr "Для пожертвований"
+
+#: core/templates/index.html:18
+msgid "Color and B/W templates"
+msgstr "Цветные и ч/б шаблоны"
+
+#: core/templates/index.html:25
+msgid "Just Print and Cut"
+msgstr "Просто распечатайте и разрежьте"
+
+#: core/templates/index.html:33
+msgid "Can be printed on any printer"
+msgstr "Может быть распечатано на любом принтере"
+
+#: core/templates/index.html:47
+msgid "Easy to activate"
+msgstr "Легко активировать"
+
+#: core/templates/index.html:62
+msgid "Make it yourself"
+msgstr "Сделайте самостоятельно"
+
+#: core/templates/index.html:63
+msgid "Just pay the invoice, download generated PDF, print and cut"
+msgstr "Просто оплатите, скачайте, распечатайте и нарежьте"
+
+#: core/templates/index.html:66
+msgid "Promote Bitcoin"
+msgstr "Продвигайте Биткоин"
+
+#: core/templates/index.html:67
+msgid "People need to know about the advantages of Bitcoins - give them tips to spread the word"
+msgstr "Люди должны знать о преимуществах Биткоин - подарите им чаевой для распространения информации"
+
+#: core/templates/index.html:70
+msgid "Zero risk"
+msgstr "Без рисков"
+
+#: core/templates/index.html:77
+msgid "Versatility"
+msgstr "Гибкость"
+
+#: core/templates/index.html:78
+msgid "The BCTip could be an addition to a normal cash tip or just a gift to a friend"
+msgstr "BCTip может быть дополнением к обычным чаевым или подарком другу"
+
+#: core/templates/index.html:81
+msgid "Localization"
+msgstr "Локализация"
+
+#: core/templates/index.html:82
+msgid "BCTips can be created in several languages and used all over the world"
+msgstr "BCTip могут быть созданы на нескольких языках и использованы по всему миру"
+
+#: core/templates/index.html:85
+msgid "Free"
+msgstr "Бесплатно"
+
+#: core/templates/index.html:86
+msgid "The service is free, but you can donate for further development"
+msgstr "Сервис бесплатный, но вы можете пожертвовать на развитие проекта"
+
+#: core/templates/index.html:98
+msgid "Generate New Tips"
+msgstr "Сгенерировать Новые Чаевые"
+
+#: core/templates/statistics.html:9
+msgid "Total generated tips"
+msgstr "Всего сгенерировано чаевых"
+
+#: core/templates/tip.html:17
+msgid "Expired"
+msgstr "Истек"
+
+#: core/templates/tip.html:18
+msgid "Tip with this URL was expired on"
+msgstr "Чаевой по этой ссылке истек"
+
+#: core/templates/tip.html:19
+msgid "The funds were returned to the owner"
+msgstr "Средства были возвращены владельцу"
+
+#: core/templates/tip.html:29
+msgid "Congratulations"
+msgstr "Поздравляем"
+
+#: core/templates/tip.html:37 core/templates/wallet-new.html:119
+msgid "Amount"
+msgstr "Количество"
+
+#: core/templates/tip.html:45
+msgid "can be sold for about"
+msgstr "могут быть проданы за"
+
+#: core/forms.py:30 core/templates/tip.html:54
+msgid "Send to"
+msgstr "Отправить"
+
+#: core/templates/tip.html:65
+msgid "Send"
+msgstr "Отправить"
+
+#: core/templates/tip.html:81
+msgid "How to sell"
+msgstr "Как продать"
+
+#: core/templates/tip.html:99
+msgid "How to spend"
+msgstr "Как потратить"
+
+#: core/templates/tip.html:108
+msgid "What is Bitcoin"
+msgstr "Что такое Биткоин"
+
+#: core/templates/tip.html:112
+msgid "Instant peer to peer transactions"
+msgstr "Мгновенные транзакции точка-точка"
+
+#: core/templates/tip.html:113
+msgid "Worldwide payments"
+msgstr "Платежи по всему миру"
+
+#: core/templates/tip.html:115
+msgid "And much more"
+msgstr "И многое другое"
+
+#: core/templates/tip.html:117
+msgid "Bitcoin uses peer to peer technology to operate with no central authority"
+msgstr "Биткоин использует пиринговые технологии чтобы осуществлять операции без центрального оператора"
+
+#: core/templates/tip.html:117
+msgid "collectively by the network"
+msgstr "коллективно сетью"
+
+#: core/templates/tip.html:118
+msgid "Through many of its unique properties, Bitcoin allows exciting uses that could not be covered by any previous payment systems"
+msgstr "Благодаря множеству этих уникальных качеств Биткоин открывает вдохновляющие возможности которые не были возможны в старых системах платежей"
+
+#: core/templates/tip-content.xml.html:167 core/templates/tip.html:121
+msgid "For more information visit"
+msgstr "Чтобы узнать больше информации посетите"
+
+#: core/templates/tip.html:121
+msgid "or search online for"
+msgstr "или ищите в сети"
+
+#: core/templates/base_bctip.html:8 core/templates/tip.html:121
+msgid "Bitcoin"
+msgstr "Биткоин"
+
+#: core/templates/tip.html:146
+msgid "Tip activation time"
+msgstr "Время активации чаевого"
+
+#: core/templates/tip.html:147
+msgid "Tip was sent to address"
+msgstr "Чаевой был отправлен по адресу"
+
+#: core/templates/tip.html:148
+msgid "Transaction ID"
+msgstr "Номер транзакции"
+
+#: core/templates/wallet-new.html:29
+msgid "Your Bitcoin address"
+msgstr "Ваш адес Биткоин"
+
+#: core/templates/wallet-new.html:30
+msgid "All the unused funds will be returned to this address after expiration"
+msgstr "Все не использованные средства будут возвращены на этот адрес по истечению срока"
+
+#: core/templates/wallet-new.html:43
+msgid "Tip Value"
+msgstr "Стоимость"
+
+#: core/templates/wallet-new.html:63 core/templates/wallet.html:13
+msgid "Template"
+msgstr "Шаблон"
+
+#: core/templates/wallet-new.html:90 core/templates/wallet.html:14
+msgid "Message"
+msgstr "Сообщение"
+
+#: core/templates/wallet-new.html:74
+msgid "Please support the development"
+msgstr "Пожалуйста поддержите разработку"
+
+#: core/templates/wallet-new.html:123
+msgid "Tips"
+msgstr "Чаевые"
+
+#: core/templates/wallet-new.html:126 core/templates/wallet.html:20
+msgid "Print and Post service"
+msgstr "Услуга по печати и отправке"
+
+#: core/templates/wallet-new.html:130
+msgid "Premium Template"
+msgstr "Премиум шаблон"
+
+#: core/templates/wallet-new.html:128
+msgid "Our humble tips"
+msgstr "Наши скромные чаевые"
+
+#: core/templates/wallet-new.html:132
+msgid "Transaction Fees"
+msgstr "Сборы за транзакции"
+
+#: core/templates/wallet-new.html:136 core/templates/wallet-new.html.py:137
+msgid "Total"
+msgstr "Всего"
+
+#: core/templates/wallet-new.html:149
+msgid "Checkout"
+msgstr "Оформить"
+
+#: core/templates/wallet.html:5
+msgid "Your Wallet"
+msgstr "Ваш Кошелек"
+
+#: core/templates/wallet-new-unpaid.html:22
+msgid "Wallet was created on"
+msgstr "Кошелек был создан "
+
+#: core/templates/wallet.html:12
+msgid "BCTip value"
+msgstr "Стоимость чаевого"
+
+#: core/templates/wallet-new-unpaid.html:26 core/templates/wallet.html:12
+msgid "Quantity"
+msgstr "Количество"
+
+#: core/templates/wallet.html:11
+msgid "Paid on"
+msgstr "Оплачен"
+
+#: core/templates/wallet.html:30 core/templates/wallet.html.py:31
+#: core/templates/wallet.html:33 core/templates/wallet.html.py:34
+msgid "Download"
+msgstr "Загрузить"
+
+#: core/templates/wallet.html:53
+msgid "Comment"
+msgstr "Коментарий"
+
+#: core/templates/wallet.html:53
+msgid "Comment Date"
+msgstr "Дата коментария"
+
+#: core/templates/wallet.html:56
+msgid "Activated"
+msgstr "Активировано"
+
+#: core/templates/wallet.html:57
+msgid "Visited"
+msgstr "Посещено"
+
+#: core/templates/wallet.html:59
+msgid "Link"
+msgstr "Ссылка"
+
+#: core/templates/wallet.html:74
+msgid "expired"
+msgstr "истек"
+
+#: core/templates/tip.html:100 core/templates/wallet.html:74
+msgid "and"
+msgstr "и"
+
+#: core/templates/wallet.html:74
+msgid "returned"
+msgstr "возвращен"
+
+#: core/templates/wallet.html:76
+msgid "not activated"
+msgstr "не активирован"
+
+#: core/templates/wallet.html:90
+msgid "save comments"
+msgstr "сохранить комментарии"
+
+#: core/templates/tip.html:74
+msgid "very own wallet"
+msgstr "ваш собственный кошелек"
+
+#: core/templates/index.html:40
+msgid "Never worry about small cash bills for tips"
+msgstr "Не беспокойтесь о мелких банкнотах для чаевых"
+
+#: core/templates/index.html:71
+msgid "If tips are not claimed within one month, the unused funds will be sent to the donor's wallet"
+msgstr "Если чаевые не были обналичены в течении одного месяца, то не использованные средства будут возвращены на кошелек создателя"
+
+#: core/templates/index.html:104
+msgid "Feel free to use this A4 promo in your store"
+msgstr "Просим воспользоваться этим промо плакатом в вашем магазине"
+
+#: core/templates/tip.html:74
+msgid "like"
+msgstr "например"
+
+#: core/forms.py:18
+msgid "Original"
+msgstr "Оригинальный"
+
+#: core/forms.py:18
+msgid "Original B/W"
+msgstr "Оригинальный ч/б"
+
+#: core/forms.py:18
+msgid "Turquoise"
+msgstr "Бирюзовый"
+
+#: core/forms.py:18
+msgid "Cash Style"
+msgstr "Денежный стиль"
+
+#: core/forms.py:18
+msgid "Fantastic"
+msgstr "Фантастико"
+
+#: core/forms.py:18
+msgid "Wood style"
+msgstr "Деревянный"
+
+#: core/forms.py:30
+msgid "Enter bitcoin address here"
+msgstr "Введите адрес Биткоин здесь"
+
+#: core/forms.py:35 core/forms.py:66
+msgid "Your address seems too short"
+msgstr "Ваш адрес выглядит слишком коротким"
+
+#: core/forms.py:37 core/forms.py:40 core/forms.py:68 core/forms.py:72
+#: core/forms.py:74
+msgid "Must be a valid Bitcoin Address"
+msgstr "Должен быть верный адрес Биткоин"
+
+#: core/forms.py:44
+msgid "Your Address"
+msgstr "Ваш адрес"
+
+#: core/forms.py:50
+msgid "Custom message"
+msgstr "Произвольное сообщение"
+
+#: core/templates/base_bctip.html:8
+msgid "tips"
+msgstr "чаевые"
+
+#: core/templates/statistics.html:14 core/templates/statistics.html.py:60
+#: core/templates/statistics.html:65
+msgid "Activated tips"
+msgstr "Активированне чаевые"
+
+#: core/templates/statistics.html:19
+msgid "Expired tips"
+msgstr "Просроченные чаевые"
+
+#: core/templates/statistics.html:24
+msgid "Total value"
+msgstr "Всего стоимость"
+
+#: core/templates/statistics.html:29
+msgid "Activated value"
+msgstr "Стоимость активированных"
+
+#: core/templates/statistics.html:35
+msgid "Activation success rate"
+msgstr "Процент успеха"
+
+#: core/templates/tip.html:30
+msgid "You have"
+msgstr "У вас есть"
+
+#: core/templates/tip.html:60
+msgid "source"
+msgstr "источник"
+
+#: core/templates/wallet-new.html:54
+msgid "How many"
+msgstr "Сколько"
+
+#: core/templates/wallet-new.html:73
+msgid "Donate to"
+msgstr "Пожертвовать"
+
+#: core/templates/wallet-new.html:118
+msgid "Service"
+msgstr "Услуга"
+
+#. Translators: BCTip description, part1
+#: core/templates/tip-content.xml.html:167
+msgid "Bitcoin is an open source digital currency"
+msgstr "Биткоин это цифровая валюта с открытыми исходными кодами"
+
+#. Translators: BCTip description, part1
+#: core/templates/tip-content.xml.html:167
+msgid "You can transfer it worldwide with very low fees"
+msgstr "Вы можете пересылать их по всему миру за очень маленькую плату"
+
+#. Translators: BCTip description, part1
+#: core/templates/tip-content.xml.html:167
+msgid "Bitcoin uses cryptography and P2P technology to operate, and does not require central authority"
+msgstr "Биткоин использует криптографию, P2P технологии и не требует центрального управления"
+
+#. Translators: BCTip expires
+#: core/templates/tip-content.xml.html:155 core/templates/tip.html:69
+msgid "Expires"
+msgstr "Истекает"
+
+#. Translators: BCTip issued
+#: core/templates/tip-content.xml.html:143
+msgid "Issued"
+msgstr "Выпущен"
+
+#: core/models.py:23 core/views.py:231 utils/multi-template.py:21
+msgid "Thank you for your service!"
+msgstr "Спасибо за ваши услуги!"
+
+#: core/templates/wallet-new-unpaid.html:15
+msgid "Payment Details"
+msgstr "Детали платежа"
+
+#: core/templates/wallet-new-unpaid.html:23 core/templates/wallet-new.html:115
+#: core/templates/wallet.html:45
+msgid "rate"
+msgstr "курс обмена"
+
+#: core/templates/wallet-new-unpaid.html:25
+msgid "Value"
+msgstr "Стоимость"
+
+#: core/templates/wallet-new-unpaid.html:37
+msgid "to address"
+msgstr "на адрес"
+
+#: core/templates/wallet-new-unpaid.html:40
+msgid "Payment status"
+msgstr "Статус платежа"
+
+#: core/templates/wallet-new-unpaid.html:51
+msgid "Checking"
+msgstr "Проверяю"
+
+#: core/templates/wallet-new-unpaid.html:59
+msgid "Paid! You will be redirected to the wallet"
+msgstr "Оплачено! Вы будете перенаправлены в ваш кошелек"
+
+#: core/templates/wallet-new-unpaid.html:62
+msgid "not paid"
+msgstr "не оплачено"
+
+#: core/templates/not_enough.html:7
+msgid "Not enough confirmations or not enough funds"
+msgstr "Недостаточно подтверждений или недостаточно средств"
+
+#: core/templates/not_enough.html:9
+msgid "Please wait for several minutes or contact support if necessary"
+msgstr "Пожалуйста ожидайте несколько минут или свяжитесь с поддержкой если необходимо"
+
+#: core/templates/wallet-new-unpaid.html:28
+msgid "Donation to"
+msgstr "Пожертвовать"
+
+#: core/templates/wallet-new-unpaid.html:40
+msgid "wait"
+msgstr "ожидайте"
+
+#: core/templates/base_bctip.html:88 core/templates/tip.html:77
+#: core/templates/tip.html.py:84 core/templates/tip.html:88
+#: core/templates/tip.html.py:92 core/templates/tip.html:94
+msgid "or"
+msgstr "или"
+
+#: core/templates/tip.html:140
+msgid "This URL is no longer valid, tip was activated"
+msgstr "Сссылка не активна, чаевой был обналичен"
+
+#: core/templates/tip.html:141
+msgid "Tip has been activated"
+msgstr "Чаевой был обналичен"
+
+#: core/templates/404.html:5 core/templates/500.html:6
+#: core/templates/not_enough.html:6 core/templates/not_yet.html:6
+msgid "Error"
+msgstr "Ошибка"
+
+#: core/templates/not_enough.html:11 core/templates/not_yet.html:10
+msgid "Try again"
+msgstr "Попробуйте еще раз"
+
+#: core/templates/base_bctip.html:63
+msgid "Wallet"
+msgstr "Кошелек"
+
+#: core/templates/base_bctip.html:64
+msgid "Gratuity"
+msgstr "Чаевые"
+
+#: core/templates/index.html:97 core/templates/tip.html:27
+msgid "Gratuity Example"
+msgstr "Пример чаевых"
+
+#: core/templates/wallet-new.html:98 core/templates/wallet.html:19
+msgid "Email"
+msgstr "Email"
+
+#: core/templates/wallet-new.html:99
+msgid "for activation notifications"
+msgstr "для уведомлений об активации"
+
+#: core/templates/base_bctip.html:9
+msgid "BCTip allows you to print redeemable bitcoin tips"
+msgstr "BCTip позволяет вам печатать обналичиваемые биткоин чаевые"
+
+#: core/templates/base_bctip.html:9
+msgid "Each Tip has a unique URL to activate"
+msgstr "У каждого чаевого есть уникальная ссылка для активации"
+
+#: core/templates/tip-content.xml.html:171
+msgid "Follow this link to redeem your bitcoins"
+msgstr "Посетите эту ссылку чтобы обналичить ваши биткоины"
+
+#: core/templates/tip.html:30
+msgid "bitcoins"
+msgstr "биткоины"
+
+#: core/templates/tip.html:59
+msgid "Current bitcoin price"
+msgstr "Текущая цена биткоинов"
+
+#: core/templates/tip.html:74
+msgid "To keep these bitcoins you have to send them to your"
+msgstr "Чтобы сохранить эти биткоины вам нужно отправить их на ваш"
+
+#: core/templates/tip.html:109
+msgid "Bitcoin is a public digital currency that can be sent directly from person to person"
+msgstr "Биткоин это цифровая валюта которая может быть отправлена напрямую от человека к человеку"
+
+#: core/templates/tip.html:110
+msgid "It is a new, secure and free technology that enables"
+msgstr "Это новая, защищенная и свободная технология, которая позволяет"
+
+#: core/templates/tip.html:114
+msgid "Very low or zero processing fees"
+msgstr "Очень низкая или нулевая коммиссия"
+
+#. Translators: Please provide youtube video about bitcoin in your language
+#: core/models.py:25
+msgid "www.youtube.com/embed/Gc2en3nHxA4"
+msgstr "www.youtube.com/embed/IdWgvOxjYi8"
+
+#: core/templates/tip.html:69
+msgid "Please redeem BCTip before the expiry date"
+msgstr "Пожалуйста обналичьте чаевой до истечения срока"
+
+#: core/templates/tip.html:79
+msgid "As soon as you get your own wallet, you can send your tips there"
+msgstr "Как только у вас будет собственный кошелек вы сможете отправить ваши чаевые туда"
+
+#: core/templates/tip.html:82
+msgid "If you wish to sell bitcoins, you can use one of the exchanges like"
+msgstr "Если вы хотите продать биткоины, то вы можете использовать обменники "
+
+#: core/templates/tip.html:100
+msgid "There are many ways, and new ways each day, just check out"
+msgstr "Есть множество способов и каждый день появляются новые, просто проверьте"
+
+#: core/templates/wallet.html:17
+msgid "Your bitcoin address"
+msgstr "Ваш биткоин адрес."
+
+#: core/templates/wallet.html:44
+msgid "rate at time of purchase"
+msgstr "курс на время покупки"
+
+#: core/templates/wallet-new.html:115 core/templates/wallet.html:45
+msgid "Current"
+msgstr "Текущий"
+
+#: core/templates/tip.html:117
+msgid "managing transactions and issuing bitcoins are carried out"
+msgstr "управлением транзакциями и выпуском биткоинов занимается"
+
+#: core/templates/tip-content.xml.html:175
+msgid "Please claim before the expiration date below, or the bitcoins will be returned to the donor"
+msgstr "Пожалуйста используйте до даты истечения срока, иначе биткоины будут возвращены владельцу"
+
+#: core/templates/statistics.html:65
+msgid "by this month"
+msgstr "в этом месяце"
+
+#: core/templates/wallet-new.html:147
+msgid "template preview"
+msgstr "предпросмотр шаблона"
+
+#: core/templates/wallet-new.html:91
+msgid "is printed in the center of every tip"
+msgstr "печатается в центре каждого чаевого"
+
+#: core/forms.py:18 core/templates/wallet-new.html:67
+msgid "Nice Label"
+msgstr "Красивая метка"
+
+#: core/templates/tip.html:95
+msgid "many others"
+msgstr "многие другие"
+

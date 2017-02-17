@@ -1,0 +1,11 @@
+{% extends "base.html" %}{%load i18n%}
+
+{% block content %}
+
+<h1 class="ui header">{% trans "Error" %}</h1>
+<div class="ui large message">Template has not been generated yet, please try again in 5 minutes.<br/>
+Result={{result}}, Info={{info}}</div>
+<br/>
+<a href="../" class="ui blue button">{% trans "Try again" %}</a>
+
+{% endblock %}

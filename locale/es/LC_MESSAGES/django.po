@@ -1,0 +1,655 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: BCTip\n"
+"Language: es\n"
+
+#: core/templates/base_bctip.html:7 core/templates/base_bctip.html.py:58
+msgid "Printable Bitcoin Tips"
+msgstr "Imprimible Bitcoin Propinas"
+
+#: core/templates/wallet-new.html:5
+msgid "Home"
+msgstr "Pantalla de inicio"
+
+#: core/templates/base_bctip.html:62 core/templates/wallet-new.html:7
+msgid "New Wallet"
+msgstr "Nueva Billetera"
+
+#: core/templates/base_bctip.html:67
+msgid "Tip Unique Key"
+msgstr "Clave Única de la Propina"
+
+#: core/templates/base_bctip.html:68
+msgid "Redeem"
+msgstr "Redimir"
+
+#: core/templates/base_bctip.html:61 core/templates/statistics.html:5
+#: core/templates/wallet-new.html:6
+msgid "Statistics"
+msgstr "Estadísticas"
+
+#: core/templates/base_bctip.html:88
+msgid "Support"
+msgstr "Apoyo"
+
+#: core/templates/base_bctip.html:88
+msgid "thread on bitcoin forum"
+msgstr "hilo en el foro de bitcoin"
+
+#: core/templates/base_bctip.html:89
+msgid "For donations"
+msgstr "Para donaciones"
+
+#: core/templates/index.html:18
+msgid "Color and B/W templates"
+msgstr "Color y Blanco y Negro plantillas"
+
+#: core/templates/index.html:25
+msgid "Just Print and Cut"
+msgstr "Sólo imprime y corte"
+
+#: core/templates/index.html:33
+msgid "Can be printed on any printer"
+msgstr "Se puede imprimir en cualquier impresora"
+
+#: core/templates/index.html:47
+msgid "Easy to activate"
+msgstr "Fácil de activar"
+
+#: core/templates/index.html:62
+msgid "Make it yourself"
+msgstr "Hágalo usted mismo"
+
+#: core/templates/index.html:63
+msgid "Just pay the invoice, download generated PDF, print and cut"
+msgstr "Sólo paga la factura, descarga el PDF generado, imprime y corte"
+
+#: core/templates/index.html:66
+msgid "Promote Bitcoin"
+msgstr "Promover Bitcoin"
+
+#: core/templates/index.html:67
+msgid "People need to know about the advantages of Bitcoins - give them tips to spread the word"
+msgstr "La gente necesita saber acerca de las ventajas de Bitcoins - déles propinas para correr la voz"
+
+#: core/templates/index.html:70
+msgid "Zero risk"
+msgstr "Cero riesgo"
+
+#: core/templates/index.html:77
+msgid "Versatility"
+msgstr "Versatilidad"
+
+#: core/templates/index.html:78
+msgid "The BCTip could be an addition to a normal cash tip or just a gift to a friend"
+msgstr "El BCTip podría ser una adición a una propina normal de dinero en efectivo o simplemente un regalo a un amigo"
+
+#: core/templates/index.html:81
+msgid "Localization"
+msgstr "Localización"
+
+#: core/templates/index.html:82
+msgid "BCTips can be created in several languages and used all over the world"
+msgstr "BCTips se pueden crear en varios idiomas y utilizados en todo el mundo"
+
+#: core/templates/index.html:85
+msgid "Free"
+msgstr "Gratis"
+
+#: core/templates/index.html:86
+msgid "The service is free, but you can donate for further development"
+msgstr "El servicio es gratuito, pero puede donar para un mayor desarrollo"
+
+#: core/templates/index.html:98
+msgid "Generate New Tips"
+msgstr "Generar Nuevas Propinas"
+
+#: core/templates/statistics.html:9
+msgid "Total generated tips"
+msgstr "Total de propinas generadas"
+
+#: core/templates/tip.html:17
+msgid "Expired"
+msgstr "Espirado"
+
+#: core/templates/tip.html:18
+msgid "Tip with this URL was expired on"
+msgstr "Propina con esta dirección de URL se venció el"
+
+#: core/templates/tip.html:19
+msgid "The funds were returned to the owner"
+msgstr "Los fondos fueron devueltos a su dueño"
+
+#: core/templates/tip.html:29
+msgid "Congratulations"
+msgstr "Felicitaciones"
+
+#: core/templates/tip.html:37 core/templates/wallet-new.html:119
+msgid "Amount"
+msgstr "Cantidad"
+
+#: core/templates/tip.html:45
+msgid "can be sold for about"
+msgstr "se puede vender por alrededor de"
+
+#: core/forms.py:30 core/templates/tip.html:54
+msgid "Send to"
+msgstr "Enviar a"
+
+#: core/templates/tip.html:65
+msgid "Send"
+msgstr "Enviar"
+
+#: core/templates/tip.html:81
+msgid "How to sell"
+msgstr "Cómo vender"
+
+#: core/templates/tip.html:99
+msgid "How to spend"
+msgstr "Cómo gastar"
+
+#: core/templates/tip.html:108
+msgid "What is Bitcoin"
+msgstr "Qué es Bitcoin"
+
+#: core/templates/tip.html:112
+msgid "Instant peer to peer transactions"
+msgstr "Transacciones instantánea de persona a person"
+
+#: core/templates/tip.html:113
+msgid "Worldwide payments"
+msgstr "Pagos en todo el mundo"
+
+#: core/templates/tip.html:115
+msgid "And much more"
+msgstr "Y mucho más"
+
+#. It's probably worth noting that in spanish the common peer-to-peer idea doesn't really apply, so I've translated to the more common understanding of seeing it as the acronym "P2P" which is more widely understood.
+#: core/templates/tip.html:117
+msgid "Bitcoin uses peer to peer technology to operate with no central authority"
+msgstr "Bitcoin utiliza P2P tecnología para operar sin autoridad central"
+
+#: core/templates/tip.html:117
+msgid "collectively by the network"
+msgstr "colectivamente por la red"
+
+#: core/templates/tip.html:118
+msgid "Through many of its unique properties, Bitcoin allows exciting uses that could not be covered by any previous payment systems"
+msgstr "A través de muchas de sus propiedades únicas, Bitcoin permite usos interesantes que no podían ser cubiertos por ningún sistema de pago anteriores"
+
+#. I noticed the English links lead to bitcoin.com
+#. Consider using bitcoin.org (or adding it) as it allows a different perspective for the reader (if business use ie. their own store or if they are a consumer). Plus it is managed by the foundation so any changes in information are quite immediate.
+#: core/templates/tip-content.xml.html:167 core/templates/tip.html:121
+msgid "For more information visit"
+msgstr "Para obtener más información, visite"
+
+#: core/templates/tip.html:121
+msgid "or search online for"
+msgstr "o buscar en el internet para"
+
+#: core/templates/base_bctip.html:8 core/templates/tip.html:121
+msgid "Bitcoin"
+msgstr "Bitcoin"
+
+#: core/templates/tip.html:146
+msgid "Tip activation time"
+msgstr "Hora de activación de la propina"
+
+#: core/templates/tip.html:147
+msgid "Tip was sent to address"
+msgstr "Propina fue enviada a la dirección"
+
+#: core/templates/tip.html:148
+msgid "Transaction ID"
+msgstr "ID de transacción"
+
+#: core/templates/wallet-new.html:29
+msgid "Your Bitcoin address"
+msgstr "Su dirección de Bitcoin"
+
+#: core/templates/wallet-new.html:30
+msgid "All the unused funds will be returned to this address after expiration"
+msgstr "Todos los fondos no utilizados serán devueltos a esta dirección tras el vencimiento"
+
+#: core/templates/wallet-new.html:43
+msgid "Tip Value"
+msgstr "Valor de la Propina"
+
+#: core/templates/wallet-new.html:63 core/templates/wallet.html:13
+msgid "Template"
+msgstr "Plantilla"
+
+#: core/templates/wallet-new.html:90 core/templates/wallet.html:14
+msgid "Message"
+msgstr "Mensaje"
+
+#: core/templates/wallet-new.html:74
+msgid "Please support the development"
+msgstr "Por favor, apoye el desarrollo"
+
+#: core/templates/wallet-new.html:123
+msgid "Tips"
+msgstr "Propinas"
+
+#: core/templates/wallet-new.html:126 core/templates/wallet.html:20
+msgid "Print and Post service"
+msgstr "Impresión y servicio postal"
+
+#: core/templates/wallet-new.html:130
+msgid "Premium Template"
+msgstr "Plantilla de prima"
+
+#: core/templates/wallet-new.html:128
+msgid "Our humble tips"
+msgstr "Nuestros humildes propinas"
+
+#: core/templates/wallet-new.html:132
+msgid "Transaction Fees"
+msgstr "Tarifas de transacción"
+
+#: core/templates/wallet-new.html:136 core/templates/wallet-new.html.py:137
+msgid "Total"
+msgstr "Total"
+
+#: core/templates/wallet-new.html:149
+msgid "Checkout"
+msgstr "Realizar Pedido"
+
+#: core/templates/wallet.html:5
+msgid "Your Wallet"
+msgstr "Su monedero"
+
+#: core/templates/wallet-new-unpaid.html:22
+msgid "Wallet was created on"
+msgstr "Monedero se creó el"
+
+#: core/templates/wallet.html:12
+msgid "BCTip value"
+msgstr "valor BCTip"
+
+#: core/templates/wallet-new-unpaid.html:26 core/templates/wallet.html:12
+msgid "Quantity"
+msgstr "Cantidad"
+
+#: core/templates/wallet.html:11
+msgid "Paid on"
+msgstr "Pagado el"
+
+#: core/templates/wallet.html:30 core/templates/wallet.html.py:31
+#: core/templates/wallet.html:33 core/templates/wallet.html.py:34
+msgid "Download"
+msgstr "Descargar"
+
+#: core/templates/wallet.html:53
+msgid "Comment"
+msgstr "Comentario"
+
+#: core/templates/wallet.html:53
+msgid "Comment Date"
+msgstr "Fecha de comentario"
+
+#: core/templates/wallet.html:56
+msgid "Activated"
+msgstr "Activado"
+
+#: core/templates/wallet.html:57
+msgid "Visited"
+msgstr "Visitado"
+
+#: core/templates/wallet.html:59
+msgid "Link"
+msgstr "Enlace"
+
+#: core/templates/wallet.html:74
+msgid "expired"
+msgstr "espirado"
+
+#: core/templates/tip.html:100 core/templates/wallet.html:74
+msgid "and"
+msgstr "y"
+
+#: core/templates/wallet.html:74
+msgid "returned"
+msgstr "devuelto"
+
+#: core/templates/wallet.html:76
+msgid "not activated"
+msgstr "no activado"
+
+#: core/templates/wallet.html:90
+msgid "save comments"
+msgstr "guardar comentarios"
+
+#: core/templates/tip.html:74
+msgid "very own wallet"
+msgstr "propio monedero"
+
+#: core/templates/index.html:40
+msgid "Never worry about small cash bills for tips"
+msgstr "No se preocupe más en  las pequeñas cuentas de efectivo para propinas"
+
+#: core/templates/index.html:71
+msgid "If tips are not claimed within one month, the unused funds will be sent to the donor's wallet"
+msgstr "Si las propinas no son reclamados dentro de un mes, los fondos no utilizados serán enviados al monedero del donante"
+
+#: core/templates/index.html:104
+msgid "Feel free to use this A4 promo in your store"
+msgstr "Siéntase libre de utilizar esta promoción en el tamaño de A4 en su tienda"
+
+#: core/templates/tip.html:74
+msgid "like"
+msgstr "gustar"
+
+#: core/forms.py:18
+msgid "Original"
+msgstr "Original"
+
+#: core/forms.py:18
+msgid "Original B/W"
+msgstr "Original (Blanco y Negro)"
+
+#: core/forms.py:18
+msgid "Turquoise"
+msgstr "Turquesa"
+
+#: core/forms.py:18
+msgid "Cash Style"
+msgstr "Estilo de Efectivo"
+
+#: core/forms.py:18
+msgid "Fantastic"
+msgstr "Fantástico"
+
+#: core/forms.py:18
+msgid "Wood style"
+msgstr "Estilo de madera"
+
+#: core/forms.py:30
+msgid "Enter bitcoin address here"
+msgstr "Ingrese la dirección de bitcoin aquí"
+
+#: core/forms.py:35 core/forms.py:66
+msgid "Your address seems too short"
+msgstr "Su dirección parece demasiado corto"
+
+#: core/forms.py:37 core/forms.py:40 core/forms.py:68 core/forms.py:72
+#: core/forms.py:74
+msgid "Must be a valid Bitcoin Address"
+msgstr "Debe ser una dirección válida de Bitcoin"
+
+#: core/forms.py:44
+msgid "Your Address"
+msgstr "Su Dirección"
+
+#: core/forms.py:50
+msgid "Custom message"
+msgstr "Mensaje personalizado"
+
+#: core/templates/base_bctip.html:8
+msgid "tips"
+msgstr "propinas"
+
+#: core/templates/statistics.html:14 core/templates/statistics.html.py:60
+#: core/templates/statistics.html:65
+msgid "Activated tips"
+msgstr "Propinas Activadas"
+
+#: core/templates/statistics.html:19
+msgid "Expired tips"
+msgstr "Propinas expiradas"
+
+#: core/templates/statistics.html:24
+msgid "Total value"
+msgstr "Valor total"
+
+#: core/templates/statistics.html:29
+msgid "Activated value"
+msgstr "Valor Activadas"
+
+#: core/templates/statistics.html:35
+msgid "Activation success rate"
+msgstr "Porcentaje de éxito de activaciónes"
+
+#: core/templates/tip.html:30
+msgid "You have"
+msgstr "Tienes"
+
+#: core/templates/tip.html:60
+msgid "source"
+msgstr "fuente"
+
+#: core/templates/wallet-new.html:54
+msgid "How many"
+msgstr "Cuántos"
+
+#: core/templates/wallet-new.html:73
+msgid "Donate to"
+msgstr "Donar a"
+
+#: core/templates/wallet-new.html:118
+msgid "Service"
+msgstr "Servicio"
+
+#. Translators: BCTip description, part1
+#: core/templates/tip-content.xml.html:167
+msgid "Bitcoin is an open source digital currency"
+msgstr "Bitcoin es una moneda digital con el código abierto"
+
+#. Translators: BCTip description, part1
+#: core/templates/tip-content.xml.html:167
+msgid "You can transfer it worldwide with very low fees"
+msgstr "Usted puede transferir por todo el mundo con tarifas muy bajas"
+
+#. Translators: BCTip description, part1
+#: core/templates/tip-content.xml.html:167
+msgid "Bitcoin uses cryptography and P2P technology to operate, and does not require central authority"
+msgstr "Bitcoin utiliza la criptografía y la tecnología P2P para operar, y no requiere de una autoridad central"
+
+#. Translators: BCTip expires
+#: core/templates/tip-content.xml.html:155 core/templates/tip.html:69
+msgid "Expires"
+msgstr "se expira"
+
+#. Translators: BCTip issued
+#: core/templates/tip-content.xml.html:143
+msgid "Issued"
+msgstr "Emitida"
+
+#: core/models.py:23 core/views.py:231 utils/multi-template.py:21
+msgid "Thank you for your service!"
+msgstr "Gracias por su servicio!"
+
+#: core/templates/wallet-new-unpaid.html:15
+msgid "Payment Details"
+msgstr "Datos de pago"
+
+#: core/templates/wallet-new-unpaid.html:23 core/templates/wallet-new.html:115
+#: core/templates/wallet.html:45
+msgid "rate"
+msgstr "tasa"
+
+#: core/templates/wallet-new-unpaid.html:25
+msgid "Value"
+msgstr "Valor"
+
+#: core/templates/wallet-new-unpaid.html:37
+msgid "to address"
+msgstr "a la dirección"
+
+#: core/templates/wallet-new-unpaid.html:40
+msgid "Payment status"
+msgstr "Estado del pago"
+
+#: core/templates/wallet-new-unpaid.html:51
+msgid "Checking"
+msgstr "Comprobando"
+
+#: core/templates/wallet-new-unpaid.html:59
+msgid "Paid! You will be redirected to the wallet"
+msgstr "Pagado! Usted será redirigido al monedero"
+
+#: core/templates/wallet-new-unpaid.html:62
+msgid "not paid"
+msgstr "no pagado"
+
+#: core/templates/not_enough.html:7
+msgid "Not enough confirmations or not enough funds"
+msgstr "No hay suficientes confirmaciones o no fondos suficientes"
+
+#: core/templates/not_enough.html:9
+msgid "Please wait for several minutes or contact support if necessary"
+msgstr "Por favor, espere unos minutos o contactar con el soporte si es necesario"
+
+#: core/templates/wallet-new-unpaid.html:28
+msgid "Donation to"
+msgstr "Donación a"
+
+#: core/templates/wallet-new-unpaid.html:40
+msgid "wait"
+msgstr "espere"
+
+#: core/templates/base_bctip.html:88 core/templates/tip.html:77
+#: core/templates/tip.html.py:84 core/templates/tip.html:88
+#: core/templates/tip.html.py:92 core/templates/tip.html:94
+msgid "or"
+msgstr "o"
+
+#: core/templates/tip.html:140
+msgid "This URL is no longer valid, tip was activated"
+msgstr "Esta URL ya no es válida, la propina fue activado"
+
+#: core/templates/tip.html:141
+msgid "Tip has been activated"
+msgstr "propina fue activado"
+
+#: core/templates/404.html:5 core/templates/500.html:6
+#: core/templates/not_enough.html:6 core/templates/not_yet.html:6
+msgid "Error"
+msgstr "Error"
+
+#: core/templates/not_enough.html:11 core/templates/not_yet.html:10
+msgid "Try again"
+msgstr "Inténtalo de nuevo"
+
+#: core/templates/base_bctip.html:63
+msgid "Wallet"
+msgstr "Monedero"
+
+#: core/templates/base_bctip.html:64
+msgid "Gratuity"
+msgstr "Gratificación"
+
+#: core/templates/index.html:97 core/templates/tip.html:27
+msgid "Gratuity Example"
+msgstr "Ejemplo de Gratificación"
+
+#: core/templates/wallet-new.html:98 core/templates/wallet.html:19
+msgid "Email"
+msgstr "Email"
+
+#: core/templates/wallet-new.html:99
+msgid "for activation notifications"
+msgstr "para las notificaciones de activaciónes"
+
+#: core/templates/base_bctip.html:9
+msgid "BCTip allows you to print redeemable bitcoin tips"
+msgstr "BCTip permite imprimir propinas de bitcoin rescatables"
+
+#: core/templates/base_bctip.html:9
+msgid "Each Tip has a unique URL to activate"
+msgstr "Cada Propina tiene una URL única para activar"
+
+#: core/templates/tip-content.xml.html:171
+msgid "Follow this link to redeem your bitcoins"
+msgstr "Siga este enlace para redimir sus bitcoins"
+
+#: core/templates/tip.html:30
+msgid "bitcoins"
+msgstr "bitcoins"
+
+#: core/templates/tip.html:59
+msgid "Current bitcoin price"
+msgstr "Precio bitcoin actual"
+
+#: core/templates/tip.html:74
+msgid "To keep these bitcoins you have to send them to your"
+msgstr "Para mantener estos bitcoins hay que enviarlos a tu"
+
+#: core/templates/tip.html:109
+msgid "Bitcoin is a public digital currency that can be sent directly from person to person"
+msgstr "Bitcoin es una moneda digital pública que puede ser enviado directamente de persona a persona"
+
+#: core/templates/tip.html:110
+msgid "It is a new, secure and free technology that enables"
+msgstr "Es una nueva, segura y gratis tecnología que permite"
+
+#: core/templates/tip.html:114
+msgid "Very low or zero processing fees"
+msgstr "Tasas de procesamiento muy bajas o nada"
+
+#. Translators: Please provide youtube video about bitcoin in your language
+#: core/models.py:25
+msgid "www.youtube.com/embed/Gc2en3nHxA4"
+msgstr "https://www.youtube.com/watch?v=Gc2en3nHxA4"
+
+#: core/templates/tip.html:69
+msgid "Please redeem BCTip before the expiry date"
+msgstr "Por favor reclama tu BCTip antes de la fecha de expiración"
+
+#: core/templates/tip.html:79
+msgid "As soon as you get your own wallet, you can send your tips there"
+msgstr "En cuanto consigues tu propio monedero, puedes enviar tus propinas ahí"
+
+#: core/templates/tip.html:82
+msgid "If you wish to sell bitcoins, you can use one of the exchanges like"
+msgstr "Si usted desea vender bitcoins, puede utilizar una de las casas de cambio como"
+
+#: core/templates/tip.html:100
+msgid "There are many ways, and new ways each day, just check out"
+msgstr "Hay muchas maneras, y nuevas formas cada día, fíjense"
+
+#: core/templates/wallet.html:17
+msgid "Your bitcoin address"
+msgstr "Su dirección de bitcoin"
+
+#: core/templates/wallet.html:44
+msgid "rate at time of purchase"
+msgstr "Cotización cuando se compro"
+
+#: core/templates/wallet-new.html:115 core/templates/wallet.html:45
+msgid "Current"
+msgstr "Actual"
+
+#: core/templates/tip.html:117
+msgid "managing transactions and issuing bitcoins are carried out"
+msgstr "gestión de las transacciones y la emisión de bitcoins se realizan"
+
+#. As requested, shortened to "Claim the bitcoins before the due date, or they will be returned to the donor".
+#: core/templates/tip-content.xml.html:175
+msgid "Please claim before the expiration date below, or the bitcoins will be returned to the donor"
+msgstr "Reclamen los bitcoins antes de la fecha de expiración, o seran devuelto al donante"
+
+#: core/templates/statistics.html:65
+msgid "by this month"
+msgstr "por este mes"
+
+#: core/templates/wallet-new.html:147
+msgid "template preview"
+msgstr "modelo de visualización"
+
+#: core/templates/wallet-new.html:91
+msgid "is printed in the center of every tip"
+msgstr "se imprime en el centro de cada propina"
+
+#: core/forms.py:18 core/templates/wallet-new.html:67
+msgid "Nice Label"
+msgstr "Bonita Etiqueta"
+
+#: core/templates/tip.html:95
+msgid "many others"
+msgstr "muchos otros"
+

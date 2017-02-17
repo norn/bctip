@@ -1,0 +1,35 @@
+body {
+  /*background-color: #10719a;*/
+  background-color: #e16b0a;
+  /*background-color: #e0873f;*/
+  color: #e1f0f0;
+}
+
+.ui.segment.mains {
+    /*background-color: #f8f8ec;*/
+    color: #333;
+}
+
+.footer {
+ margin-bottom:40px;
+}
+
+.footer a{
+ color:#e8d069; 
+}
+
+.footer a:hover {
+ color:#e8d069; 
+ text-decoration: underline;
+}
+
+
+/* ---- */
+/*#owl-demo .item{
+  margin: 3px;
+}*/
+#owl-demo .item img{
+  display: block;
+  width: 940px;
+  height: 536px;
+}

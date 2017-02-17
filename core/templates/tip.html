@@ -1,0 +1,169 @@
+{% extends "base.html" %}{% load i18n %}
+{% block nav_tip %}active{%endblock%}
+
+{% block content %}
+
+{% if tip.expired %}
+
+<div class="ui warning large message">
+<div class="header">{% trans "Expired" %}</div>
+{% trans "Tip with this URL was expired on" %} {{tip.etime}}.<br/>{% trans "The funds were returned to the owner" %}.</div>
+<div class="ui divider"></div>
+{% endif %}
+
+{% if tip.activated %}
+<h2 class="ui header">{% trans "Tip has been activated" %}</h2>
+
+
+<div class="ui warning message">
+{% trans "Tip activation time" %}: {{tip.atime}}<br/>
+{% trans "Tip was sent to address" %}: <b>{{tip.bcaddr}}</b><br/>
+{% trans "Transaction ID" %}: <a href="https://blockchain.info/tx/{{tip.txid}}" target="_blank">{{tip.txid|truncatechars:31}}</a><br/>
+</div><br/>
+{% endif %}
+
+<form class="ui form" action="" method="post">
+{% if tips_example %}
+<div class="ui large message">{% trans "Gratuity Example" %}</div>
+{% endif %}
+
+{% if not tip.activated and not tip.expired %}
+<h2 class="ui header">{% trans "You have" %} {{tip.balance_btc}}
+{% if request.LANGUAGE_CODE != "fi" %}{% trans "bitcoins" %}
+{%else%}bitcoinia{%endif%}
+
+<div class="sub header">
+{% trans "can be sold for about" %}
+    {{tip.wallet.divide_currency_sign}}{% if tip.wallet.divide_currency == "EUR" %}{{tip.balance_eur|floatformat:"2"}}{% else %}
+    {{tip.balance_usd|floatformat:"2"}}{% endif %}<br/>
+<!--{% trans "Current bitcoin price" %} <a href="https://www.bitstamp.net" target="_blank">1 BTC = USD ${{rate|floatformat:"2"}}</a></div>-->
+</h2>
+{% endif %}
+
+{% csrf_token %}
+{{ form.non_field_errors }}
+
+  <div class="field">
+    <label>{% trans "Amount" %} <i class="fa fa-btc"></i></label>
+    <input type="text"  value="{{tip.balance_btc}}" disabled="disabled">
+  </div>
+
+{% if not tip.expired %}
+  <div class="field">
+    <label>{% if tip.activated %}
+        {% trans "Sent to" %}
+        {% else%}
+        {% trans "Send to" %}
+        {% endif %}
+    </label>
+    {% if tip.activated %}
+    <input type="text"  value="{{tip.bcaddr}}" disabled="disabled">
+    {% else %}
+    {{ form.bcaddr }}
+    {{ form.bcaddr.errors }}
+    {% endif %}
+  </div>
+  {% if not tip.activated %}
+    {% trans "Expires" %}: {{tip.etime.date}}.<br/>{% trans "Please redeem BCTip before the expiry date" %}.<br/><br/>
+  {% endif %}
+  {% endif %}
+
+  
+
+{% if not tip.activated and not tip.expired %}
+<input type="submit"  class="ui green button" value="{% trans "Send" %}" />
+<script>
+//  $(document).ready(function() {
+//   $("#id_bcaddr").focus();
+// });
+</script>
+{% endif %}
+</form>
+
+
+
+
+<br/>
+<div class="ui message">
+{% trans "To keep these bitcoins you have to send them to your" %} <b>{% trans "very own wallet" %}</b>, {% trans "like" %}
+<a target="_blank" href="https://blockchain.info/wallet">Blockchain.info</a>
+<!--<a href="https://coinbase.com/?r=50d25756ddab73a598000019&utm_campaign=user-referral&src=referral-link" target="_blank">Coinbase</a>-->
+{% trans "or" %}
+<a target="_blank" href="https://rushwallet.com">RushWallet</a> 
+{% trans "or" %} <a target="_blank" href="https://copay.io/">Copay (iOS, Android, WP)</a>.<br/>
+{% trans "As soon as you get your own wallet, you can send your tips there"%}.<br/><br/>
+
+  <div class="header">{% trans "How to sell" %}</div>
+  <p>
+      
+      {% trans "If you wish to sell bitcoins, you can use one of the exchanges like" %}
+      {% if request.LANGUAGE_CODE == "ru" %}
+      <a target="_blank" href="https://btc-e.com/">BTC-E</a> {% trans "or" %}
+      <a target="_blank" href="https://localbitcoins.com/">LocalBitcoins</a>
+
+      {% elif request.LANGUAGE_CODE == "de" %}
+       <a href="https://www.bitcoin.de" target="_blank">Bitcoin.de</a> (spätere Überweisung auf ein Bank Konto) oder
+      <a href="https://localbitcoins.com" target="_blank">Localbitcoins</a> 
+      (mit Menschen persönlich tauschen) schicken. Die <a href='https://de.bitcoin.it/wiki/Handel#Bitcoins_kaufen_und_verkaufen' target="_blank">Liste</a> an weiteren Möglichkeiten ist lang.
+
+      {% elif request.LANGUAGE_CODE == "es" %}
+      <a href="https://www.coinsafe.com/" target="_blank">Coinsafe.com</a>
+      {% trans "or" %}
+      <a href="https://satoshitango.com/" target="_blank">SatoshiTango.com</a>
+
+      {% elif request.LANGUAGE_CODE == "fi" %}
+      <a href="https://bittiraha.fi/" target="_blank">bittiraha.fi</a>
+      {% trans "or" %}
+      <a href="https://en.bitcoin.it/wiki/Selling_bitcoins" target="_blank">{% trans "many others" %}</a>.
+
+      {% elif request.LANGUAGE_CODE == "pt" %}
+      <a href="https://www.bitcointoyou.com/">Bitcointoyou</a>, <a href="https://www.mercadobitcoin.com.br/">Mercado Bitcoin</a>
+      {% trans "or" %}
+      <a href="https://en.bitcoin.it/wiki/Selling_bitcoins" target="_blank">{% trans "many others" %}</a>.
+
+      {% else %}
+      <a href="https://coinbase.com/?r=50d25756ddab73a598000019&utm_campaign=user-referral&src=referral-link" target="_blank">Coinbase</a> (USA)
+      {% trans "or" %}
+      <a href="https://www.bitstamp.net" target="_blank">Bitstamp</a> (Europe)
+      {% trans "or" %}
+      <a href="https://localbitcoins.com/" target="_blank">LocalBitcoins (P2P)</a>
+      {% trans "or" %}
+      <a href="https://en.bitcoin.it/wiki/Selling_bitcoins" target="_blank">{% trans "many others" %}</a>.
+      {% endif %}
+      
+
+  </p>
+  <div class="header">{% trans "How to spend" %}</div>
+  <p>
+{% trans "There are many ways, and new ways each day, just check out" %} <a href="https://en.bitcoin.it/wiki/Trade" target="_blank">Bitcoin Trade Wiki</a> {% trans "and" %} <a href="http://coinmap.org/" target="_blank">Coin Map</a>
+</p>
+  
+</div>
+
+<h2 class="ui header">{% trans "What is Bitcoin" %}?</h2>
+<div class="ui large segment">
+<p>{% trans "Bitcoin is a public digital currency that can be sent directly from person to person" %}. 
+{% trans "It is a new, secure and free technology that enables" %}</p>
+<ul class="ui list">
+  <li>{% trans "Instant peer to peer transactions" %}</li>
+  <li>{% trans "Worldwide payments" %}</li>
+  <li>{% trans "Very low or zero processing fees" %}</li>
+  <li>{% trans "And much more" %}!</li>
+</ul>
+<p>{% trans "Bitcoin uses peer to peer technology to operate with no central authority" %}; {% trans "managing transactions and issuing bitcoins are carried out" %} <b>{% trans "collectively by the network" %}</b>. 
+{% trans "Through many of its unique properties, Bitcoin allows exciting uses that could not be covered by any previous payment systems" %}.</p>
+
+<p>{% trans "For more information visit" %} <a href="https://bitcoin.org/" target="_blank">bitcoin.org</a> {% trans "or search online for" %} <a target="_new" href="http://www.google.com/search?q={% trans "Bitcoin"%}">{% trans "Bitcoin" %}</a>.</p>
+</div>
+
+<div id="whatisbitcoin" class="row text-center">
+  <iframe width="560" height="315" src="//{% comment %}Translators: Please provide youtube video about bitcoin in your language{% endcomment %}{% trans "www.youtube.com/embed/Gc2en3nHxA4" %}" frameborder="0" allowfullscreen style="max-width:100%"></iframe>
+{% if request.LANGUAGE_CODE == "XXru" %}
+  <iframe width="560" height="315" src="//www.youtube.com/embed/IdWgvOxjYi8" frameborder="0" allowfullscreen></iframe>
+{% else %}{% endif %}
+
+<!--<br/><br/>
+<iframe src="https://player.vimeo.com/video/63502573" width="640" height="360" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+-->
+</div>
+{% endblock %}

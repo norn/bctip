@@ -1,0 +1,11 @@
+{% extends "base.html" %}{%load i18n%}
+
+{% block content %}
+
+<h1 class="ui header">500 {% trans "Error" %}</h1>
+
+<div class="ui large message">Please be patient, we try to fix ASAP.</div>
+<br/>
+<a href="{% url 'home' %}" class="ui blue button">Go to the main page</a>
+
+{% endblock %}
