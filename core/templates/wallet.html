@@ -16,7 +16,7 @@
 {% trans "Message" %}: {{wallet.message}}
 <br/><br/>
 
-{% trans "Your bitcoin address" %}: <a href="bitcoin:{{wallet.bcaddr_from}}">{{wallet.bcaddr_from}}<br/>
+{% trans "Your bitcoin address" %}: <a href="bitcoin:{{wallet.bcaddr_from}}">{{wallet.bcaddr_from}}</a><br/>
 
 {% trans "Email" %}: <a href="mailto:{{wallet.email}}">{{wallet.email}}</a><br/>
 {% if wallet.post_and_print %}{% trans "Print and Post service" %}: {{wallet.post_and_print}}<br/>{%endif%}
