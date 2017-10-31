@@ -30,7 +30,7 @@ from django.utils.translation import ugettext as _
 BASE10 = '1234567890'
 BASE58 = '123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ'
 DEFAULT_EXP = datetime.timedelta(days=30)
-EST_FEE = 0.0003
+EST_FEE = round(BITCOIND.estimatefee(6)/4.0, 5) # per KB
 
 
 def arender(request, template, ctx):
@@ -55,7 +55,9 @@ def generate_tips(wallet):
             key += "%s-" % get_random_key(length=4)
         key = key.lower()[:-1]
         Tip.objects.create(
-            wallet=wallet, key=key, etime=datetime.datetime.now()+DEFAULT_EXP, balance=quant)
+            wallet=wallet, key=key,
+            etime=datetime.datetime.now()+datetime.timedelta(days=wallet.expiration),
+            balance=quant)
     return True
 
 # views
@@ -157,6 +159,8 @@ def statistics(request):
 
 def wallet(request, key):
     site = request.META.get('HTTP_HOST', '').lower()
+    template_mod = ""
+    # time.sleep(0.25)
 
     wallet = get_object_or_404(Wallet, key=key)
     #custom = request.GET.get("c")
@@ -179,7 +183,7 @@ def wallet(request, key):
                 fee = fee/100*wallet.price
                 fee = fee/wallet.rate
                 if wallet.template == "005-premium.odt":
-                    fee += Decimal("0.002")
+                    fee += Decimal("0.0001")
             if wallet.print_and_post:
                 pap_total = 2+wallet.quantity/9.0*1
                 pap_total = pap_total/wallet.rate
@@ -188,6 +192,7 @@ def wallet(request, key):
             if wallet.email:
                 send_mail('new BCTIP wallet', 'Congratulations!\n\nYour new BCTip wallet is available at: https://www.bctip.org/w/%s/' %
                           (wallet.key), 'noreply@bctip.org', [wallet.email], fail_silently=True)
+            # wallet.get_absolute_url()
             return HttpResponseRedirect(reverse('wallet', kwargs={'key': wallet.key}))
 
     if request.POST:
@@ -203,6 +208,7 @@ def wallet(request, key):
             # request.form.cleaned_data['target_language']
             wallet.target_language = request.LANGUAGE_CODE
             wallet.email = form.cleaned_data['email']
+            wallet.expiration = form.cleaned_data['expiration']
 
             total_usd = wallet.divide_by*Decimal(wallet.quantity)  # pure tips
             # tips and price for service
@@ -223,11 +229,11 @@ def wallet(request, key):
             wallet.invoice = total_usd/wallet.rate / \
                 Decimal(
                     CURRENCY_RATES[wallet.divide_currency])*Decimal(1e8)  # usd->btc
-            wallet.invoice += Decimal(1+wallet.quantity) * \
+            wallet.invoice += Decimal(wallet.quantity) * \
                 Decimal(EST_FEE)*Decimal(1e8)
             # premium template extra
             if wallet.template == "005-premium.odt":
-                wallet.invoice += Decimal(0.002)*Decimal(1e8)
+                wallet.invoice += Decimal(0.0001)*Decimal(1e8)
             wallet.bcaddr = BITCOIND.getnewaddress(wallet.get_account())
             isvalid = BITCOIND.validateaddress(wallet.bcaddr_from)['isvalid']
             wallet.save()
@@ -256,10 +262,11 @@ def wallet(request, key):
 
         form = WalletForm(initial=initial)
     ctx['form'] = form
+    ctx['est_fee'] = EST_FEE
     if wallet.bcaddr and not wallet.atime:
-        return arender(request, 'wallet-new-unpaid.html', ctx)
+        return arender(request, 'wallet-new-unpaid%s.html' % template_mod, ctx)
     else:
-        return arender(request, 'wallet-new.html', ctx)
+        return arender(request, 'wallet-new%s.html' % template_mod, ctx)
 
 
 def wajax(request, key):  # no processing here, just a period checking
@@ -295,7 +302,7 @@ def tip(request, key):
         if form.is_valid():
             cc_key = 'lock_%s' % tip.id
             while cache.get(cc_key):
-                time.sleep(x)
+                time.sleep(0.1)
             cache.set(cc_key, 1, 3)
             tip = get_object_or_404(Tip, key=key)  # one more
             if tip.activated:
@@ -369,10 +376,11 @@ def tip_redir(request, key):
 
 def tips_example(request):
     tip_bcaddr = None
-    tip = Tip(key="abcd-efgh-ijkl-mnop", balance=1234567,
+    tip = Tip(key="abcd-efgh-ijkl-mnop", balance=420000,
               etime=datetime.datetime.now()+DEFAULT_EXP)
     initial = {'bcamount': tip.balance_btc}
     form = TipForm(initial=initial)
+    tip.wallet = Wallet(divide_currency='USD')
     ctx = {
         'tip': tip, 'rate': get_avg_rate(), 'form': form, "tips_example": True}
     template = "tip.html"

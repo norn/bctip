@@ -1,6 +1,10 @@
 {% extends "base.html" %}{% load i18n %}{% load l10n %}
 
 {% block content %}
+
+{% trans "Current" %} {% trans "rate" %} (Bitstamp): ${{wallet.rate|floatformat:"2"}}
+<br/><br/>
+
 <form action="" method="post" class="ui large form">{% csrf_token %}
 {{ form.non_field_errors }}
 
@@ -29,11 +33,16 @@
   </div>
   </div>
   <br/>
+  <div class="field"><label>{% trans "Expiration" %}</label>
+   {{ form.expiration.errors }}
+   {{ form.expiration }}
+  </div>
+  <br/>
   <div class="field"><label>{% trans "Template" %}</label>
     {{ form.template.errors }}
     {{ form.template }}
     {% if not custom_saveatpurse %}
-    <div class="ui small label hidden nice_label">{% trans "Nice Label" %} +0.002 BTC</div>
+    <div class="ui small label hidden nice_label">{% trans "Nice Label" %} +0.0001 BTC</div>
     {% endif %}</div>
 
 <div class="field"><label>{% trans "Message" %}</label>
@@ -52,8 +61,7 @@
     {{ form.price.errors }}
     {{ form.price }}
   </div>
-<div class="ui segment">
-{% trans "Current" %} {% trans "rate" %} (Bitstamp): ${{wallet.rate|floatformat:"2"}}</div>
+
 
 <table class="ui table"><thead>
  <th>{% trans "Service" %}</th>
@@ -73,8 +81,9 @@
 {% trans "Transaction Fees" %}</td><td><span id="transes_btc" style="font-weight:bold">0.0 BTC</span></td>
 </tr><tr>
 <td colspan="2" style="text-align:right">
- {% trans "Total" %} <span id="total_sign">USD</span><br/><span id="total_usd" style="font-size:150%;font-weight:bold"></span>
- <br/>{% trans "Total" %} BTC<br/><span id="total_btc" style="font-size:150%;font-weight:bold"></span>
+ <!--{% trans "Total" %} <span id="total_sign">USD</span><br/><span id="total_usd" style="font-size:150%;font-weight:bold"></span>
+ <br/>-->
+ {% trans "Total" %} BTC<br/><span id="total_btc" style="font-size:150%;font-weight:bold"></span>
 </td>
 </tr></tbody></table>
 
@@ -83,6 +92,7 @@
 
 
 <div class="text-center"><input type="submit" class="ui fluid green button" value="{% trans "Checkout" %}" /></div>
+
 
 
 </div><div class="center aligned column">
@@ -191,7 +201,7 @@ function recalc() {
  var divide_by = parseInt($('#id_divide_by').val());
  var quantity = parseInt($('#id_quantity').val());
  var price = parseFloat($('[name=price]').val());
- var transes = (quantity+1)*0.0003;
+ var transes = quantity*{{est_fee}};
  var sum = quantity*divide_by;
  var total_usd=sum;
 
@@ -217,8 +227,8 @@ function recalc() {
  $('#total_usd').html(cur_sign+total_usd);
  $('#transes_btc').html(transes.toFixed(4)+" BTC");
  if (premium_extra=="005-premium") {
-   $('#premium_extra').html("0.002 BTC");
-   var premium_extra = 0.002;
+   $('#premium_extra').html("0.0001 BTC");
+   var premium_extra = 0.0001;
  } else {
    $('#premium_extra').html("0");
    var premium_extra = 0;
