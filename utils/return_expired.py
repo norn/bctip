@@ -30,6 +30,7 @@ for account in expired:
     amount = BITCOIND.getbalance(account+"_exp")
     wallet_id = int(account.split('_')[0])
     wallet = Wallet.objects.get(id=wallet_id)
+    BITCOIND.settxfee(wallet.fee_float)
     txid = BITCOIND.sendfrom(account+"_exp", wallet.bcaddr_from, amount-wallet.fee_float)
     print "BITCOIND sendfrom(%s, %s, %s)"%(account+"_exp", wallet.bcaddr_from, amount-wallet.fee_float)
     # manage txid
