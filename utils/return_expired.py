@@ -18,7 +18,7 @@ expired_tips = Tip.objects.filter(etime__lt=now, activated=False, wallet__activa
 expired=[]
 for tip in expired_tips:
     account = tip.wallet.get_account()
-    BITCOIND.move(account, account+"_exp", tip.balance_btc)
+    BITCOIND.move(account, account+"_exp", tip.balance_btc+tip.wallet.fee_float)
     #print "BITCOINDD move(%s) %s, %s, %s"%(BITCOIND.getbalance(account),,account, account+"_exp", tip.balance_btc)
     if account not in expired:
         expired.append(account)
@@ -30,8 +30,8 @@ for account in expired:
     amount = BITCOIND.getbalance(account+"_exp")
     wallet_id = int(account.split('_')[0])
     wallet = Wallet.objects.get(id=wallet_id)
-    txid = BITCOIND.sendfrom(account+"_exp", wallet.bcaddr_from, amount)
-    print "BITCOIND sendfrom(%s, %s, %s)"%(account+"_exp", wallet.bcaddr_from, amount)
+    txid = BITCOIND.sendfrom(account+"_exp", wallet.bcaddr_from, amount-wallet.fee_float)
+    print "BITCOIND sendfrom(%s, %s, %s)"%(account+"_exp", wallet.bcaddr_from, amount-wallet.fee_float)
     # manage txid
     Tip.objects.filter(wallet=wallet, expired=True).update(txid=txid)
     if wallet.email:

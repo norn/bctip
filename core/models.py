@@ -19,7 +19,7 @@ a.listaccounts()
 a.listtransactions(acc)
 """
 # 1 usd in rub
-CURRENCY_RATES = {'USD': 1, 'EUR': 0.9, 'GBP': 0.66, 'SEK': 8.6, 'RUB': 70.0}
+CURRENCY_RATES = {'USD': 1, 'EUR': 0.9, 'GBP': 0.66, 'SEK': 8.6, 'RUB': 60.0}
 CURRENCY_SIGNS = {'USD': '$', 'EUR': '€', 'GBP': '£', 'SEK': 'kr'}
 MESSAGES = {}
 THANKS_MESSAGE = _("Thank you for your service!")
@@ -69,6 +69,8 @@ class Wallet(models.Model):
     src_site = models.SmallIntegerField(
         blank=True, null=True, default=0)  # for custom
     email = models.CharField(max_length=64, null=True, blank=True)
+    fee = models.DecimalField(
+        decimal_places=8, max_digits=10, blank=True, null=True)
 
     @property
     def balance_nbtc(self):
@@ -84,6 +86,13 @@ class Wallet(models.Model):
             return self.balance/100000000.0 or None  # 1e8
         else:
             return None
+
+    @property
+    def fee_float(self):
+        if self.fee:
+            return float(self.fee)
+        else:
+            return 0
 
     @property
     def invoice_btc(self):
@@ -265,3 +274,11 @@ def get_bitstamp_avg_rate(force=False):
         return rate
     except:
         return None
+
+def get_est_fee():
+    key = 'est_fee'
+    fee = cache.get(key)
+    if not fee:
+        fee = round(BITCOIND.estimatefee(6)/4.0, 6)
+        cache.set(key, fee, 60*60)
+    return fee

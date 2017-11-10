@@ -30,7 +30,6 @@ from django.utils.translation import ugettext as _
 BASE10 = '1234567890'
 BASE58 = '123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ'
 DEFAULT_EXP = datetime.timedelta(days=30)
-EST_FEE = round(BITCOIND.estimatefee(6)/4.0, 5) # per KB
 
 
 def arender(request, template, ctx):
@@ -229,8 +228,9 @@ def wallet(request, key):
             wallet.invoice = total_usd/wallet.rate / \
                 Decimal(
                     CURRENCY_RATES[wallet.divide_currency])*Decimal(1e8)  # usd->btc
+            wallet.fee = Decimal(get_est_fee())
             wallet.invoice += Decimal(wallet.quantity) * \
-                Decimal(EST_FEE)*Decimal(1e8)
+                wallet.fee * Decimal(1e8)
             # premium template extra
             if wallet.template == "005-premium.odt":
                 wallet.invoice += Decimal(0.0001)*Decimal(1e8)
@@ -262,7 +262,7 @@ def wallet(request, key):
 
         form = WalletForm(initial=initial)
     ctx['form'] = form
-    ctx['est_fee'] = EST_FEE
+    ctx['est_fee'] = wallet.fee_float
     if wallet.bcaddr and not wallet.atime:
         return arender(request, 'wallet-new-unpaid%s.html' % template_mod, ctx)
     else:
