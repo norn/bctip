@@ -30,7 +30,7 @@
 <div class="ui fluid vertical menu">
  <a class="item" href="./pdf/"><i class="download icon"></i>{% trans "Download" %}<div class="ui green label">PDF A4</div></a></a>
   <a class="item" href="./pdf-us/"><i class="download icon"></i></i>{% trans "Download" %} <div class="ui label">PDF US Letter</div></a>
- <a class="item" href="./png/"><i class="download icon"></i>{% trans "Download" %} <div class="ui label">PNG</div></a>
+ <a class="item" href="./png/"><i class="download icon"></i>{% trans "Download" %} <div class="ui green label">PNG</div></a>
   <a class="item" href="./odt/"><i class="download icon"></i>{% trans "Download" %} <div class="ui label">ODT</div></a>
 
 </div>
@@ -47,7 +47,7 @@ Bitstamp {% trans "rate at time of purchase" %}: ${{wallet.rate|floatformat:"2"}
 </div>
 
 <br/>
-
+<div class="ui tiny positive message">{% trans "Advice" %}: {% trans "You can email URL of the tip to your friend" %}</div>
 <form action="./comments/" method="post">{% csrf_token %}
 
 <table class="ui striped stackable table">

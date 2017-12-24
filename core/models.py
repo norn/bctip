@@ -14,12 +14,12 @@ BITCOIND = ServiceProxy(settings.BITCOIND_CONNECTION_STRING)
 """
 access.getbalance()
 access.getinfo()
-settxfee(0)
+settxfee(0.00001)
 a.listaccounts()
 a.listtransactions(acc)
 """
 # 1 usd in rub
-CURRENCY_RATES = {'USD': 1, 'EUR': 0.9, 'GBP': 0.66, 'SEK': 8.6, 'RUB': 60.0}
+CURRENCY_RATES = {'USD': 1, 'EUR': 0.85, 'GBP': 0.75, 'SEK': 8.5, 'RUB': 60.0}
 CURRENCY_SIGNS = {'USD': '$', 'EUR': '€', 'GBP': '£', 'SEK': 'kr'}
 MESSAGES = {}
 THANKS_MESSAGE = _("Thank you for your service!")
@@ -92,7 +92,11 @@ class Wallet(models.Model):
         if self.fee:
             return float(self.fee)
         else:
-            return 0
+            return 0.00001
+
+    @property
+    def txfee_float(self):
+        return round(self.fee_float*3, 6)
 
     @property
     def invoice_btc(self):
@@ -275,10 +279,11 @@ def get_bitstamp_avg_rate(force=False):
     except:
         return None
 
-def get_est_fee():
+def get_est_fee(force=False):
     key = 'est_fee'
     fee = cache.get(key)
-    if not fee:
-        fee = round(BITCOIND.estimatefee(6)/4.0, 6)
+    if not fee or force:
+        fee = BITCOIND.estimatesmartfee(6*8)['feerate']
+        fee = round(fee/3, 6)
         cache.set(key, fee, 60*60)
     return fee

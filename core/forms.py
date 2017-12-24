@@ -13,9 +13,11 @@ DIVIDE_BY = (("1", "1"), ("2", "2"), ("5", "5"), ("10", "10"),
 QUANTITY = (("5", "5"), ("10", "10"), ("20", "20"), ("30", "30"))
 PRICE = (("0", "0%"), ("5", "5%"),  ("10", "10%"))
 TEMPLATES = (('001-original', _l('Original')),)
+EXPIRATIONS = (("30", "30 days"), ("90", "3 months"),
+                   ("180", "6 months"), ("365", "1 year"))
 
 def prim():
-    return _l('Nice Label')+', 0.002 BTC'
+    return _l('Nice Label')+', 0.0001 BTC'
 
 class TipForm(forms.Form):
     bcaddr = forms.CharField(max_length=34, required=True, label=_("Send to"), widget=forms.TextInput(
@@ -61,6 +63,8 @@ class WalletForm(forms.Form):
                                   'class': 'disabled'}))
     postal_code = forms.CharField(max_length=12, required=False)
     email = forms.CharField(max_length=64, required=False)
+    expiration = forms.ChoiceField(
+        widget=forms.Select, choices=EXPIRATIONS, initial="30")
 
     def clean_bcaddr_from(self):
         bcaddr_from = self.cleaned_data['bcaddr_from']
@@ -90,3 +94,8 @@ class WalletForm(forms.Form):
 
     def clean_template(self):
         return self.cleaned_data['template']+'.odt'
+
+    def clean_expiration(self):
+        return int(self.cleaned_data['expiration'])
+
+

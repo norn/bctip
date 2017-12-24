@@ -13,10 +13,15 @@ import zipfile
 from decimal import Decimal
 
 import qrcode
+
+from django.conf import settings
+#if settings.BCTIP_MOD:
+#    from core.forms_custom import *
+#else:
 from core.forms import *
+
 from core.models import *
 from core.tasks import celery_generate_pdf
-from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.core.cache import cache
 from django.core.mail import send_mail
@@ -235,6 +240,7 @@ def wallet(request, key):
             if wallet.template == "005-premium.odt":
                 wallet.invoice += Decimal(0.0001)*Decimal(1e8)
             wallet.bcaddr = BITCOIND.getnewaddress(wallet.get_account())
+            # wallet.bcaddr_segwit = BITCOIND.addwitnessaddress(wallet.bcaddr)
             isvalid = BITCOIND.validateaddress(wallet.bcaddr_from)['isvalid']
             wallet.save()
             generate_tips(wallet)
@@ -262,7 +268,7 @@ def wallet(request, key):
 
         form = WalletForm(initial=initial)
     ctx['form'] = form
-    ctx['est_fee'] = wallet.fee_float
+    ctx['est_fee'] = get_est_fee()
     if wallet.bcaddr and not wallet.atime:
         return arender(request, 'wallet-new-unpaid%s.html' % template_mod, ctx)
     else:
@@ -316,6 +322,7 @@ def tip(request, key):
             tip.ip = request.META.get('HTTP_X_FORWARDED_FOR')
             tip.ua = request.META.get('HTTP_USER_AGENT')
             tip.save()
+            BITCOIND.settxfee(tip.wallet.txfee_float)
             tip.txid = BITCOIND.sendfrom(
                 tip.wallet.get_account(), tip.bcaddr, tip.balance_btc)
             tip.save()
@@ -324,7 +331,7 @@ def tip(request, key):
                 wcomment = ""
                 if tip.comment:
                     wcomment = 'with comment "%s" ' % tip.comment
-                send_mail('Bitcoin tips has been activated', 'BCTip https://www.bctip.org/%s/ %shas been activated.' %
+                send_mail('Bitcoin tip has been activated', 'BCTip https://www.bctip.org/%s/ %shas been activated.' %
                           (tip.key, wcomment), 'noreply@bctip.org', [tip.wallet.email], fail_silently=True)
             tip_bcaddr = tip.bcaddr
     else:

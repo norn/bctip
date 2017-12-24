@@ -3,7 +3,7 @@ from django.conf.urls.i18n import i18n_patterns
 from django.contrib.sitemaps.views import sitemap
 from django.contrib.sitemaps import Sitemap
 from django.contrib import admin
-
+from django.conf import settings
 admin.autodiscover()
 
 urlpatterns = i18n_patterns('',
@@ -28,3 +28,7 @@ urlpatterns += patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'qrcode/(?P<key>\w+)/$','core.views.qrcode_view', name='qrcode'),
 )
+
+if settings.BCTIP_MOD:
+    import bctip.urls_custom
+    urlpatterns += bctip.urls_custom.urlpatterns

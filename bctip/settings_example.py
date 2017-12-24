@@ -202,3 +202,5 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 #SOLID_I18N_USE_REDIRECTS = True
+# custom modifications flag
+BCTIP_MOD = False
