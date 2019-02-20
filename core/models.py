@@ -18,9 +18,11 @@ settxfee(0.00001)
 a.listaccounts()
 a.listtransactions(acc)
 """
-# 1 usd in rub
-CURRENCY_RATES = {'USD': 1, 'EUR': 0.85, 'GBP': 0.75, 'SEK': 8.5, 'RUB': 60.0}
-CURRENCY_SIGNS = {'USD': '$', 'EUR': '€', 'GBP': '£', 'SEK': 'kr'}
+# Start with hard-coded forex rates. Will be recalculated on creation of new wallet
+# If API for new rates fails, system will fall back to these rates
+CURRENCY_RATES = {'USD': 1, 'EUR': 0.88, 'GBP': 0.79, 'JPY': 109.76}
+
+CURRENCY_SIGNS = {'USD': '$', 'EUR': '€', 'GBP': '£', 'JPY': '¥'}
 MESSAGES = {}
 THANKS_MESSAGE = _("Thank you for your service!")
 # Translators: Please provide youtube video about bitcoin in your language
@@ -32,11 +34,11 @@ class Wallet(models.Model):
     ctime = models.DateTimeField(auto_now_add=True)
     # activation time (paid)
     atime = models.DateTimeField(null=True, blank=True)
-    ip = models.IPAddressField(null=True, blank=True)
+    ip = models.GenericIPAddressField(null=True, blank=True)
     ua = models.CharField(max_length=255, null=True, blank=True)
-    bcaddr = models.CharField(max_length=34)  # pay to
+    bcaddr = models.CharField(max_length=255)  # pay to
     bcaddr_from = models.CharField(
-        max_length=34, null=True, blank=True)  # paid from
+        max_length=255, null=True, blank=True)  # paid from
     # target country: AU, US, RU. none for universal
     audience = models.CharField(max_length=2, null=True, blank=True)
     # amount of every tip, ex.:$2
@@ -107,7 +109,7 @@ class Wallet(models.Model):
 
     @property
     def bcaddr_uri(self):
-        return "bitcoin:%s?amount=%s&label=bctip.org" % (
+        return "%s?amount=%s&label=bchtip" % (
             self.bcaddr, self.invoice_btc)
 
     @property
@@ -129,6 +131,7 @@ class Wallet(models.Model):
     @property
     def rate_fiat(self):
         return int(self.rate * Decimal(CURRENCY_RATES[self.divide_currency]))
+       
 
 
 class Address(models.Model):
@@ -158,7 +161,7 @@ class Tip(models.Model):
     atime = models.DateTimeField(null=True, blank=True)
     # expiration
     etime = models.DateTimeField(null=True, blank=True)
-    ip = models.IPAddressField(null=True, blank=True)  # пока не исп
+    ip = models.GenericIPAddressField(null=True, blank=True)  # пока не исп
     ua = models.CharField(max_length=255, null=True, blank=True)  # user agent
     balance = models.BigIntegerField(
         blank=True, null=True, default=0)
@@ -167,7 +170,7 @@ class Tip(models.Model):
     comment_time = models.DateTimeField(null=True, blank=True)
     activated = models.BooleanField(default=False)
     expired = models.BooleanField(default=False)
-    bcaddr = models.CharField(max_length=34, null=True, blank=True)
+    bcaddr = models.CharField(max_length=255, null=True, blank=True)
     txid = models.CharField(max_length=64, null=True, blank=True)
     # tip page visit counter
     times = models.IntegerField(null=True, blank=True, default=0)
@@ -176,8 +179,12 @@ class Tip(models.Model):
         return u"%s: %s" % (self.wallet, self.balance_btc)
 
     def get_absolute_url(self):
-        domain = "https://www.bctip.org"
+        domain = "https://tips.bitcoin.com"
+        #domain = "http://localhost:8000"
         return "%s/%s/" % (domain, self.key)
+        
+    def get_rel_url(self):
+      return self.key
 
     @property
     def balance_nbtc(self):
@@ -206,15 +213,72 @@ class Tip(models.Model):
         return round(fiat, 2)
 
 
-def get_avg_rate():
-    rate = get_bitstamp_avg_rate()
+def get_avg_rate():        
+    rate = get_bdc_avg_rate()
     if rate:
         return rate
-    rate = get_coinbase_avg_rate()
+    
+    #If error with our index-api.bitcon.com API, try legacy index.bitcoin.com
+    rate = get_bdc_backup_avg_rate()
     if rate:
         return rate
 
-    return 770.0  # if everything failed
+    #If error with our API, check Bitpay internal
+    rate = get_bitpay_avg_rate()
+    if rate:
+        return rate
+
+    #If error with our API, check Bitstamp
+    rate = get_bitstamp_avg_rate()
+    if rate:
+        return rate
+    
+    #rate = get_coinbase_avg_rate()
+    #if rate:
+    #    return rate
+
+    return 500  # if everything failed
+
+
+def get_bdc_avg_rate(force=False):
+    key = 'avg_rate_bitcoindotcom'
+    rate = cache.get(key)
+    if rate and not force:
+        return rate
+    try:
+        #Note: this approach of using site, hdr, .Request, then .urlopen
+        #      was required for API pulls to work in local testing
+        #      Leave in for now but mamke sure this is also working in production
+        site= "https://index-api.bitcoin.com/api/v0/cash/pulse"
+        hdr = {'User-Agent': 'dev',}
+
+
+        req = urllib2.Request(
+            site, headers=hdr)
+        bitcoindotcom = urllib2.urlopen(req).read()
+        bitcoindotcom = json.loads(bitcoindotcom)
+        rate = int((float(bitcoindotcom['price']))/100.0)
+        cache.set(key, rate, 60*60)  # cache for an hour
+        return rate
+    except Exception as e:
+        print e
+        return None
+
+def get_bdc_backup_avg_rate(force=False):
+    key = 'avg_rate_bitcoindotcom'
+    rate = cache.get(key)
+    if rate and not force:
+        return rate
+    try:
+        bitcoindotcom = urllib2.urlopen(
+            "https://index-api.bitcoin.com/api/v0/cash/price/usd/", timeout=4).read()
+        bitcoindotcom = json.loads(bitcoindotcom)
+        rate = int((float(bitcoindotcom['price']))/100.0)
+        cache.set(key, rate, 60*60)  # cache for an hour
+        return rate
+    except Exception as e:
+        print e
+        return None
 
 
 def get_avg_rate_euro():
@@ -263,6 +327,21 @@ def get_coinbase_avg_rate(force=False):
     except:
         return None
 
+def get_bitpay_avg_rate(force=False):
+    key = 'avg_rate__bitpay'
+    rate = cache.get(key)
+    if rate and not force:
+        return rate
+    try:
+        bitpay = urllib2.urlopen(
+            "https://www.bitcoin.com/special/rates.json", timeout=4).read()
+        bitpay = json.loads(bitpay)
+        rate = int((float(bitpay[2]['rate'])/float(bitpay[1]['rate'])))        
+        cache.set(key, rate, 60*60)  # cache for an hour
+        return rate
+    except:
+        return None
+
 
 def get_bitstamp_avg_rate(force=False):
     key = 'avg_rate__bitstamp'
@@ -271,19 +350,62 @@ def get_bitstamp_avg_rate(force=False):
         return rate
     try:
         bitstamp = urllib2.urlopen(
-            "https://www.bitstamp.net/api/ticker/", timeout=4).read()
+            "https://www.bitstamp.net/api/v2/ticker/bchusd/", timeout=4).read()            
         bitstamp = json.loads(bitstamp)
-        rate = int((float(bitstamp['high'])+float(bitstamp['low']))/2.0)
+        #rate = int((float(bitstamp['high'])+float(bitstamp['low']))/2.0)
+        #Use last traded price
+        rate = int((float(bitstamp['last'])))
         cache.set(key, rate, 60*60)  # cache for an hour
         return rate
     except:
         return None
+    
 
 def get_est_fee(force=False):
     key = 'est_fee'
     fee = cache.get(key)
     if not fee or force:
-        fee = BITCOIND.estimatesmartfee(6*8)['feerate']
-        fee = round(fee/3, 6)
+        #fee = BITCOIND.estimatesmartfee(6*8)['feerate']
+        #fee = round(fee/3, 6)
+        #fee = 0.00001000
+        #For Bitcoin Cash, estimatefee makes more sense than estimatesmartfee
+        fee = BITCOIND.estimatefee(2)
         cache.set(key, fee, 60*60)
     return fee
+
+def get_forex_rates(force=False):
+    key = 'forex_rates_as_json'
+    forex_obj = cache.get(key)
+    if forex_obj and not force:
+        return forex_obj
+    #forex_obj = {'USD': 1, 'EUR': 0.99, 'GBP': 0.79, 'RUB': 60.0}
+    currencies = ['USD', 'EUR', 'GBP', 'JPY']
+    forex_obj = {}
+    # Set usd_rate as a float to allow division later
+    usd_rate = 1.0
+
+    for cur in currencies:        
+        try:            
+            site= "https://index-api.bitcoin.com/api/v0/cash/price/" + cur
+            hdr = {'User-Agent': 'dev',}
+            req = urllib2.Request(
+                site, headers=hdr)
+            forex_rate = urllib2.urlopen(req).read()
+            forex_rate = json.loads(forex_rate)
+            forex_rate = int((float(forex_rate['price']))/100.0)
+            if cur == 'USD':
+                usd_rate = float(forex_rate)                
+                forex_obj[cur] = 1        
+            elif cur == 'JPY':
+                forex_obj[cur] = round((forex_rate / usd_rate),0)
+            else:
+                forex_obj[cur] = round((forex_rate / usd_rate),2)
+        except Exception as e:
+            print e
+            forex_rates = CURRENCY_RATES
+            return forex_rates
+
+    if forex_obj:
+        cache.set(key, forex_obj, 60*60)
+        return forex_obj
+    return {'USD': 1, 'EUR': 0.88, 'GBP': 0.79, 'JPY': 109.76}

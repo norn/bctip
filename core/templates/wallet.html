@@ -1,62 +1,59 @@
 {% extends "base.html" %}{% load i18n %}{% load bitcoin %}
 
 {% block content %}
-<h1 class="ui header">{% trans "Your Wallet" %}
-<div class="sub header">
-    {% trans "Paid on" %} {{wallet.atime}}
-</div></h1>
+<link href="/static/css/semantic-full.css" rel="stylesheet" />
+<script src="/static/js/semantic-full.min.js"></script>
+<link href="/static/css/font-awesome.min.css" rel="stylesheet" />
+<div class="ui container">
+<div class="ui grid">
+<div class="eight wide column" style="pointer-events:none;"></div>
 
-<div class="ui two column stackable grid">
+<div class="ui segment mains">
+
+<div class="header-wrapper ui header">
+	<div class="header-left">
+	<h1 >{% trans "Your Wallet" %}
+	<div class="sub header">
+	    {% trans "Paid on" %} {{wallet.atime}}
+	</div></h1>
+	</div>
+	<div class="header-right">
+	{% trans "Rate at time of purchase" %}: ${{wallet.rate|floatformat:"2"}}<br/>
+	{% trans "Current" %} {% trans "rate" %}: ${{rate|floatformat:"2"}}
+	</div>
+</div>
+
+<div class="ui one column stackable grid">
 
 <div class="ui column">
 <div class="ui message">
-{% trans "BCTip value" %}: {{wallet.divide_currency_sign}}{{wallet.divide_by|floatformat:"0"}}
+{% trans "Tip value" %}: {{wallet.divide_currency_sign}}{{wallet.divide_by|floatformat:"0"}}
 <br/>{% trans "Quantity" %}: {{wallet.quantity}}<br/>
-{% trans "Template" %}: {{wallet.template}} [{{wallet.target_language}}]<br/>
 {% trans "Message" %}: {{wallet.message}}
 <br/><br/>
 
-{% trans "Your bitcoin address" %}: <a href="bitcoin:{{wallet.bcaddr_from}}">{{wallet.bcaddr_from}}</a><br/>
+{% trans "Your Bitcoin Cash (BCH) address" %}: <a target="_blank" href="https://explorer.bitcoin.com/bch/address/{{wallet.bcaddr_from}}">{{wallet.bcaddr_from}}</a><br/>
 
 {% trans "Email" %}: <a href="mailto:{{wallet.email}}">{{wallet.email}}</a><br/>
 {% if wallet.post_and_print %}{% trans "Print and Post service" %}: {{wallet.post_and_print}}<br/>{%endif%}
-
 <!--Hashtag: {% if wallet.hashtag %}{{wallet.hashtag}}{% else %}<i>not set</i>{%endif%}<br/><br/>-->
 </div>
 </div>
+<a class="ui submit bch-gold button printbtn" target="_blank" href="./print"><i class="download icon"></i>Print Tips</a>
 
-
-<div class="ui column">
-<div class="ui fluid vertical menu">
- <a class="item" href="./pdf/"><i class="download icon"></i>{% trans "Download" %}<div class="ui green label">PDF A4</div></a></a>
-  <a class="item" href="./pdf-us/"><i class="download icon"></i></i>{% trans "Download" %} <div class="ui label">PDF US Letter</div></a>
- <a class="item" href="./png/"><i class="download icon"></i>{% trans "Download" %} <div class="ui green label">PNG</div></a>
-  <a class="item" href="./odt/"><i class="download icon"></i>{% trans "Download" %} <div class="ui label">ODT</div></a>
-
-</div>
-</div>
-
-</div>
-
-
-<div class="ui two column stackable grid">
-<div class="column"></div>
-<div class="right aligned column">
-Bitstamp {% trans "rate at time of purchase" %}: ${{wallet.rate|floatformat:"2"}}<br/>
-{% trans "Current" %} {% trans "rate" %} (Bitstamp): ${{rate|floatformat:"2"}}</div>
 </div>
 
 <br/>
 <div class="ui tiny positive message">{% trans "Advice" %}: {% trans "You can email URL of the tip to your friend" %}</div>
 <form action="./comments/" method="post">{% csrf_token %}
 
-<table class="ui striped stackable table">
+<table class="ui striped unstackable table">
 <thead>
 <tr><th>#ID</th>
-<th>{% trans "Comment" %}</th>
-<th>BTC<br/>{{wallet.divide_currency}}</th>
+<th>{% trans "Comment" %} <a title='Use comments to label your tips. For example, if you save "Coffee Shop" as a comment on a tip left in a coffee shop, and that tip is later redeemed, you will receive an email confirming "Your tip with comment "Coffee Shop" was redeemed."''>(whats this?)</a></th>
+<th>BCH<br/>{{wallet.divide_currency}}</th>
 
-<th>{% trans "Link" %}<br/>{% trans "Activated" %}</th></tr>
+<th>{% trans "Tip Link" %}<br/>{% trans "Tip Status" %}</th></tr>
 </thead>
 
 <tbody>
@@ -69,7 +66,8 @@ Bitstamp {% trans "rate at time of purchase" %}: ${{wallet.rate|floatformat:"2"}
  {% if tip.comment_time %}<br/>{{tip.comment_time.date}}{%endif%}</td>
  <td>
  {{tip.balance|btc}}<br/>
- {{wallet.divide_currency_sign}}{{tip.balance_fiat}}
+
+ {{wallet.divide_currency_sign}}{% if tip.wallet.divide_currency == "JPY" %}{{tip.balance_fiat|floatformat:"0"}}{% else %}{{tip.balance_fiat|floatformat:"2"}}{% endif %}
  </td>
  
 <td><a href="{{tip.get_absolute_url}}" target="_new">{{tip.get_absolute_url}}</a>
@@ -79,14 +77,16 @@ Bitstamp {% trans "rate at time of purchase" %}: ${{wallet.rate|floatformat:"2"}
  {% elif tip.expired %}
    <i class="undo icon"></i> {% trans "expired" %} {% trans "and" %} {% trans "returned" %}
  {% else %}
-   <i class="fa-calendar-o icon"></i> {% trans "not activated" %}
+   <i class="fa-calendar-o icon"></i> {% trans "not collected" %}
  {% endif %}
 </td>
 </tr>
 {% endfor %}
 </tbody></table>
 
-<input type="submit" class="ui submit red button" value="{% trans "save comments" %}">
+<input type="submit" class="ui submit bch-gold button" value="{% trans "save comments" %}">
 
 </form>
+</div>
+
 {% endblock %}

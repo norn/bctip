@@ -1,33 +1,62 @@
 {% extends "base.html" %}{% load i18n %}{% load l10n %}
 
 {% block content %}
+<link href="/static/css/semantic-full.css" rel="stylesheet" />
+<script src="/static/js/semantic-full.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/css/sampletip.css?version-0.1">
+<div class="ui container">
+<div class="ui grid">
+<div class="eight wide column" style="pointer-events:none;"></div>
 
-{% trans "Current" %} {% trans "rate" %} (Bitstamp): ${{wallet.rate|floatformat:"2"}}
+<div class="ui segment mains">
+
+
+
+{% trans "Current" %} {% trans "rate" %}: ${{wallet.rate|floatformat:"2"}}
 <br/><br/>
+
+
 
 <form action="" method="post" class="ui large form">{% csrf_token %}
 {{ form.non_field_errors }}
 
-  <div class="required field">
-    <label>{% trans "Your Bitcoin address" %}</label>
-    {% trans "All the unused funds will be returned to this address after expiration" %}<br/>
-    {{ form.bcaddr_from }}
-    {{ form.bcaddr_from.errors }}
-  </div>
+<div class="required field">
+  <label>{% trans "Your Bitcoin Cash (BCH) address" %}</label>
+  {% trans "All the unused funds will be returned to this address after expiration" %}<br/>
+  {{ form.bcaddr_from }}
+  {{ form.bcaddr_from.errors }}
+</div>
+  
+
+  <div class="field"><label>{% trans "Your email address" %}</label>
+ {{ form.email.errors }}
+ {{ form.email }}
+<div class="ui small label">{% trans "Know when your tips are redeemed or returned. Check your spam folder if you don't receive a confirmation." %}</div>
+</div>
 
 <br/>
 
 <div class="ui stackable three column grid">
 <div class="column">
-  <div class="ui two column grid">
+  <div class="ui three column grid">
   <div class="column">
-  <div class="field"><label>{% trans "Tip Value" %}</label>
-      {{ form.divide_currency.errors }}
-      {{ form.divide_currency }}<br/>
+  <div class="field"><label>{% trans "Currency" %}</label>
+      {{ form.divide_currency.errors }}      
+      {{ form.divide_currency }}
+      </div>  
+  </div>
+  <div class="column">
+    <div class="field" id="non-jpy-qty"><label>{% trans "Tip Value" %}</label>
       {{ form.divide_by.errors }}
-      {{ form.divide_by }}</div>
-  </div><div class="column">
-  <div class="field"><label>{% trans "How many" %}</label>
+      {{ form.divide_by }}</div>  
+    <div class="field" id="custom-jpy-qty" style="display:none;"><label>{% trans "Tip Value" %}</label>
+      {{ form.divide_by_jpy.errors }}
+      {{ form.divide_by_jpy }}
+    </div>
+  </div>
+
+  <div class="column">
+  <div class="field"><label>{% trans "# of Tips" %}</label>
       {{ form.quantity.errors }}
       {{ form.quantity }}</div>
   </div>
@@ -38,32 +67,39 @@
    {{ form.expiration }}
   </div>
   <br/>
-  <div class="field"><label>{% trans "Template" %}</label>
+  <!--Hide Template-->
+  <!--no plans for template functionality-->
+  
+  <div class="field" style="display:none;"><label>{% trans "Template" %}</label>
     {{ form.template.errors }}
     {{ form.template }}
-    {% if not custom_saveatpurse %}
-    <div class="ui small label hidden nice_label">{% trans "Nice Label" %} +0.0001 BTC</div>
-    {% endif %}</div>
+    </div>
+
 
 <div class="field"><label>{% trans "Message" %}</label>
  {{ form.message.errors }}
  {{ form.message }}
  <div class="ui small label">{% trans "is printed in the center of every tip" %}</div></div>
 
-<div class="field"><label>{% trans "Email" %}</label>
- {{ form.email.errors }}
- {{ form.email }}
-<div class="ui small label">{% trans "for activation notifications" %}</div>
-</div>
-
-</div><div class="column">
-  <div class="field"><label>{% trans "Donate to" %} bctip{% if request.LANGUAGE_CODE == "fi" %}ille{%endif%}</label>
+<div class="field"><label>{% trans "Donate to" %} <a target="_blank" href="https://free.bitcoin.com/">free.bitcoin.com</a>?{% if request.LANGUAGE_CODE == "fi" %}ille{%endif%}</label>
     {{ form.price.errors }}
     {{ form.price }}
-  </div>
+</div>
+<div class="field" id="custom-tip-amount"><label>Custom Donation Percentage</label>
+    {{ form.customprice.errors }}
+    {{ form.customprice }}
+    <div class="ui small label">Extra generous? Donate directly at <a target="_blank" href="https://free.bitcoin.com/">free.bitcoin.com!</a></div>
+</div>
+
+  
+<div class="text-center"><input id="checkout-btn" type="submit" class="ui fluid bch-gold button" value="{% trans "Checkout" %}" /></div>
+</div>
 
 
-<table class="ui table"><thead>
+  <div class="column">
+    <center><div class="ui bottom pointing label">summary</div></center>
+
+<table class="ui table" id="summary-table"><thead>
  <th>{% trans "Service" %}</th>
  <th>{% trans "Amount" %}</th>
 </thead>
@@ -74,37 +110,71 @@
 </tr><tr><td>
 <!--{% trans "Print and Post service" %}</td><td><span id="pap_usd" style="font-weight:bold">$0</span></td>
 </tr><tr><td>-->
-{% trans "Our humble tips" %}</td><td><span id="price_usd" style="font-weight:bold"></span></td>
-</tr><tr><td>
+{% trans "Faucet Donation" %}</td><td><span id="price_usd" style="font-weight:bold"></span></td>
+</tr>
+<!--no premium templates <tr><td>
 {% trans "Premium Template" %}</td><td><span id="premium_extra" style="font-weight:bold">0</span></td>
-</tr><tr><td>
-{% trans "Transaction Fees" %}</td><td><span id="transes_btc" style="font-weight:bold">0.0 BTC</span></td>
+</tr>-->
+<tr style="display:none;"><td>
+{% trans "Transaction Fees" %}</td><td><span id="transes_btc" style="font-weight:bold">0.0 BCH</span></td>
 </tr><tr>
 <td colspan="2" style="text-align:right">
  <!--{% trans "Total" %} <span id="total_sign">USD</span><br/><span id="total_usd" style="font-size:150%;font-weight:bold"></span>
  <br/>-->
- {% trans "Total" %} BTC<br/><span id="total_btc" style="font-size:150%;font-weight:bold"></span>
+ {% trans "Estimated Total" %} BCH<br/>~<span id="total_btc" style="font-size:150%;font-weight:bold"></span>
 </td>
 </tr></tbody></table>
 
 
 
-
-
-<div class="text-center"><input type="submit" class="ui fluid green button" value="{% trans "Checkout" %}" /></div>
-
-
-
 </div><div class="center aligned column">
-<div class="ui bottom pointing label">{% trans "preview" %}</div>
-<img class="ui fluid bordered image" id="preview" src="/static/img/examples/tips-{{request.LANGUAGE_CODE}}-{{wallet.template|slice:":-4"}}.png" />
+<div class="ui bottom pointing label">{% trans "example tip card" %}</div>
+<div class="print-tips">
+
+      <div class="print-tip">   
+
+        <div class="print-tip-header">
+          <img alt="Bitcoin Cash (BCH)" src="/static/img/bitcoin-cash-tips-logo-horizontal.png" />
+        </div>
+
+        <div class="print-tip-bg-wrap">
+          <div class="tip-label">TIP AMOUNT</div>
+          <div class="print-tip-amount">
+            <div class="crypto-amount" id="crypto-amount"></div>
+            <div class="fiat-amount" id="tips-sample_usd"></div>
+          </div>
+          <div class="exchange-rate" id="tips-sample-rate-date"></div>      
+        </div>     
+        
+        <div class="print-tip-link">      
+          <div class="tip-label">CLAIM YOUR TIP AT:</div>
+          <div class="print-tip-url">tips.bitcoin.com/your-tip-url</div>
+        </div>
+
+        <div class="exchange-rate" id="tips-sample-claimby-date"></div>
+
+        <div class="message-ctn">
+          <p>Message</p>
+          <div class="print-tip-message" id="tips-sample_msg"></div>
+        </div>
+
+        <div class="print-tip-footer">
+          <img alt="Bitcoin.com BCH Tips" src="/static/img/bitcoin-com-logo-grey.png" />
+        </div>
+        
+        <div class="print-tip-code">
+          Tip ID #
+        </div>
+      </div>
+    </div>
+
 </div>
 
 </div>
 
 
 </form>
-
+</div>
 
 
 <!--
@@ -182,79 +252,111 @@
 
 <script>{% localize off %}
 var rate = {{wallet.rate}};
-console.log(rate);
 
 function recalc() {
+
+//Hide the JPY tip amount
+$('#custom-jpy-qty').hide()
+
+// Get today's date for sample tip rate day and expiration date
+var tipsample_today = new Date()
+var date_options = { year: 'numeric', month: 'short', day: 'numeric' };
+var tipsample_today_str = tipsample_today.toLocaleDateString('en-US', date_options)
+
+$('#tips-sample-rate-date').html('1 BCH = {{cur_sign}}{{wallet.rate}} on ' + tipsample_today_str )
+
+// Calculate Claim By Date
+var expiration_label = $('[name="expiration"]').val();
+switch(expiration_label) {
+  case '30':
+    var claimby_valid = 30
+    break;
+  case '90':
+    var claimby_valid = 90
+    break;
+  case '180':
+    var claimby_valid = 180
+    break;
+  case '365':
+    var claimby_valid = 365
+    break;
+  default:
+    var claimby_valid = 30
+} 
+ 
+ tipsample_claimby = new Date()
+ tipsample_claimby.setDate(tipsample_today.getDate() + claimby_valid)
+ tipsample_claimby_str = tipsample_claimby.toLocaleDateString('en-US', date_options)
+
+ $('#tips-sample-claimby-date').html('Claim by ' + tipsample_claimby_str)
+
  var cur = $('[name="divide_currency"]').val();
  $('#total_sign').html(cur)
  var cur_sign = signs[cur];
  var cur_rate = rates[cur];
 
- var pap_checked = $('#id_print_and_post').prop('checked');
- var premium_extra = $('[name="template"]').val();
- if (premium_extra == "005-premium" ) {
-  $(".nice_label").removeClass("hidden");
- } else {
-  $(".nice_label").addClass("hidden");
+ if (cur == 'JPY') {
+  $('#custom-jpy-qty').show()
+  $('#non-jpy-qty').hide()
+  var divide_by = parseInt($('#id_divide_by_jpy').val());
  }
- //var divide_by = parseInt($('input[name="divide_by"]:checked').val());
- var divide_by = parseInt($('#id_divide_by').val());
+ else {
+  $('#non-jpy-qty').show()
+  var divide_by = parseInt($('#id_divide_by').val());
+ }
+
  var quantity = parseInt($('#id_quantity').val());
+
+ // Price is the % donation to free.bitcoin.com
  var price = parseFloat($('[name=price]').val());
+ var customprice = parseFloat($('[name=customprice]').val());
+ if (isNaN(customprice)) {
+  customprice = 0
+ } 
+
  var transes = quantity*{{est_fee}};
  var sum = quantity*divide_by;
  var total_usd=sum;
 
+ var message_txt = $('[name="message"]').val()
+ $('#tips-sample_msg').html(message_txt)
+ 
  $('#tips_usd').html(cur_sign+sum);
- /* -------------------- */
- if (pap_checked) {
-   var pap_total = quantity/10*1+2;
-   $('#pap_usd').html("$"+pap_total);
-   total_usd=total_usd+pap_total;
- }
- /* -------------------- */
+ $('#tips-sample_usd').html('~' + cur_sign+sum/quantity);
 
  if (price>0) {
+  // Hide custom tip option
+  $('#custom-tip-amount').hide()
   var price_usd = sum * price / 100;
   $('#price_usd').html(cur_sign+price_usd.toFixed(2));
+  var bch_price_less_donations = ((total_usd/rate/cur_rate)/quantity).toFixed(8);
   total_usd=total_usd+price_usd;
  } else {
+  // Since the drop-down value of customprice is 0, this loop is entered when 'Custom' is selected
+  // However, the initial value set in forms.py is 5%
   $('#price_usd').html(cur_sign+"0");
+  var bch_price_less_donations = ((total_usd/rate/cur_rate)/quantity).toFixed(8);
+  // If tip amount is custom, show custom tip field
+  // Note that selecting "Custom" defaults to zero
+  $('#custom-tip-amount').show()
+  // Set price to be the custom price
+  var price_usd = sum * customprice / 100;
+  $('#price_usd').html(cur_sign+price_usd.toFixed(2));
+  total_usd = total_usd + price_usd
  }
 
-
- /* -------------------- */
  $('#total_usd').html(cur_sign+total_usd);
- $('#transes_btc').html(transes.toFixed(6)+" BTC");
- if (premium_extra=="005-premium") {
-   $('#premium_extra').html("0.0001 BTC");
-   var premium_extra = 0.0001;
- } else {
-   $('#premium_extra').html("0");
-   var premium_extra = 0;
- }
- var total_btc = (total_usd/rate/cur_rate+transes+premium_extra).toFixed(8);
- $('#total_btc').html(total_btc);
-}
+ $('#transes_btc').html(transes.toFixed(6)+" BCH");
 
-function print_and_post() {
- var pap_checked = $('#id_print_and_post').prop('checked');
- if (pap_checked) {
-  alert('Sorry, Print and Post service is not available at the moment. Please vote for it.');
-  $('#id_print_and_post').prop('checked','')
-  //$('#post_address').css('opacity','1.0');
- } else {
-  $('#post_address').css('opacity','0.4');
- }
- recalc();
+ var total_btc = (total_usd/rate/cur_rate+transes).toFixed(6);
+ $('#total_btc').html(total_btc);
+
+ $('#crypto-amount').html(bch_price_less_donations + " BCH")
 }
 
 /////////////
 document_ready = function() {
- recalc();
- //$('#id_print_and_post').change(function() {
- // print_and_post();
- //});
+  recalc();
 
  // $('input[name="bcaddr_from"]').change(function() {
  //  a=$('input[name="bcaddr_from"]').val();
@@ -265,39 +367,62 @@ document_ready = function() {
  //  }
  // });
 
- $('[name="divide_currency"]').change(function() {
-  recalc();
- });
+  $('[name="divide_currency"]').change(function() {
+    recalc();
+  });
+  
+  //Update message in real time as it is being typed
+  $('[name="message"]').keyup(function() {
+    recalc();
+  });
 
- $('[name="template"]').change(function() {
-  recalc();
- });
+  $('[name="expiration"]').change(function() {
+    recalc();
+  });
 
- $('[name="target_language"]').change(function() {
-  var lang = $('[name="target_language"]').val();
-  $('#id_message').val(messages[lang]);
- });
+  $('[name="template"]').change(function() {
+    recalc();
+  });
 
- $('#id_divide_by').change(function() {
-  recalc();
- });
+  $('[name="target_language"]').change(function() {
+    var lang = $('[name="target_language"]').val();
+    $('#id_message').val(messages[lang]);
+  });
 
- $('#id_quantity').change(function() {
-  recalc();
- });
+  $('#id_divide_by').change(function() {
+    recalc();
+  });
 
- $('[name="price"]').change(function() {
-  recalc();
-  var price = parseFloat($('[name=price]').val());
- });
+  $('#id_divide_by_jpy').change(function() {
+    recalc();
+  });
 
- $('[name="template"]').change(function() {
-  var p = $('[name="template"]').val();
-  $("#preview").attr("src","/static/img/examples/tips-{{request.LANGUAGE_CODE}}-"+p+".png");
- });
+  $('#id_quantity').change(function() {
+    recalc();
+  });
+
+  $('[name="price"]').change(function() {
+    recalc();
+    var price = parseFloat($('[name=price]').val());
+  });
+
+  $('[name="customprice"]').change(function() {
+    recalc();
+  });
+  $('[name="customprice"]').keyup(function() {
+    recalc();
+  });
+
+  $('[name="template"]').change(function() {
+    var p = $('[name="template"]').val();
+    $("#preview").attr("src","/static/img/examples/tips-{{request.LANGUAGE_CODE}}-"+p+".png");
+  });
 }
+
 $(document).ready(document_ready);
 var rates = {{json_rates|safe}};
+console.log(rates)
+
 var signs = {{json_signs|safe}};
 var messages = {{json_messages|safe}};
 </script>{% endlocalize %}

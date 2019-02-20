@@ -2,73 +2,91 @@
 {% block nav_stat %}active{%endblock%}
 {% block header %}<script src="/static/js/Chart.min.js"></script>{%endblock%}
 {% block content %}
-<h2 class="ui header">{% trans "Statistics" %}</h2>
-<table class="ui striped table">
-    <tbody>
-      <tr>
-        <td>{% trans "Total generated tips" %}</td>
-        <td>{{tips}}</td>
-      </tr>
-      <tr>
-        <td>{% trans "Activated tips" %}</td>
-        <td>{{tips_a}}</td>
-      </tr>
-      <tr>
-        <td>{% trans "Expired tips" %}</td>
-        <td>{{tips_expired}}</td>
-      </tr>
-      <tr>
-        <td>{% trans "Total value" %}</td>
-        <td>฿ {{tips_sum.balance_btc|floatformat:"2"}} ~${{tips_sum.balance_usd}}</td>
-      </tr>
-      <tr>
-        <td>{% trans "Activated value" %}</td>
-        <td>฿ {{tips_sum_a.balance_btc|floatformat:"2"}} ~${{tips_sum_a.balance_usd}}</td>
-      </tr>
+<div class="container">
+  <h2 class="ui header">{% trans "Statistics" %}</h2>
+  <table class="table-striped" cellspacing="0">
+      <tbody>
+        <tr>
+          <td>{% trans "Total generated tips" %}</td>
+          <td>{{tips}}</td>
+        </tr>
+        <tr>
+          <td>{% trans "Claimed tips" %}</td>
+          <td>{{tips_a}}</td>
+        </tr>
+        <tr>
+          <td>{% trans "Expired tips" %}</td>
+          <td>{{tips_expired}}</td>
+        </tr>
+        <tr>
+          <td>{% trans "Total value" %}</td>
+          <td>BCH {{tips_sum.balance_btc|floatformat:"2"}} ~${{tips_sum.balance_usd}}</td>
+        </tr>
+        <tr>
+          <td>{% trans "Claimed value" %}</td>
+          <td>BCH {{tips_sum_a.balance_btc|floatformat:"2"}} ~${{tips_sum_a.balance_usd}}</td>
+        </tr>
 
-      <tr>
-        <td>{% trans "Activation success rate" %}</td>
-        <td>{{activation_success|floatformat:"2"}}%</td>
-      </tr>
-    </tbody>
-  </table>
+        <tr>
+          <td>{% trans "Claim success rate" %}</td>
+          <td>{{activation_success|floatformat:"2"}}%</td>
+        </tr>
+      </tbody>
+    </table>
 
-<!--
-<br/><br/>
-<h1>By hash tag</h1>
+  <!--
+  <br/><br/>
+  <h1>By hash tag</h1>
 
-<tr>
- <td>#usa</td><td>20 tips</td><td>1BC</td><td>$44.78</td><td>Activated: 4 tips</td><td>Success rate: 20%</td>
-</tr>
+  <tr>
+   <td>#usa</td><td>20 tips</td><td>1BC</td><td>$44.78</td><td>Activated: 4 tips</td><td>Success rate: 20%</td>
+  </tr>
 
-<tr>
- <td>#sanjose</td><td>20 tips</td><td>1BC</td><td>$44.78</td><td>Activated: 4 tips</td><td>Success rate: 70%</td>
-</tr>
+  <tr>
+   <td>#sanjose</td><td>20 tips</td><td>1BC</td><td>$44.78</td><td>Activated: 4 tips</td><td>Success rate: 70%</td>
+  </tr>
 
-<tr>
- <td>#starbucks</td><td>20 tips</td><td>1BC</td><td>$44.78</td><td>Activated: 9 tips</td><td>Success rate: 5%</td>
-</tr>
--->
+  <tr>
+   <td>#starbucks</td><td>20 tips</td><td>1BC</td><td>$44.78</td><td>Activated: 9 tips</td><td>Success rate: 5%</td>
+  </tr>
+  -->
 
-<h2 class="ui header">{% trans "Activated tips" %}</h2>
-<div class="ui segment">
- <canvas id="myChart" width="940" height="300"></canvas>
-</div>
+  <h2 class="ui header">{% trans "Claimed tips" %}</h2>
+  <div id="chartOne" class="statschart">
+   <canvas id="myChart" width="940" height="300"></canvas>
+  </div>
 
-<h2 class="ui header">{% trans "Activated tips" %}
-<div class="sub header">{% trans "by this month" %}</div></h2>
-<div class="ui segment">
- <canvas id="myChart2" width="940" height="300"></canvas>
+  <h2 class="ui header">{% trans "Claimed tips" %}
+  <div class="sub header">{% trans "by this month" %}</div></h2>
+  <div class="statschart">
+   <canvas id="myChart2" width="940" height="300"></canvas>
+  </div>
 </div>
 
 <script>
-var data = {
+// On load, size charts
+sizeGraphs()
+// Resize charts on resize
+window.onresize = sizeGraphs
+
+
+function sizeGraphs() {
+  
+  // Get width of parent element, less padding
+  var chartWidth = document.getElementById('chartOne').offsetWidth - 32
+  // Set width of canvas charts to this
+  document.getElementById('myChart').width = chartWidth
+  document.getElementById('myChart').height = 300
+  document.getElementById('myChart2').width = chartWidth
+  document.getElementById('myChart2').height = 300  
+
+  var data = {
     labels: {{mnames|safe}},
     datasets: [
         {
-            label: "Reddemed tips",
-            fillColor: "rgba(255,226,22,0.9)",
-            strokeColor: "rgba(255,121,22,1)",
+            label: "Redeemed tips",
+            fillColor: "#fab915", // bar fill color
+            strokeColor: "#fab915", // bar border color
             pointColor: "rgba(220,220,220,1)",
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
@@ -85,9 +103,9 @@ var data2 = {
     labels: {{day_names|safe}},
     datasets: [
         {
-            label: "Reddemed tips",
-            fillColor: "rgba(255,226,22,0.9)",
-            strokeColor: "rgba(255,121,22,1)",
+            label: "Redeemed tips",
+            fillColor: "#fab915",
+            strokeColor: "#fab915",
             pointColor: "rgba(220,220,22,1)",
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
@@ -98,6 +116,9 @@ var data2 = {
 };
 var ctx2 = document.getElementById("myChart2").getContext("2d");
 var myNewChart2 = new Chart(ctx2).Bar(data2);
+
+
+}
 </script>
 <!--, {
             label: "Generated tips",

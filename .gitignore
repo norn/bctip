@@ -1,2 +1,6 @@
 *.mo
 *.pyc
+/static/
+bctip/local_settings.py
+bctip/settings.py
+bctip/wsgi.py

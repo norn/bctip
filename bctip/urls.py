@@ -17,18 +17,15 @@ urlpatterns = i18n_patterns('',
     url(r'^gratuity-example/$', 'core.views.tips_example', name='tips_example'),
     url(r'^w/(?P<key>\w+)/$', 'core.views.wallet', name='wallet'),
     url(r'^w/(?P<key>\w+)/comments/$', 'core.views.comments', name='comments'),
-    url(r'^w/(?P<key>\w+)/pdf/$', 'core.views.download', {'format': "pdf"}, name='download'),
-    url(r'^w/(?P<key>\w+)/pdf-us/$', 'core.views.download', {'format': "pdf", "page_size":"US"}, name='download'),
-    url(r'^w/(?P<key>\w+)/odt/$', 'core.views.download', {'format': "odt"}, name='download'),
-    url(r'^w/(?P<key>\w+)/png/$', 'core.views.download', {'format': "png"}, name='download'),
     url(r'^w/(?P<key>\w+)/wajax/$', 'core.views.wajax', name='wajax'),
+    url(r'^w/(?P<key>\w+)/print/$', 'core.views.printHTML', name='printHTML'),
 )
 
 urlpatterns += patterns('',
-    url(r'^admin/', include(admin.site.urls)),
+    #url(r'^admin/', include(admin.site.urls)),
     url(r'qrcode/(?P<key>\w+)/$','core.views.qrcode_view', name='qrcode'),
 )
 
 if settings.BCTIP_MOD:
     import bctip.urls_custom
-    urlpatterns += bctip.urls_custom.urlpatterns
+urlpatterns += bctip.urls_custom.urlpatterns

@@ -3,108 +3,91 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="language" content="{{request.LANGUAGE_CODE}}" />
-<title>{% trans "Printable Bitcoin Tips" %}</title>
+<title>{% trans "Printable Bitcoin Cash (BCH) Tips" %}</title>
 <meta name="keywords" content="{% trans "Bitcoin" %}, {% trans "tips" %}" />
-<meta property="og:image" content="https://www.bctip.org/static/img/car2.jpg"/> 
-<meta name="description" content="{% trans "BCTip allows you to print redeemable bitcoin tips" %}. {% trans "Each Tip has a unique URL to activate" %}." />
-<meta property="og:url" content="https://www.bctip.org" />
-<meta property="og:title" content="{% trans "Printable Bitcoin Tips" %}" />
-<meta property="og:description" content="{% trans "BCTip allows you to print redeemable bitcoin tips" %}. {% trans "Each Tip has a unique URL to activate" %}." />
-<meta property="og:site_name" content="bctip" />
+<meta property="og:image" content="https://tips.bitcoin.com/static/img/tips-twitter-card4.jpg"/> 
+<meta name="description" content="{% trans "Print redeemable Bitcoin Cash (BCH) tips with Bitcoin.com Tips" %}. {% trans "Each Tip has a unique URL" %}." />
+<meta property="og:url" content="https://tips.bitcoin.com" />
+<meta property="og:title" content="{% trans "Printable Bitcoin Cash (BCH) Tips" %}" />
+<meta property="og:description" content="{% trans "Give Bitcoin Cash (BCH) Tips and redeem uncollected tips at a fixed expiration date" %}. {% trans "Each Tip has a unique URL" %}." />
+<meta property="og:site_name" content="tips.bitcoin.com" />
 <meta property="og:type" content="website" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@BTCTN">
+<meta name="twitter:title" content="{% trans "Printable Bitcoin Cash (BCH) Tips" %}">
+<meta name="twitter:description" content="{% trans "Give Bitcoin Cash (BCH) Tips and redeem uncollected tips at a fixed expiration date" %}. {% trans "Each Tip has a unique URL" %}.">
+<meta name="twitter:image" content="https://tips.bitcoin.com/static/img/tips-twitter-card4.jpg">
+
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="shortcut icon" href="/static/img/favicon.png" />
 
-<link href="/static/css/semantic-full.css" rel="stylesheet" />
-<link href="/static/css/font-awesome.min.css" rel="stylesheet" />
-<link href="/static/css/owl.carousel.css" rel="stylesheet" />
-<link href="/static/css/owl.theme.css" rel="stylesheet" />
-<link href="/static/css/bctip-1.css" rel="stylesheet" />
+<link href="/static/css/bchtip.css?version-0.1" rel="stylesheet" />
+<link href="/static/css/bootstrap-grid.min.css" rel="stylesheet" />
 
-<script src="/static/js/jquery-1.9.1.min.js"></script>
-<script src="/static/js/semantic-full.min.js"></script>
-<script src="/static/js/owl.carousel.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/css/layout.css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700" rel="stylesheet">
 
-{% block google_anal %}
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-39243147-2']);
-  _gaq.push(['_setDomainName', 'bctip.org']);
-  _gaq.push(['_trackPageview']);
+<script src="/static/js/jquery-3.2.1.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-{%endblock%}
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5N6TL56');</script>
+<!-- End Google Tag Manager -->
+<meta name="google-site-verification" content="FZa3ZyV5j40_7qnvnXcgOGz2xJjRLQQB_aRE-mkTmSY" />
+
+
 {% block header %}{%endblock%}
 </head>
 <body>
-<!-- <div id="fb-root"></div> -->
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=190820730939197&version=v2.0";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5N6TL56"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 
-
-
-<div class="ui container">
-<div class="ui grid">
-  <div class="eight wide column">
-<a href="/"><img src="/static/img/bctip-logo2.png" alt="bctip logo" style="margin-top:10px;margin-bottom:-8px"/></a>
-</div>
-  
-  <div class="eight wide column right aligned" style="margin-top:40px">
-  <div class="fb-like" data-href="https://www.bctip.org/" data-layout="box_count" data-action="like" data-show-faces="false" data-share="true" data-href="https://www.bctip.org/"></div>
-
-</div>
-</div>
-
-<div class="ui large orange menu"> <!-- four item -->
-<!--   <a href="/" class="item {% block nav_main %}{%endblock%}"><i class="home icon"></i>Home</a> -->
-    <a href="{% url 'new' %}" class="item {% if wallet and not wallet.atime %}class="active"{%endif%}"><i class="fa-plus-square icon"></i> 
-   {% trans "Generate New Tips" as generate_new %}{{generate_new|truncatechars:15}}</a>
-    {% if wallet %}
-    <a href="./" class="active item"><i class="fa-briefcase icon"></i> <!--{% trans "Wallet" %}--></a>
-    {%endif%}
-    {% if tip %}
-    <a href="./" class="active item"><i class="fa-btc icon"></i> <!--{% trans "Gratuity" %}--></a>
-    {%endif%}
-     <div class="right menu">
-     <a href="{% url 'statistics'%}" class="{% block nav_stat %}{%endblock%} item"><i class="fa-bar-chart icon"></i></a>
-  <div class="ui simple dropdown item">
-  <i class="globe icon"></i> <!--{{request.LANGUAGE_CODE}}--> <!--
-  {% get_language_info_list for LANGUAGES as languages %}
-  {% for lang in languages %}
-  {% if request.LANGUAGE_CODE == lang.code %}{{lang.name}}{%endif%}
-  {% endfor %}--> <i class="dropdown icon"></i>
-    <div class="menu">
-    {% for lang in languages %}
-       <a class="item" href="/{{lang.code}}{% if request.path != "/" %}{{request.path|slice:'3:'}}{%else%}/{%endif%}">{{lang.name}} - {{lang.name_local}}</a>
-    {% endfor %}
+<!--Styled Header-->
+<header class="section-1 section-1-mbl">
+  <div class="container">     
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="h3-line">Give Bitcoin Cash (BCH) Without Losing Unclaimed Funds</h3> 
+        <h1>Bitcoin Cash (BCH) Tips</h1>  
+        <a class="btn btn-primary" href="{% url "new" %}">Generate New</a>
+      </div>
+    </div>
+      <nav id="main-nav">
+        <div class="wrap">
+          <ul class="bar">
+            <li {%if request.path == "/en/"%} class="active" {%endif%}><a href="/" class="bch-tip-home">Home</a></li>
+            <li {%if "/statistics" in request.path %} class="active" {%endif%}><a href="/statistics" class="statistics">Stats</a></li>
+            {%if "/w/" in request.path %}<li  class="active" ><a class="tip-creation">Tip Management</a></li>{%endif%}
+            {%if "/gratuity-example/" in request.path %}<li  class="active" ><a class="tip-example">Sample Tip</a></li>{%endif%}
+          </ul>          
+        </div>
+      </nav>
     </div>
   </div>
-  </div>
-</div>
+</header>
 
-
-<div class="ui segment mains">
+<div class="container">
   {% block content %}{%endblock%}
 </div>
 
 <div class="ui divider"></div>
 <div class="footer">
-{% trans "Support" %}: <a href="https://bitcointalk.org/index.php?topic=190400.0">{% trans "thread on bitcoin forum" %}</a> {% trans "or" %} <a href="mailto:andrey.perliev@gmail.com">andrey.perliev@gmail.com</a> / <a href="/static/img/andrey_perliev.key">PGP key</a>
-<br/>{% trans "For donations" %}: <a href="bitcoin:1AKjchmLkKFKRrEpXpBUNre4ixHoeBVpJo">1AKjchmLkKFKRrEpXpBUNre4ixHoeBVpJo</a>
-<br/>{% trans "You can" %} <a target="_blank" href="https://poeditor.com/join/project?hash=df771a28a33e56b2031035c1dde49e43">{% trans "help with translation" %}</a>
-<br/><br/>
-{% for lang in languages %}<a href="https://www.bctip.org/{{lang.code}}/">{{lang.name}}</a>{% if not forloop.last %}, {%endif%}{% endfor %}
+<!--{% trans "Support" %}: <a href="mailto:@bitcoin.com">support_placeholder@bitcoin.com</a> -->
+<!--<br/>{% trans "For donations" %}: <a href="bitcoincash:qru0g43p3j7altlw0gs0mfku6a3j6gr4zg08t293u0">bitcoincash:qru0g43p3j7altlw0gs0mfku6a3j6gr4zg08t293u0</a>-->
+<!--<br/><br/>
+{% for lang in languages %}<a href="/{{lang.code}}/">{{lang.name}}</a>{% if not forloop.last %}, {%endif%}{% endfor %}-->
 </div>
-
+<script>var BitcoinMenuWidth = 1140;</script>
+<script type="text/javascript" src="https://menu.cdn.bitcoindotcom.net/the-footer/dist/universal-footer.js"></script>
+<script src="https://menu.cdn.bitcoindotcom.net/the-menu/dist/universal-menu.js"></script>
 </body>
 </html>

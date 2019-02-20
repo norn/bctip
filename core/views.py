@@ -21,7 +21,6 @@ from django.conf import settings
 from core.forms import *
 
 from core.models import *
-from core.tasks import celery_generate_pdf
 from django.contrib.auth.decorators import login_required
 from django.core.cache import cache
 from django.core.mail import send_mail
@@ -31,6 +30,7 @@ from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render, render_to_response
 from django.template import Context, RequestContext, Template
 from django.utils.translation import ugettext as _
+from django.utils.translation import activate
 
 BASE10 = '1234567890'
 BASE58 = '123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ'
@@ -49,6 +49,7 @@ def get_random_key(base=BASE58, length=33):
 
 
 def generate_tips(wallet):
+    CURRENCY_RATES = get_forex_rates()
     quant = wallet.divide_by/wallet.rate / \
         Decimal(CURRENCY_RATES[wallet.divide_currency])*Decimal(1e8)
     quant = int(quant)
@@ -73,36 +74,64 @@ def home(request, template="index.html"):
     template = "index.html"
     return arender(request, template, ctx)
 
+def printHTML(request, key):
 
-def download(request, key, format, page_size="A4"):
+    # Build ctx for these tips
     wallet = get_object_or_404(Wallet, key=key)
-    page_size_prefix = ""
-    if page_size == "US":
-        page_size_prefix = "us-"
-    fn = '/static/%s/tips-%s%s.%s' % (format,
-                                      page_size_prefix, wallet.key, format)
-    i = 0
+    # wallet = HFK7c2ZiUvpfgc7Dy4roXAYY2MqCMo6Xz
+    activate(wallet.target_language)
+    tips = Tip.objects.filter(wallet=wallet).order_by('id')
+    print(tips)
+    print(tips[0])
+    print(tips[0].balance_usd)
 
-    while not os.path.exists("%s/%s" % (settings.PROJECT_DIR, fn)):
-        if i == 0:
-            result = celery_generate_pdf.delay(wallet)
-            time.sleep(25)
-        if i > 0:
-            ctx = {'result': result.ready(), 'info': result.info}
-            return render_to_response("not_yet.html", context_instance=RequestContext(request, ctx))
-        i += 1
+        
+    ctx = {'wallet':wallet, 'tips':tips}
+    ctx['cur_sign'] = CURRENCY_SIGNS[wallet.divide_currency]
+    
+    if wallet.divide_currency != 'USD':
+        all_forex_rates = get_forex_rates()
+        
+        jpy_rate = all_forex_rates['JPY']
+        gbp_rate = all_forex_rates['GBP']
+        eur_rate = all_forex_rates['EUR']
 
-    return HttpResponseRedirect(fn)
+        jpy_value = round(jpy_rate*tips[0].balance_usd,0)
+        gbp_value = round(gbp_rate*tips[0].balance_usd,0)
+        eur_value = round(eur_rate*tips[0].balance_usd,0)
+        
+        usd_bch_price = get_avg_rate()
+        jpy_bch_price = round(usd_bch_price * jpy_rate,0)
+        gbp_bch_price = round(usd_bch_price * gbp_rate,0)
+        eur_bch_price = round(usd_bch_price * eur_rate,0)
 
+        ctx['JPY_bch_price'] = jpy_bch_price
+        ctx['JPY_value'] = jpy_value
+
+        ctx['GBP_bch_price'] = gbp_bch_price
+        ctx['GBP_value'] = gbp_value
+
+        ctx['EUR_bch_price'] = eur_bch_price
+        ctx['EUR_value'] = eur_value
+
+    #print Context(ctx)    
+
+    return arender(request, 'print.html', ctx)
+
+def get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    return ip
 
 def new(request):
     site = request.get_host()
     key = get_random_key()
     src_site = 0
     ua = request.META.get('HTTP_USER_AGENT')
-    ip_ = request.META.get('HTTP_X_FORWARDED_FOR')
-    if ',' in ip_:
-        ip_ = ip_.split(", ")[0]
+    ip_ = get_client_ip(request)    
     avg_rate = get_avg_rate()
     wallet = Wallet.objects.create(
             key=key, ip=ip_, rate=avg_rate, ua=ua[:255], src_site=src_site)
@@ -160,7 +189,6 @@ def statistics(request):
 
     return arender(request, 'statistics.html', ctx)
 
-
 def wallet(request, key):
     site = request.META.get('HTTP_HOST', '').lower()
     template_mod = ""
@@ -168,6 +196,7 @@ def wallet(request, key):
 
     wallet = get_object_or_404(Wallet, key=key)
     #custom = request.GET.get("c")
+    CURRENCY_RATES = get_forex_rates()
     ctx = {'wallet': wallet, 'json_rates': json.dumps(CURRENCY_RATES), 'json_messages': json.dumps(
         MESSAGES), 'json_signs': json.dumps(CURRENCY_SIGNS)}
     if wallet.atime:  # if already paid and activated
@@ -176,7 +205,8 @@ def wallet(request, key):
     # Check if it was paid
     if wallet.bcaddr and not wallet.atime:
         balance = BITCOIND.getbalance(wallet.get_account(), 0)
-        if balance and balance >= wallet.invoice_btc:
+        # Tolerate occasional wallet error of 0.00000001 off invoice
+        if balance and balance >= (wallet.invoice_btc-0.00000001):
             wallet.atime = datetime.datetime.now()
             wallet.activated = True
             wallet.balance = balance*1e8
@@ -194,8 +224,8 @@ def wallet(request, key):
                 pap_total = round(pap_total, 8)
             wallet.save()
             if wallet.email:
-                send_mail('new BCTIP wallet', 'Congratulations!\n\nYour new BCTip wallet is available at: https://www.bctip.org/w/%s/' %
-                          (wallet.key), 'noreply@bctip.org', [wallet.email], fail_silently=True)
+                send_mail('new Bitcoin.com Tips wallet', 'Congratulations!\n\nYour new BCH-Tip wallet is available at: https://tips.bitcoin.com/w/%s/' %
+                          (wallet.key), 'noreply@bitcoin.com', [wallet.email], fail_silently=False)
             # wallet.get_absolute_url()
             return HttpResponseRedirect(reverse('wallet', kwargs={'key': wallet.key}))
 
@@ -203,12 +233,18 @@ def wallet(request, key):
         form = WalletForm(request.POST)
         if form.is_valid():
             wallet.bcaddr_from = form.cleaned_data['bcaddr_from']
-            wallet.divide_by = form.cleaned_data['divide_by']
+            wallet.divide_by = form.cleaned_data['divide_by']            
             wallet.quantity = form.cleaned_data['quantity']
             wallet.price = form.cleaned_data['price']
+            # If 'Custom' is selected for price, then use the customprice field instead
+            if wallet.price == 0:
+                wallet.price = form.cleaned_data['customprice']
             wallet.message = form.cleaned_data['message']
             wallet.template = form.cleaned_data['template']
             wallet.divide_currency = form.cleaned_data['divide_currency']
+            # If 'JPY' is selected for currency,  then use 'divide_by_jpy' field instead
+            if wallet.divide_currency == 'JPY':
+                wallet.divide_by = form.cleaned_data['divide_by_jpy']
             # request.form.cleaned_data['target_language']
             wallet.target_language = request.LANGUAGE_CODE
             wallet.email = form.cleaned_data['email']
@@ -230,6 +266,7 @@ def wallet(request, key):
                 a.country = form.cleaned_data['country']
                 a.postal_code = form.cleaned_data['postal_code']
                 a.save()  # чу-чо!
+            CURRENCY_RATES = get_forex_rates()
             wallet.invoice = total_usd/wallet.rate / \
                 Decimal(
                     CURRENCY_RATES[wallet.divide_currency])*Decimal(1e8)  # usd->btc
@@ -243,8 +280,7 @@ def wallet(request, key):
             # wallet.bcaddr_segwit = BITCOIND.addwitnessaddress(wallet.bcaddr)
             isvalid = BITCOIND.validateaddress(wallet.bcaddr_from)['isvalid']
             wallet.save()
-            generate_tips(wallet)
-            celery_generate_pdf.delay(wallet)
+            generate_tips(wallet)            
             response = HttpResponseRedirect(
                 reverse('wallet', kwargs={'key': wallet.key}))
             if wallet.email:
@@ -254,7 +290,7 @@ def wallet(request, key):
             return response
     else:
         initial = {'divide_currency': 'USD', 'divide_by': 5, 'quantity': 10, 'price':
-                   "5", "template": '001-original', "message": _('Thank you for your service!')}
+                   "1", "template": '001-original', "message": _('Thank you!')}
         email = request.COOKIES.get('email')
         if email:
             try:
@@ -268,7 +304,7 @@ def wallet(request, key):
 
         form = WalletForm(initial=initial)
     ctx['form'] = form
-    ctx['est_fee'] = get_est_fee()
+    ctx['est_fee'] = get_est_fee()    
     if wallet.bcaddr and not wallet.atime:
         return arender(request, 'wallet-new-unpaid%s.html' % template_mod, ctx)
     else:
@@ -279,7 +315,8 @@ def wajax(request, key):  # no processing here, just a period checking
     wallet = get_object_or_404(Wallet, key=key)
     if not wallet.atime:
         balance = BITCOIND.getbalance(wallet.get_account(), 0)
-        if balance and balance >= wallet.invoice_btc:
+        # Tolerate occasional wallet error of 0.00000001
+        if balance and balance >= (wallet.invoice_btc-0.00000001):
             return HttpResponse('1')
         else:
             return HttpResponse('0')
@@ -314,7 +351,7 @@ def tip(request, key):
             if tip.activated:
                 return HttpResponse("Timeout error")
             # just check
-            if BITCOIND.getbalance(tip.wallet.get_account(), 5) < tip.balance_btc:
+            if BITCOIND.getbalance(tip.wallet.get_account(), 1) < tip.balance_btc:
                 return render_to_response("not_enough.html", context_instance=RequestContext(request, {}))
             tip.atime = datetime.datetime.now()
             tip.activated = True
@@ -331,8 +368,8 @@ def tip(request, key):
                 wcomment = ""
                 if tip.comment:
                     wcomment = 'with comment "%s" ' % tip.comment
-                send_mail('Bitcoin tip has been activated', 'BCTip https://www.bctip.org/%s/ %shas been activated.' %
-                          (tip.key, wcomment), 'noreply@bctip.org', [tip.wallet.email], fail_silently=True)
+                send_mail('Your Bitcoin.com BCH tip has been claimed', 'Bitcoin.com BCH Tip https://tips.bitcoin.com/%s/ %shas been claimed.' %
+                          (tip.key, wcomment), 'noreply@bitcoin.com', [tip.wallet.email], fail_silently=True)
             tip_bcaddr = tip.bcaddr
     else:
         initial = {'bcamount': tip.balance_btc}
@@ -340,7 +377,27 @@ def tip(request, key):
         if tip_bcaddr:
             initial['bcaddr'] = tip_bcaddr
         form = TipForm(initial=initial)
-    ctx = {'tip': tip, 'rate': get_avg_rate(), 'form': form}
+    
+    if tip.wallet.divide_currency != 'USD':
+        all_forex_rates = get_forex_rates()
+        
+        jpy_rate = all_forex_rates['JPY']
+        gbp_rate = all_forex_rates['GBP']
+        eur_rate = all_forex_rates['EUR']
+
+        jpy_value = round(jpy_rate*tip.balance_usd,0)
+        gbp_value = round(gbp_rate*tip.balance_usd,0)
+        eur_value = round(eur_rate*tip.balance_usd,0)
+        
+        usd_bch_price = get_avg_rate()
+        jpy_bch_price = round(usd_bch_price * jpy_rate,0)
+        gbp_bch_price = round(usd_bch_price * gbp_rate,0)
+        eur_bch_price = round(usd_bch_price * eur_rate,0)
+
+        ctx = {'tip': tip, 'rate': usd_bch_price, 'form': form, 'JPY_value': jpy_value, 'GBP_value': gbp_value, 'EUR_value': eur_value, 'JPY_bch_price': jpy_bch_price, 'GBP_bch_price': gbp_bch_price, 'EUR_bch_price': eur_bch_price}
+        #print(ctx)
+    else:
+        ctx = {'tip': tip, 'rate': get_avg_rate(), 'form': form}
     template = "tip.html"
     response = render_to_response(
         template, context_instance=RequestContext(request, ctx))

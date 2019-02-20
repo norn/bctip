@@ -1,9 +1,16 @@
 {% extends "base.html" %}{%load i18n%}
 
 {% block content %}
+<link href="/static/css/semantic-full.css" rel="stylesheet" />
+<script src="/static/js/semantic-full.min.js"></script>
 <h1 class="ui header">404 {% trans "Error" %}</h1>
-<div class="ui large message">URL is errornous.</div>
+
+{% if 'print' in request.path %}
+<div class="ui large message">If you are receiving this message after clicking "Print Tips," please refresh your browser window.</div>
+{% else %}
+<div class="ui large message">URL does not exist.</div>
+{% endif %}
 <br/>
-<a class="ui blue button" href="{% url 'home' %}">Go to the main page</a>
+<a class="ui bch-gold button" href="{% url 'home' %}">Go to the main page</a>
 
 {% endblock %}

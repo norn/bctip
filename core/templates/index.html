@@ -2,79 +2,62 @@
 {% block nav_main %}active{%endblock%}
 {% block content %}
 
+<h1>What are Bitcoin.com Tips?</h1>
 
-<div id="owl-demo">
-  <div class="item"><img src="/static/img/car4.jpg" alt="{% trans "Can be printed on any printer" %}"></div>
-  <div class="item"><img src="/static/img/car2.jpg" alt="{% trans "Just Print and Cut" %}"></div>
-  <div class="item"><img src="/static/img/car3.jpg" alt="{% trans "Never worry about small cash bills for tips" %}"></div>
-  <div class="item"><img src="/static/img/car5.jpg" alt="{% trans "Easy to activate" %}"></div>
-  <!--<div class="item"><img src="/static/img/car1.png" alt="{% trans "Color and B/W templates" %}"></div>-->
+<p id="intro-info">
+  Create tips to give Bitcoin Cash (BCH) by email or printable tickets. Recipients redeem tips by visiting a web page with instructions <a href="{% url "tips_example" %}">(example)</a>.
+</p>
+<p>
+  
+</p>
 
- </div>
-
-
-<div class="ui three column grid">
-        <div class="column">
-          <h2>{% trans "Make it yourself" %}</h2>
-          <p>{% trans "Just pay the invoice, download generated PDF, print and cut" %}</p>
-        </div>
-        <div class="column">
-          <h2>{% trans "Promote Bitcoin" %}</h2>
-          <p>{% trans "People need to know about the advantages of Bitcoins - give them tips to spread the word" %}</p>
-        </div>
-        <div class="column">
-          <h2>{% trans "Zero risk" %}</h2>
-          <p>{% trans "If tips are not claimed within one month, the unused funds will be sent to the donor's wallet" %}</p>
-       </div>
+<div class="row"> 
+  <div class="col-md-4">
+    <div class="card mb-3">
+      <div class="card-header faq-header">
+        <h3>Customize</h3>
+      </div>
+      <div class="card-block">
+        <p>{% trans "Set your message and amount." %}</p>           
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-md-4">
+    <div class="card mb-3">
+      <div class="card-header faq-header"> 
+        <h3>Use Crypto as Cash</h3>
+      </div>
+      <div class="card-block">        
+        <p>Proof of work for appreciation.</p>         
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-md-4">
+    <div class="card mb-3">
+      <div class="card-header faq-header">
+        <h3>Follow Up</h3>
+      </div>
+      <div class="card-block">    
+        <p>{% trans "Know when your tips are redeemed." %}</p>           
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="ui three column grid">
-        <div class="column">
-          <h2>{% trans "Versatility" %}</h2>
-          <p>{% trans "The BCTip could be an addition to a normal cash tip or just a gift to a friend" %}</p>
-        </div>
-        <div class="column">
-          <h2>{% trans "Localization" %}</h2>
-          <p>{% trans "BCTips can be created in several languages and used all over the world" %}</p>
-        </div>
-        <div class="column">
-          <h2>{% trans "Free" %}</h2>
-          <p>{% trans "The service is free, but you can donate for further development" %}</p>
-       </div>
-</div>
+<center>
+    <h1 style="color:#fab915;">Unclaimed tips are automatically returned!</h1>        
+  
+    <a class="btn btn-primary" href="{% url "new" %}">Get Started</a>
 
-<div class="ui grid">
-<div class="center aligned column">
-<a class="ui big red icon labeled button" href="{% url "new" %}"><i class="fa-plus-square icon"></i>{% trans "Generate New Tips" %}</a>
-<br/><br/>
-<a class="ui icon labeled button" href="{% url "tips_example" %}"><i class="fa-file-o icon"></i> {% trans "Gratuity Example" %}</a>
-<a href="{% url 'statistics'%}" class="ui icon labeled button"><i class="fa-line-chart icon"></i>{% trans "Statistics" %}</a>
-</div></div>
-
-<div class="ui grid">
-<div class="center aligned column">
-
-<h3 class="ui header">{% trans "Feel free to use this A4 promo in your store" %}!</h3>
-
-	<a href="/static/img/bctip_promo_A4_eng.pdf">
-	<img src="/static/img/bctip_promo.png" alt="A4 bctip advertise for printing" style="max-width:100%"></a>
-<br/><a href="/static/img/bctip_promo_A4_german.pdf">Promo in German</a>
-
-</div></div>
-
- <script>
- $(document).ready(function() {
+    <br><br>
  
-  $("#owl-demo").owlCarousel({
-      autoPlay: 3000,
-      navigation : true,
-      slideSpeed : 300,
-      paginationSpeed : 400,
-      singleItem:true,
-      navigationText: ["<i class='fa-step-backward icon'></i>","<i class='fa-step-forward icon'></i>"]
-  });
- 
-});
-</script>
+    <a href="https://bitcoincash.org/" target="_blank">What is Bitcoin Cash?</a>
+
+    <br><br>
+  
+    Contact: <a href="mailto:tips-support@bitcoin.com">tips-support@bitcoin.com</a>
+  </center>
+
 {% endblock %}
-

@@ -1,14 +1,16 @@
 {% extends "base.html" %}{%load i18n%}
 
 {% block content %}
+<link href="/static/css/semantic-full.css" rel="stylesheet" />
+<script src="/static/js/semantic-full.min.js"></script>
 
 <h1 class="ui header">{% trans "Error" %}</h1>
 <div class="ui large message">
-{% trans "Not enough confirmations or not enough funds" %}.
+{% trans "Not enough confirmations (1 confirmation required) or not enough funds" %}.
 <br/>
-{% trans "Please wait for several minutes or contact support if necessary" %}.
+{% trans "Please wait about 10 minutes and try again" %}.
 </div>
 <br/>
-<a class="ui blue button" href="./">{% trans "Try again" %}</a>
+<a class="ui bch-gold button" href="./">{% trans "Try again" %}</a>
 
 {% endblock %}

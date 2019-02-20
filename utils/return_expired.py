@@ -1,12 +1,18 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+#run with cronjob in virtual env by using
+#$ /path/to/your/virtualenv/bin/python /path/to/return_expired.py for this
+
 from devinclude import *
 from core.models import *
 import datetime
 from jsonrpc import ServiceProxy
 from django.db.models import Sum
 from django.core.mail import send_mail
+
+import logging
+logging.basicConfig(filename='return_expired.log',level=logging.DEBUG)   
 
 BITCOIND = ServiceProxy(settings.BITCOIND_CONNECTION_STRING)
 
@@ -32,10 +38,11 @@ for account in expired:
     BITCOIND.settxfee(wallet.txfee_float)
     txid = BITCOIND.sendfrom(account+"_exp", wallet.bcaddr_from, amount-wallet.fee_float)
     print "BITCOIND sendfrom(%s, %s, %s)"%(account+"_exp", wallet.bcaddr_from, amount-wallet.fee_float)
+    logging.info("BITCOIND sendfrom(%s, %s, %s)"%(account+"_exp", wallet.bcaddr_from, amount-wallet.fee_float))
     # manage txid
     Tip.objects.filter(wallet=wallet, expired=True).update(txid=txid)
     if wallet.email:
-        send_mail('BCTip wallet was expired', 'Tips from wallet https://www.bctip.org/w/%s/ were expired. \nUnused bitcoins were sent to your address %s'%(wallet.key, wallet.bcaddr_from), 'noreply@bctip.org', [wallet.email], fail_silently=True)
+        send_mail('Bitcoin.com Tip wallet was expired', 'Tips from wallet https://tips.bitcoin.com/w/%s/ were expired. \nUnused bitcoins were sent to your address %s'%(wallet.key, wallet.bcaddr_from), 'noreply@bitcoin.com', [wallet.email], fail_silently=True)
 
 # Step 3: Debit/Credit balance check
 #Tip.objects.filter(wallet__atime__gte='2014-08-01', activated=False)
@@ -45,3 +52,4 @@ if not credit:
 else:
     credit = credit/1e8
 print "Credit(dolg): %s Balance: %s"%(credit, BITCOIND.getbalance())
+logging.info("Credit(dolg): %s Balance: %s"%(credit, BITCOIND.getbalance()))

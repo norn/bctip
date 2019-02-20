@@ -1,18 +1,23 @@
 {% extends "base.html" %}{% load bitcoin %}{%load i18n%}{% load l10n %}
 
 {% block menu %}
-	<div id="menu">
-		<ul>
-			<li><a href="/" >Home</a></li>
-			<li><a href="{% url 'statistics'%}" >Statistics</a></li>
-			<li><a href="#" class="activeprivate" >Waiting for payment</a></li>
-		</ul>
-	</div>
+  <div id="menu">
+    <ul>
+      <li><a href="/" >Home</a></li>
+      <li><a href="{% url 'statistics'%}" >Statistics</a></li>
+      <li><a href="#" class="activeprivate" >Waiting for payment</a></li>
+    </ul>
+  </div>
 {%endblock%}
 
 {% block content %}
+
+<link href="/static/css/semantic-full.css" rel="stylesheet" />
+<script src="/static/js/semantic-full.min.js"></script>
+
+
 <h1 class="ui header">{% trans "Payment Details" %}
-<div class="sub header">{{wallet.ctime}}</div>
+<div class="sub header">Wallet creation time: {{wallet.ctime}}</div>
 </h1>
 <!--Hashtag: {% if wallet.hashtag %}{{wallet.hashtag}}{% else %}<i>not set</i>{%endif%}<br/><br/>-->
 
@@ -20,37 +25,45 @@
 
 <div class="ui two column stackable grid">
 
-<div class="column">
-<div class="ui large message">
-Bitstamp {% trans "rate" %}: {{wallet.rate}}<br/>
-{% if wallet.divide_by %}
-{% trans "Value" %}: {{wallet.divide_currency_sign}}{{wallet.divide_by|floatformat:"0"}}, 
-{% trans "Quantity" %}: {{wallet.quantity}}<br/>
-{% endif %}
-{% trans "Donation to" %} bctip: {{wallet.price|floatformat:"0"}}%
-{% if wallet.post_and_print %}Post and Print service: {{wallet.post_and_print}}{%endif%}
-</div>
+  <div class="column">
+    <div class="ui large message">
+    BCH Exchange {% trans "rate" %}: {{wallet.rate}}<br/><br/>
+    {% if wallet.divide_by %}
+    {% trans "Tip Value" %}: {{wallet.divide_currency_sign}}{{wallet.divide_by|floatformat:"0"}}, 
+    {% trans "Quantity" %}: {{wallet.quantity}}<br/><br/>
+    {% endif %}
+    {% trans "Donation to" %} <a href="https://free.bitcoin.com/">free.bitcoin.com</a>: {{wallet.price|floatformat:"0"}}%
+    {% if wallet.post_and_print %}Post and Print service: {{wallet.post_and_print}}{%endif%}
+    </div>
 
-<div class="ui huge segment">
-{% if wallet.divide_by %}
- <b>{{wallet.invoice|btc}} BTC</b>
-{% else %}
- <b>Any amount of Bitcoins</b>
-{% endif %}
-<br/>{% trans "to address" %}<br/><a href="{{wallet.bcaddr_uri}}">{{wallet.bcaddr}}</a>
-</div>
+    
 
-<div class="ui large blue label">
-{% trans "Payment status" %}: <span id="status">{% trans "wait" %}...</span></div>
 
-</div><div class="column">
-<div class="ui segment">
-<img src="/qrcode/{{wallet.key}}/" class="ui image" />
-</div>
-</div>
 
+    <div class="ui large bch-gold label">
+    {% trans "Payment status" %}: <span id="status">{% trans "wait" %}...</span></div>
+
+  </div>
+  <div class="column">
+    <div class="ui large message">
+    <img src="/qrcode/{{wallet.key}}/" class="ui image" />
+    {% if wallet.divide_by %}
+     <b>Please send {{wallet.invoice|btc}} BCH</b>
+    {% else %}
+     <b>Any amount of Bitcoin Cash (BCH)</b>
+    {% endif %}
+    {% trans "to address" %}<br/><a class="two-col-responsive-addr" href="{{wallet.bcaddr_uri}}">{{wallet.bcaddr}}</a>
+    </div>
+  </div>
+
+</div>
+<br><br>
+<div class="sub header balancewarning">
+Your wallet will be activated when the balance of <a target="_blank" href="https://explorer.bitcoin.com/bch/address/{{wallet.bcaddr}}">{{wallet.bcaddr}}</a> is greater than or equal to {{wallet.invoice|btc}} BCH. <br><br>
+Check this balance by clicking <a target="_blank" href="https://explorer.bitcoin.com/bch/address/{{wallet.bcaddr}}">here</a>.
 </div>
 {% endlocalize %}
+
 
 <script>
 function wajax() {
