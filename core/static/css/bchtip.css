@@ -1,0 +1,202 @@
+body {
+  /*background-color: #10719a;*/
+  background-color: #292b2c;
+  /*background-color: #e0873f;*/
+  color: #e1f0f0;
+  font-family: Montserrat, sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: Montserrat, sans-serif;
+}
+a {
+  color:#fab915;
+}
+a:hover {
+  color: #fab915;
+  text-decoration: underline;
+}
+.ui.header {
+  font-family: Montserrat, sans-serif;
+  color: #fff;
+}
+.ui.header .sub.header {
+  font-family: Montserrat, sans-serif;
+  color: #fff;
+}
+
+.ui.bch-gold.button {
+  color:#000;
+  background-color: #fab915;  
+  font-family: Montserrat,sans-serif;
+}
+.ui.submit.bch-gold.button.printbtn {
+  margin-left: 1rem;
+  font-size: 2rem;    
+}
+.header-left {
+  float:left;
+}
+.header-right {
+  float:right;
+  text-align: right;
+}
+.header-wrapper {
+  overflow:auto;
+}
+
+
+.ui.bch-gold.button:hover {
+  color:#fff;
+  background-color: #E7A603!important;
+  transition: background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+}
+
+.ui.segment.mains {
+    /*background-color: #f8f8ec;*/
+    color: #fff;
+    background-color:#454a4c;
+}
+.ui.segment{
+  color: #fff;  
+}
+
+/*Begin customizations for wallet-new.html*/
+.ui.label {
+  margin:6px 0;
+}
+.ui.form .field > label {
+  color: #fff;
+}
+#id_divide_by {
+  
+  display:inline-block;
+}
+#id_divide_currency {  
+  display:inline-block;
+}
+
+.ui.form .required.field > .checkbox::after, .ui.form .required.field > label::after, .ui.form .required.fields.grouped > label::after, .ui.form .required.fields:not(.grouped) > .field > .checkbox::after, .ui.form .required.fields:not(.grouped) > .field > label::after {
+  color:#fab915;
+}
+#checkout-btn {
+  font-size:26px;
+}
+#summary-table{
+  margin:0;
+}
+/*End customizations for wallet-new.html*/
+
+.footer {
+ margin-bottom:40px;
+}
+
+.footer a{
+ color:#e8d069; 
+}
+
+.footer a:hover {
+ color:#e8d069; 
+ text-decoration: underline;
+}
+
+
+/* ---- */
+/*#owl-demo .item{
+  margin: 3px;
+}*/
+#owl-demo .item img{
+  display: block;
+  width: 1067px;
+  height: 335px;
+}
+
+.two-col-responsive-addr {
+    font-size:15px;    
+    word-wrap:break-word;
+  }
+
+@media screen and (max-width: 650px) {
+  .two-col-responsive-addr {
+    font-size:12px;   
+  }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 768px) {
+  .two-col-responsive-addr {
+    font-size:12px;
+  }
+}
+
+.receipt-table {
+  font-weight: bold;
+}
+
+.ui.large.bch-gold.label {
+  color:#000;
+  background-color: #fab915;  
+  font-family: Montserrat,sans-serif;
+}
+
+.ui.large.bch-gold.label:hover {
+  color:#fff;
+  background-color: #E7A603!important;
+  transition: background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+}
+
+body .ui.segment.mains {
+    background: none;
+    border: none;
+}
+
+body .ui.divider:not(.vertical):not(.horizontal) {
+    border: 0;
+}
+
+body img.ui.image {
+ margin:0 auto 10px;  
+ box-shadow:0 0 9px rgba(0,0,0,0.2);
+}
+#home-banner img {
+  width:100%;
+  margin-bottom:12px;
+}
+
+.ui.three.column.grid > .column > p {
+  font-size:18px;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #353839;
+  border: 1px solid #525759;
+  border-radius: .25rem;
+}
+.mb-3 {
+  margin-bottom: 1rem !important;
+}
+.card-header {
+  padding: .75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: #464a4c;
+  border-bottom: 1px solid #525759;
+}
+.card-header:first-child {
+  border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+}
+.faq-header {
+  color: #fab915;
+}
+.card-block {
+  flex: 1 1 auto;
+  padding: 1.25rem;
+}
+.card-block p {
+  font-size:17px;
+}
+
+#intro-info {
+  font-size:1.4rem;
+}

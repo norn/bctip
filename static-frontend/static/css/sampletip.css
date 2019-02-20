@@ -1,0 +1,205 @@
+@media screen {
+ .print-tips-instructions {
+  display:block;
+  padding:0 0 4em
+ }
+}
+@media print {
+ .print-tips-instructions {
+  display:none
+ }
+}
+.print-tips {
+ overflow:visible;
+ font-family:Montserrat,sans-serif;
+ font-size:8pt;
+ margin:0 auto;
+ text-align:center;
+ line-height:1.25!important;
+ -webkit-print-color-adjust:exact;
+ color-adjust:exact
+}
+.print-tips h2 {
+ padding:0;
+ margin:0;
+ font-size:24pt; 
+}
+.print-tips h3 {
+ font-size:14pt
+}
+.print-tips p {
+ padding:0;
+ margin:0;
+ line-height:1.25!important
+}
+.print-tip {
+ page-break-inside:avoid;
+ page-break-after:auto;
+ display:inline-block;
+ background-color:#fab915;
+ color:#000;
+ padding:0;
+ margin:0;
+ border:1px solid #000;
+ max-width:51mm;
+ width:51mm;
+ min-height:70mm;
+/* max-height:89mm*/
+}
+.print-tip-testnet {
+ position:relative;
+ overflow:hidden
+}
+.print-tip-testnet .watermark {
+ position:absolute;
+ top:0;
+ left:75%;
+ display:block;
+ width:150%;
+ height:150%;
+ transform:rotate(-65deg);
+ font-size:600%;
+ opacity:.4;
+ line-height:3em;
+ letter-spacing:2px;
+ color:#000
+}
+.print-tip-header {
+ margin:0;
+ padding:10px 10px 0;
+ text-align:center;
+}
+
+.print-tip-code {
+ margin:0;
+ padding: 5px 0;
+ text-align:center;
+}
+.print-tips .print-tip-footer img {
+  width: 140px;
+  margin-top: 10px;
+}
+.print-tip-description {
+ margin:0;
+ padding:0 3pt;
+ text-align:center;
+ font-size:7pt;
+ background-color:#fab915;
+ color:#000;
+ height:7mm
+}
+
+.message-ctn {
+  padding: 0 10px;
+  margin-top: 5px;
+}
+
+.message-ctn p {
+  font-size: 10px;
+  color: #b8b8b8;
+  padding-bottom: 3px;
+}
+.print-tip-message {
+ margin:0;
+ padding: 10px;
+ text-align:center;
+ font-size:12px;
+ font-weight:700;
+ color:#4d4d4d;
+ border: 1px solid #b8b8b8;
+}
+
+.print-tip-bg-wrap .tip-label {
+  margin-top: 0;
+}
+
+.tip-label {
+  font-size: 12px;
+  color: #F59332;
+  font-weight: 700;
+  font-style: italic;
+  margin-top: 10px;
+}
+.print-tip-amount {
+ margin-top: 0px;
+ padding:6px 0px 4px;
+ text-align: center;
+ background-color:#F59332;
+ color:#fff;
+}
+
+.print-tip-url {
+ margin-top: 0px;
+ padding:5px 0px 5px;
+ text-align: center;
+ background-color:#F59332;
+ color:#fff;
+ font-size: 11px;
+  font-weight: 600;
+}
+
+.crypto-amount {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.fiat-amount {
+  font-size: 25px;
+  font-weight: 600; 
+}
+
+.exchange-rate {
+  padding:3px 0px;
+ text-align: center;
+ background-color:#c37e34;
+ color:#fff;
+ font-size: 8px;
+ font-weight: 600;
+}
+
+
+.print-tip-expiration {
+ margin:0;
+ padding:0 3pt;
+ text-align:center;
+ clear:both;
+ background-color:#fab915;
+ color:#000
+}
+
+.print-tips img {
+  width:100%;
+}
+
+body {
+ font-family:Montserrat,sans-serif;
+ margin:0 auto;
+ -webkit-print-color-adjust:exact;
+ color-adjust:exact
+}
+#primaryContent {
+ text-align:left;
+ margin:0 1em
+}
+
+body .print-tip, body .print-tip-message {
+    background-color: #fff;
+}
+
+
+
+
+
+
+
+
+body .print-tip-message {
+    color: #4d4d4d   
+;
+}
+
+body .print-tip-link p.link-key, body .print-tip-link p.link-url strong {
+    color: #4d4d4d;
+}
+
+

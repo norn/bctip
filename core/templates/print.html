@@ -1,0 +1,79 @@
+{% block content %}
+<!doctype html>
+<html>
+	<head>
+	  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	  <title>Print Your Tips - Bitcoin.com BCH Tips</title>	
+	
+	  <link rel="stylesheet" type="text/css" href="/static/css/tips.css?version-0.1">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700" rel="stylesheet">
+    <link rel="shortcut icon" href="/static/img/favicon.png" />
+  </head>
+<body>
+  <div id="primaryContent" class="pageContent">
+    <div class="print-tips-instructions">
+      <h1>Print</h1>
+      <p>To print, select Print from your browser's menu.</p>   
+    </div>    
+
+<div class="print-tips">
+{% for tip in tips %}    
+  <div class="print-tip">   
+    <div class="print-tip-header">
+      <img alt="Bitcoin Cash (BCH)" src="/static/img/bitcoin-cash-tips-logo-horizontal.png" />
+    </div>
+
+    <div class="print-tip-bg-wrap">
+      <div class="tip-label">TIP AMOUNT</div>
+      <div class="print-tip-amount">
+        <div class="crypto-amount">{{tip.balance_btc}} BCH</div>
+        {% if tip.wallet.divide_currency == "JPY" %}
+        <div class="fiat-amount">~ {{cur_sign}}{{JPY_value|floatformat:"0"}}</div>
+      </div>          
+      <div class="exchange-rate">1 BCH = {{cur_sign}}{{JPY_bch_price}} on {{wallet.atime|date:"M d, Y"}}</div>
+      {% elif tip.wallet.divide_currency == "EUR" %}
+        <div class="fiat-amount">~ {{cur_sign}}{{EUR_value|floatformat:"2"}}</div>
+        </div>          
+      <div class="exchange-rate">1 BCH = {{cur_sign}}{{EUR_bch_price|floatformat:"0"}} on {{wallet.atime|date:"M d, Y"}}</div> 
+      {% elif tip.wallet.divide_currency == "GBP" %}
+        <div class="fiat-amount">~ {{cur_sign}}{{GBP_value|floatformat:"2"}}</div>
+        </div>          
+      <div class="exchange-rate">1 BCH = {{cur_sign}}{{GBP_bch_price|floatformat:"0"}} on {{wallet.atime|date:"M d, Y"}}</div> 
+        {% else %}
+        <div class="fiat-amount">~ {{cur_sign}}{{tip.balance_usd|floatformat:"2"}}</div>
+        </div>          
+      <div class="exchange-rate">1 BCH = {{cur_sign}}{{wallet.rate}} on {{wallet.atime|date:"M d, Y"}}</div>    
+        {% endif %}
+
+    </div>     
+    
+    <div class="print-tip-link">      
+      <div class="tip-label">CLAIM YOUR TIP AT:</div>
+      <div class="print-tip-url">tips.bitcoin.com/{{tip.get_rel_url}}</div>
+    </div>
+
+    <div class="exchange-rate">Claim by {{tip.etime|date:"M d, Y"}}</div>
+
+    <div class="message-ctn">
+      <p>Message</p>
+      <div class="print-tip-message">{{wallet.message}}</div>
+    </div>
+
+    <div class="print-tip-footer">
+      <img alt="Bitcoin.com BCH Tips" src="/static/img/bitcoin-com-logo-grey.png" />
+    </div>
+    
+    <div class="print-tip-code">
+      {{tip.id}}
+    </div>
+  </div>
+    
+
+{% endfor %}
+</div>
+
+	</div>
+</body>
+
+</html>
+{% endblock %}

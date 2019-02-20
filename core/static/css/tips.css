@@ -1,0 +1,223 @@
+@media screen {
+ .print-tips-instructions {
+  display:block;
+  padding:0 0 4em
+ }
+}
+@media print {
+ .print-tips-instructions {
+  display:none
+ }
+}
+.print-tips {
+ overflow:visible;
+ display:inline;
+ font-family:Montserrat,sans-serif;
+ font-size:8pt;
+ margin:0 auto;
+ text-align:center;
+ line-height:1.25!important;
+ -webkit-print-color-adjust:exact;
+ color-adjust:exact
+}
+.print-tips h2 {
+ padding:0;
+ margin:0;
+ font-size:24pt; 
+}
+.print-tips h3 {
+ font-size:14pt
+}
+.print-tips p {
+ padding:0;
+ margin:0;
+ line-height:1.25!important
+}
+.print-tip {
+ page-break-inside:avoid;
+ page-break-after:auto;
+ display:inline-block;
+ background-color:#fab915;
+ color:#000;
+ padding:0;
+ margin:0;
+ border:1px solid #000;
+ max-width:51mm;
+ width:51mm;
+ min-height:70mm;
+ max-height:89mm
+}
+.print-tip-testnet {
+ position:relative;
+ overflow:hidden
+}
+.print-tip-testnet .watermark {
+ position:absolute;
+ top:0;
+ left:75%;
+ display:block;
+ width:150%;
+ height:150%;
+ transform:rotate(-65deg);
+ font-size:600%;
+ opacity:.4;
+ line-height:3em;
+ letter-spacing:2px;
+ color:#000
+}
+.print-tip-header {
+ margin:0;
+ padding:0 3pt;
+ text-align:center;
+ font-size:7pt;
+ background-color:#fff;
+ color:#000
+}
+.print-tip-footer {
+	padding-top:1mm;
+	background-color:#fff;
+}
+.print-tip-description {
+ margin:0;
+ padding:0 3pt;
+ text-align:center;
+ font-size:7pt;
+ background-color:#fab915;
+ color:#000;
+ height:7mm
+}
+.print-tip-message {
+ margin:0;
+ padding:0 3pt;
+ text-align:center;
+ font-size:10pt;
+ font-weight:700;
+ background-color:#fab915;
+ color:#000;
+ height:11mm
+}
+.print-tip-amount {
+ margin:0;
+ padding:0 3pt;
+ text-align:left;
+ background-color:#fab915;
+ color:#000
+}
+.print-tip-amount .crypto-amount {
+ font-size:17pt;
+ text-align:center;
+ background-color:#fab915;
+ color:#000
+}
+.print-tip-amount .fiat-amount {
+ float:left;
+ display:inline-block;
+ text-align:center;
+ font-size:14pt;
+ background-color:#fab915;
+ color:#000
+}
+.print-tip-amount .exchange-rate {
+ float:right;
+ display:inline-block;
+ text-align:center;
+ background-color:#fab915;
+ color:#000
+}
+.print-tip-link {
+ margin:0;
+ padding:0;
+ background-color:#fff;
+ color:#000;
+ font-size:8pt;
+ clear:both
+}
+
+.print-tip-link p {
+ margin:0;
+ padding:1mm
+}
+.print-tip-link p.link-url {
+ text-align:center;
+ padding:0 1mm
+}
+.print-tip-link p.link-key {
+ text-align:center;
+ padding:0 1mm;
+ font-size:19px;
+}
+.print-tip-expiration {
+ margin:0;
+ padding:0 3pt;
+ text-align:center;
+ clear:both;
+ background-color:#fab915;
+ color:#000
+}
+.print-tip-expiration p {
+ padding:1mm 0
+}
+.print-tip-expiration .date {
+ font-size:12pt
+}
+
+.print-tip-bg-wrap {
+  background-image: url('/static/img/12-bitcoin-cash-square-crop-small.png');
+}
+
+.print-tips img {
+	width:98%;
+}
+
+body {
+ font-family:Montserrat,sans-serif;
+ font-size:8pt;
+ margin:0 auto;
+ text-align:center;
+ -webkit-print-color-adjust:exact;
+ color-adjust:exact
+}
+#primaryContent {
+ text-align:left;
+ margin:0 1em
+}
+
+body .print-tip, body .print-tip-message, body .print-tip-amount, body .print-tip-amount .fiat-amount, body .print-tip-amount .exchange-rate {
+    background-color: #fff;
+}
+
+body .print-tip-expiration {
+    background: #8b8c91;
+    color: #fff;
+}
+
+body .print-tip-amount .crypto-amount {
+    background: #f7941c;
+    color: #fff;
+}
+
+body .print-tip-amount .exchange-rate {
+    margin: 3px 0 0;
+}
+
+body .print-tip-amount {
+    padding: 0;
+}
+
+body .print-tip-message {
+    color: #4d4d4d   
+;
+}
+
+body .print-tips img {
+    width: 135px
+;
+}
+
+body .print-tip-link p.link-key, body .print-tip-link p.link-url strong {
+    color: #4d4d4d;
+}
+
+body .print-tip-message p {
+    line-height: 1;
+}

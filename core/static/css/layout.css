@@ -1,0 +1,150 @@
+header .container {
+  width: 58%;
+  max-width: 1300px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.col-md-12 {
+  width: 100%;
+}
+.section-1 {
+  background: #818181 url('/static/img/hand-off.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-position: center top;
+}
+
+.section-1 h1 {
+  font-size: 55px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 25px 0;
+}
+nav {
+  display:block;
+  background-color: rgba(0,0,0,0.1);
+}
+nav ul {
+  list-style: none;
+  position: absolute;
+  bottom: 0;
+  margin-bottom:0;
+}
+ul.bar li {
+  display: inline-block;
+  height: 2.25em;
+}
+ul.bar li a {
+  color: #8a8a8a;
+  text-decoration: none;
+  padding: 0.625em;
+  display: inline-block;
+  font-size:14px;
+}
+ul.bar li.active {
+  background-color: rgba(0,0,0,0.5);
+}
+ul.bar li.active a, ul.bar li.active a:hover {
+  color: #fab915;
+}
+header {
+  position:relative;
+}
+
+.h3-line {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  display: inline-block;
+  padding-bottom: 10px;
+  margin: 0 0 20px 0;
+  color: #fab915;
+  font-size:22px;
+  font-weight:600;
+}
+.btn-primary{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700; 
+  color: #fff!important;
+  text-shadow: none!important;
+  -webkit-text-shadow: none!important;
+  padding-left: 28px!important;
+  padding-right: 28px!important;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 100px !important;
+  background-color: #fab915 !important;
+  height: 50px;
+  min-width: 140px;
+  line-height: 50px;
+  padding-top: 0;
+  padding-bottom: 0;
+  border: none;
+  margin:4px;
+}
+
+.btn-primary:hover {
+  background-color: #E7A603!important;
+  transition: background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+  text-decoration:none;
+}
+
+.btn {
+  display:inline-block;
+  background: none;
+}
+
+/*Match CSS rules of .ui .grid for header to line up with content*/
+@media (min-width: 1200px) {
+  header .container {
+    width: 1127px;
+  }  
+}
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  header .container {
+    width: 933px;
+  }  
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  header .container {
+    width: 723px;
+  }  
+}
+@media (max-width: 767px) {
+  header .container {
+    width: auto !important;
+
+margin-left: 1em !important;
+
+margin-right: 1em !important;
+  }  
+}
+
+@media (max-width: 768px) {
+  .section-1 h1 {
+    font-size: 42px;
+  }
+  .section-1 h3 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .section-1 h1 {
+    font-size: 32px;
+  }
+  .section-1 h3 {
+    font-size: 16px;
+  }
+  a.btn-primary {
+    font-size:16px;
+  }
+}

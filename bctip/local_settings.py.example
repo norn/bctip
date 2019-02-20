@@ -1,0 +1,11 @@
+PROJECT_DIR = '/home/joey/github/bch-tip/'
+SECRET_KEY = '' #Can generate this online at https://www.miniwebtool.com/django-secret-key-generator/
+BITCOIND_CONNECTION_STRING = '"http://bitcoinuser:password@localhost:8332"'
+
+# Quickstart with sqlite
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'my_tips_database',
+    }
+}
