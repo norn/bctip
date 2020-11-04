@@ -268,7 +268,7 @@ def wallet(request, key):
 
         form = WalletForm(initial=initial)
     ctx['form'] = form
-    ctx['est_fee'] = get_est_fee()
+    ctx['est_fee'] = get_est_fee()/3.0
     if wallet.bcaddr and not wallet.atime:
         return arender(request, 'wallet-new-unpaid%s.html' % template_mod, ctx)
     else:

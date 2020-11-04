@@ -283,7 +283,7 @@ def get_est_fee(force=False):
     key = 'est_fee'
     fee = cache.get(key)
     if not fee or force:
-        fee = BITCOIND.estimatesmartfee(6*8)['feerate']
+        fee = BITCOIND.estimatesmartfee(6*24)['feerate']
         fee = round(fee/3, 6)
         cache.set(key, fee, 60*60)
     return fee
