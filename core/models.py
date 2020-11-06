@@ -34,9 +34,9 @@ class Wallet(models.Model):
     atime = models.DateTimeField(null=True, blank=True)
     ip = models.IPAddressField(null=True, blank=True)
     ua = models.CharField(max_length=255, null=True, blank=True)
-    bcaddr = models.CharField(max_length=34)  # pay to
+    bcaddr = models.CharField(max_length=90)  # pay to
     bcaddr_from = models.CharField(
-        max_length=34, null=True, blank=True)  # paid from
+        max_length=90, null=True, blank=True)  # paid from
     # target country: AU, US, RU. none for universal
     audience = models.CharField(max_length=2, null=True, blank=True)
     # amount of every tip, ex.:$2
@@ -167,7 +167,7 @@ class Tip(models.Model):
     comment_time = models.DateTimeField(null=True, blank=True)
     activated = models.BooleanField(default=False)
     expired = models.BooleanField(default=False)
-    bcaddr = models.CharField(max_length=34, null=True, blank=True)
+    bcaddr = models.CharField(max_length=90, null=True, blank=True)
     txid = models.CharField(max_length=64, null=True, blank=True)
     # tip page visit counter
     times = models.IntegerField(null=True, blank=True, default=0)
@@ -284,6 +284,6 @@ def get_est_fee(force=False):
     fee = cache.get(key)
     if not fee or force:
         fee = BITCOIND.estimatesmartfee(6*24)['feerate']
-        fee = round(fee/3, 6)
+        fee = round(fee/3, 8)
         cache.set(key, fee, 60*60)
     return fee

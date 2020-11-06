@@ -20,8 +20,8 @@ def prim():
     return _l('Nice Label')+', 0.0001 BTC'
 
 class TipForm(forms.Form):
-    bcaddr = forms.CharField(max_length=34, required=True, label=_("Send to"), widget=forms.TextInput(
-        attrs={'size': '34', 'placeholder': _l('Enter bitcoin address here'), 'style': 'border:1px solid red'}))
+    bcaddr = forms.CharField(max_length=90, required=True, label=_("Send to"), widget=forms.TextInput(
+        attrs={'size': '90', 'placeholder': _l('Enter bitcoin address here'), 'style': 'border:1px solid red'}))
     bcamount = forms.CharField(required=False, help_text="all at the moment", widget=forms.TextInput(
         attrs={'readonly': 'readonly', 'class': 'disabled'}))
 

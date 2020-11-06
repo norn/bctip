@@ -233,9 +233,9 @@ def wallet(request, key):
             wallet.invoice = total_usd/wallet.rate / \
                 Decimal(
                     CURRENCY_RATES[wallet.divide_currency])*Decimal(1e8)  # usd->btc
-            wallet.fee = Decimal(get_est_fee())
+            wallet.fee = Decimal("%.8f" % get_est_fee())
             wallet.invoice += Decimal(wallet.quantity) * \
-                wallet.fee * Decimal(1e8)
+                Decimal("%.8f" % round(get_est_fee()/3,8)) * Decimal(1e8)
             # premium template extra
             if wallet.template == "005-premium.odt":
                 wallet.invoice += Decimal(0.0001)*Decimal(1e8)
@@ -268,7 +268,7 @@ def wallet(request, key):
 
         form = WalletForm(initial=initial)
     ctx['form'] = form
-    ctx['est_fee'] = get_est_fee()/3.0
+    ctx['est_fee'] = Decimal("%.8f" % round(get_est_fee()/3,8))
     if wallet.bcaddr and not wallet.atime:
         return arender(request, 'wallet-new-unpaid%s.html' % template_mod, ctx)
     else:
