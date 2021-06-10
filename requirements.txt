@@ -1,4 +1,4 @@
-Django==1.8.13
+Django==2.2.24
 psycopg2
 ipython
 qrcode
